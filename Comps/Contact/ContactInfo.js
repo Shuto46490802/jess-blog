@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const ContactInfo = ({ image, smallImages }) => {
+    
     return (
         <div className="contact-info d-flex flex-wrap pt-3 pb-3 pt-xl-4 pb-xl-4">
 
