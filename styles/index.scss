@@ -1,0 +1,398 @@
+body,
+html {
+    -webkit-font-smoothing: antialiased;
+    height: 100%;
+    width: 100%;
+    color: #212529;
+    @media (min-width: 768px) {
+        position: fixed;
+        overflow: hidden;
+    }
+}
+
+body {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: left;
+    background-color: #fff;
+}
+
+html {
+    font-size: 15px;
+    @media (min-width: 576px) {
+        font-size: 3vw;
+    }
+    @media (min-width: 768px) {
+        font-size: 1.5vw;
+    }
+    @media (min-width: 1200px) {
+        font-size: 1.25vw;
+    }
+}
+
+.page,
+.page__wrapper {
+    position: fixed !important;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+a {
+    text-decoration: none !important;
+    background-color: transparent !important;
+    color: #212529 !important;
+}
+
+.line-link {
+    position: relative;
+}
+
+.line-link:after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 1px;
+    left: 0;
+    background: #212529;
+    position: absolute;
+    top: 100%;
+    transform: scaleX(0) translateY(0.4em);
+    opacity: 0;
+    transition: 0.4s;
+    margin-top: -1px;
+}
+
+a:hover .line-link:after {
+    opacity: 1;
+    transform: scaleX(1) translateY(0.4em);
+}
+
+button {
+    border: none;
+    background-color: transparent;
+}
+
+.flex-center {
+    justify-content: center;
+    align-items: center;
+}
+
+.parallax__wrapper {
+    width: 100%;
+    height: 100%;
+}
+
+.parallax {
+    position: relative;
+    will-change: transform;
+    backface-visibility: hidden;
+    height: 100%;
+}
+
+.fig__wrapper {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: transparent;
+    margin: 0;
+}
+
+.t-0 {
+    top: 0;
+}
+
+.l-0 {
+    left: 0;
+}
+
+.r-0 {
+    right: 0;
+}
+
+.b-0 {
+    bottom: 0;
+}
+
+.bg-center {
+    background-position: 50%;
+}
+
+.cover {
+    background-size: cover;
+}
+
+.should-animate {
+    will-change: transform;
+}
+
+.h1__wrapper {
+    display: inline-flex;
+    overflow: hidden;
+}
+
+.h1__inner {
+    display: inline-flex;
+    line-height: 1;
+}
+
+.lines {
+    display: block;
+    text-align: left;
+    position: relative;
+    opacity: 1;
+    @media (min-width: 768px) {
+        display: inline-block !important;
+        float: left;
+        line-height: 1.2;
+    }
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+p {
+    line-height: 1.8;
+}
+
+.two-cols {
+    column-count: 2;
+    column-gap: 3vw;
+}
+
+.two-cols-md {
+    @media (min-width: 768) {
+        column-count: 2;
+        column-gap: 3vw;
+    }
+}
+
+.two-cols-xl {
+    @media (min-width: 1200px) {
+        column-count: 2;
+        column-gap: 3vw;
+    }
+}
+
+.ls-big {
+    letter-spacing: 0.75rem;
+    margin-right: -0.375rem;
+}
+
+.input__wrapper {
+    z-index: 10;
+    position: relative;
+    margin-bottom: 31.5px;
+    margin-bottom: 1.75rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding-bottom: 4.5px;
+    padding-bottom: 0.25rem;
+
+    @media (min-width: 1200px) {
+        margin-bottom: 2rem;
+    }
+}
+
+.label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-transform: none;
+    transition: 0.3s;
+    transform-origin: left;
+    pointer-events: none;
+    font-size: 11.52px;
+    font-size: 0.64rem;
+    text-transform: uppercase;
+}
+
+input[type="email"],
+input[type="number"],
+input[type="password"],
+input[type="text"],
+select,
+textarea {
+    border: none;
+    width: 100%;
+    border-radius: 0;
+    background: transparent;
+    outline: none;
+    resize: none;
+    margin: 0;
+    padding: 0;
+    z-index: 1;
+    display: block;
+    color: #000;
+    font-size: 18px;
+    font-size: 1rem;
+    text-indent: 0;
+    outline-offset: 0;
+    -moz-appearance: none;
+    appearance: none;
+    -webkit-appearance: none;
+    -webkit-padding-start: 0;
+    -webkit-margin-start: 0;
+    -webkit-border-horizontal-spacing: 0;
+
+    @media (min-width: 1200px) {
+        font-size: 0.8rem;
+    }
+}
+
+.help.is-danger,
+.mailchimp-error .response,
+.text-danger {
+    color: red;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 0;
+    margin: 0;
+    font-size: 9px;
+    font-size: 0.5rem;
+    @media (min-width: 768px) {
+        font-size: 0.4rem;
+    }
+}
+
+.help.is-danger {
+    position: absolute;
+    top: calc(100% + 0.1rem);
+    left: 0;
+    @media (min-width: 768px) {
+        top: calc(100% + 0.35rem);
+    }
+}
+
+.checkmark {
+    position: absolute;
+    bottom: 9px;
+    bottom: 0.5rem;
+    right: 0;
+    fill: #8bd995;
+    width: 13.5px;
+    width: 0.75rem;
+    height: 13.5px;
+    height: 0.75rem;
+    @media (min-width: 768px) {
+        bottom: 0.25rem;
+        width: 0.5rem;
+        height: 0.5rem;
+    }
+}
+
+.text-area textarea {
+    min-height: 4em;
+    max-height: 10em;
+    overflow: auto;
+    height: 100%;
+    resize: none;
+    @media (min-width: 768px) {
+        margin-left: 0;
+        min-height: 1.5em;
+        max-height: 6em;
+        margin-top: 1rem;
+    }
+}
+
+.button {
+    padding: 0;
+    margin: 0;
+    border: none;
+    cursor: pointer;
+    color: inherit;
+    background-color: inherit;
+    font-size: inherit;
+    font-family: inherit;
+    -webkit-perspective: 400px;
+    perspective: 400px;
+}
+
+.contact-content-form {
+    .button {
+        width: 100%;
+        @media (min-width: 768px) {
+            width: 50%;
+        }
+    }
+}
+
+.rectangle-button {
+    font-size: 0.6rem !important;
+    min-width: 10em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 1rem 2rem;
+    transition: 0.4s;
+    
+
+    .button-background {
+        transform-origin: center;
+        transition: 0.4s;
+        background-color: black;
+    }
+
+    .button-text {
+        font-weight: 500;
+        text-transform: uppercase !important;
+        line-height: 1;
+        position: relative;
+        font-size: .6rem!important;
+        color: white;
+    }
+}
+
+//bootstrap customize
+
+$spacer: 1rem !default;
+$spacers: () !default;
+$spacers: map-merge(
+    (
+        0: 0,
+        1: (
+            $spacer * 1,
+        ),
+        2: (
+            $spacer * 2,
+        ),
+        3: $spacer * 3,
+        4: (
+            $spacer * 5,
+        ),
+        5: (
+            $spacer * 7,
+        ),
+        6: (
+            $spacer / 2,
+        ),
+        7: (
+            $spacer / 4,
+        ),
+    ),
+    $spacers
+);
+
+@import "../node_modules/bootstrap/scss/bootstrap";
