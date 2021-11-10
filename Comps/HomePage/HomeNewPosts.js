@@ -8,7 +8,7 @@ import SwiperCore, { Navigation } from 'swiper';
 
 SwiperCore.use([Navigation]);
 
-const HomeNewPosts = ({ images }) => {
+const HomeNewPosts = ({ posts }) => {
 
     return (
         <div className="home-new-posts position-relative">
@@ -101,7 +101,7 @@ const HomeNewPosts = ({ images }) => {
                         </SwiperSlide>
 
                         {
-                            images.map((image, index) => (
+                            posts.map((post, index) => (
                                 <SwiperSlide key={index} className="home-new-posts-gallery-image__wrapper mt-3 mt-md-4">
 
                                     <Link href="/">
@@ -114,7 +114,7 @@ const HomeNewPosts = ({ images }) => {
 
                                                     <figure className="fig__wrapper">
 
-                                                        <Image src={image} layout="fill" />
+                                                        <Image src={post.image1} layout="fill" objectFit="cover" />
 
                                                     </figure>
 
@@ -125,15 +125,15 @@ const HomeNewPosts = ({ images }) => {
                                             <div className="home-new-posts-gallery-caption__wrapper">
 
                                                 <p className="home-new-posts-gallery-category mb-6">
-                                                    Skincare
+                                                    {post.category}
                                                 </p>
 
                                                 <h4 className="home-new-posts-gallery-title">
-                                                    Aveno
+                                                    {post.title}
                                                 </h4>
 
                                                 <p className="home-new-posts-gallery-description m-0 small">
-                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
+                                                    {post.thumbnailText}
                                                 </p>
 
                                             </div>

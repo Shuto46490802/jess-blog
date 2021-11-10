@@ -77,6 +77,10 @@ export const getStaticProps = async () => {
     content_type: "homePage"
   })
 
+  const blogPostRes = await contentfulClient.getEntries({
+    content_type: "blogPost"
+  })
+
   const footerRes = await contentfulClient.getEntries({
     content_type: "footer"
   })
@@ -94,7 +98,16 @@ export const getStaticProps = async () => {
       homeAboutImage: "https:" + homePageRes.items[0].fields.homeAboutImage.fields.file.url,
       homeAboutImage2: "https:" + homePageRes.items[0].fields.homeAboutImage2.fields.file.url,
       homeAboutImage3: "https:" + homePageRes.items[0].fields.homeAboutImage3.fields.file.url,
-      homeNewPostsImages: homePageRes.items[0].fields.homeNewPosts.map((post) => "https:" + post.fields.file.url),
+      homeNewPosts: blogPostRes.items.map((post) => ({
+        title: post.fields.title,
+        image1: "https:" + post.fields.featureImages[0].fields.file.url,
+        image2: "https:" + post.fields.featureImages[1].fields.file.url,
+        thumbnailText: post.fields.thumbnailText,
+        slug: post.fields.slug,
+        dateForSort: post.fields.date.slice(0, 10).split("-").join(""),
+        date: post.fields.date,
+        category: post.fields.category
+      })),
       homeCategoriesImages: homePageRes.items[0].fields.homeCategories.map((category) => "https:" + category.fields.file.url),
       instaPosts: instaRes.media.data.map((data) => ({
         caption: data.caption,
@@ -107,13 +120,21 @@ export const getStaticProps = async () => {
   }
 }
 
-const HomePage = ({ homeIntroImage, homeAboutImage, homeAboutImage2, homeAboutImage3, homeNewPostsImages, homeCategoriesImages, instaPosts, footerImage }) => {
+const HomePage = ({ homeIntroImage, homeAboutImage, homeAboutImage2, homeAboutImage3, homeNewPosts, homeCategoriesImages, instaPosts, footerImage }) => {
 
   useEffect(() => {
     getScrollProxy(scrollerRef.current);
+    sortNewPosts(homeNewPosts)
   }, [])
 
   const scrollerRef = useRef();
+
+  const sortNewPosts = (_posts) => {
+
+    const result = _posts.sort((a, b) => Number.parseInt(b.dateForSort) - Number.parseInt(a.dateForSort));
+
+    return result
+  }
 
   return (
     <div ref={scrollerRef} className="page__wrapper">
@@ -124,7 +145,7 @@ const HomePage = ({ homeIntroImage, homeAboutImage, homeAboutImage2, homeAboutIm
 
         <HomeAbout image1={homeAboutImage} image2={homeAboutImage2} image3={homeAboutImage3} />
 
-        <HomeNewPosts images={homeNewPostsImages} />
+        <HomeNewPosts posts={homeNewPosts} />
 
         <HomeCategory images={homeCategoriesImages} />
 

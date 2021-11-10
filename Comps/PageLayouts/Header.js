@@ -21,7 +21,7 @@ const Header = () => {
 
                 <div className="links__wrapper d-none d-md-flex">
 
-                    <Link href="/">
+                    <Link href="/blog">
 
                         <a className="header-link small">
 

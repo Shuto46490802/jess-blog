@@ -658,12 +658,21 @@
   }
 }
 
-.contact-info-heading{
-  margin-bottom: 1rem
-;
+.contact-info-heading {
+  margin-bottom: 1rem;
 }
-.contact-info-large-image:before{
+.contact-info-large-image:before {
   content: "";
   display: block;
   padding-bottom: 100%;
+}
+
+//BlogIntro.js
+.blog-intro-sub-heading__wrapper,
+.blog-intro-sub-caption__wrapper {
+  z-index: 10;
+}
+
+.blog-intro-heading {
+  font-size: 4rem;
 }
