@@ -6,6 +6,9 @@ import "../Comps/PageLayouts/EdgeEasingPlugin";
 import { contentfulClient } from "../Lib/ContentfulClient";
 import Footer from "../Comps/PageLayouts/Footer";
 import BlogIntro from "../Comps/Blog/BlogIntro";
+import BlogFilter from "../Comps/Blog/BlogFilter";
+import Pagination from "../Comps/Blog/Pagination";
+import BlogThumbnailTemp1 from "../Comps/Blog/BlogThumbnailTemp1";
 
 export const getStaticProps = async () => {
 
@@ -39,6 +42,12 @@ const Blog = ({ blogPageIntroImage, footerImage }) => {
             <div className="components-wrapper">
 
                 <BlogIntro image={blogPageIntroImage} />
+
+                <BlogFilter />
+
+                <BlogThumbnailTemp1 />
+
+                <Pagination />
 
             </div>
 
