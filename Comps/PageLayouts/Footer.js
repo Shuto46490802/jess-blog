@@ -36,7 +36,7 @@ const Footer = ({ image }) => {
 
                         <form action="input" className="footer-image-input-form d-flex align-items-center px-1 justify-centent-between">
 
-                            <input className="footer-image-input py-6" type="email" placeHolder="YOUR EMAIL" />
+                            <input className="footer-image-input py-6" type="email" placeholder="YOUR EMAIL" />
 
                             <button type="submit">▼</button>
 

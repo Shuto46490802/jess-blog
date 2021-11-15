@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-const BlogThumbnailTemp1 = () => {
+const BlogThumbnailTemp1 = ({ slug, image1, image2, title, thumbnailText, category, date }) => {
     
     return (
         <div className="blog-thumbnail-temp1 d-md-flex pb-3 pt-1 py-md-4">
@@ -21,7 +21,7 @@ const BlogThumbnailTemp1 = () => {
 
                                 <figure className="fig__wrapper">
 
-                                    <Image src="/test.jpg" layout="fill" objectFit="cover" />
+                                    <Image src={image1} layout="fill" objectFit="cover" />
 
                                 </figure>
 
@@ -41,11 +41,11 @@ const BlogThumbnailTemp1 = () => {
 
                             <div className="parallax">
 
-                                <div className="blog-thumbnail-temp1-image2 position-relative">
+                                <div className="blog-thumbnail-temp1-image2 position-relative h-100">
 
                                     <figure className="fig__wrapper">
 
-                                        <Image src="/test.jpg" layout="fill" objectFit="cover" />
+                                        <Image src={image2} layout="fill" objectFit="cover" />
 
                                     </figure>
 
@@ -63,17 +63,17 @@ const BlogThumbnailTemp1 = () => {
 
             <div className="blog-thumbnail-temp1-text__wrapper col-md px-1 px-md-0">
 
-                <div className="blog-thumbnail-temp1-text__inner d-flex flex-column justify-content-center h-100 ps-md-2 pe-md-2 pe-xlg-5">
+                <div className="blog-thumbnail-temp1-text__inner d-flex flex-column justify-content-center h-100 ps-md-2 pe-md-2 pe-xlg-5 position-relative">
 
-                    <h6 className="uppercase tiny mt-1 mb-1 mt-md-0 mb-md-2">Skincare</h6>
+                    <h6 className="uppercase tiny mt-1 mb-1 mt-md-0 mb-md-2">{category}</h6>
 
-                    <h2 className="mb-1 mb-md-2 pe-3 pe-md-0">Who I am</h2>
+                    <h2 className="mb-1 mb-md-2 pe-3 pe-md-0">{title}</h2>
 
-                    <div className="mb-1 mb-md-2 medium pe-2 pe-md-0">Aliquam sem fringilla ut morbi tincidunt augue interdum velit</div>
+                    <div className="mb-1 mb-md-2 medium pe-2 pe-md-0">{thumbnailText}</div>
 
                     <div className="">
 
-                        <Link href="/">
+                        <Link href={`/blog/${slug}`}>
 
                             <a className="h4">
 
@@ -84,6 +84,12 @@ const BlogThumbnailTemp1 = () => {
                             </a>
 
                         </Link>
+
+                    </div>
+
+                    <div className="blog-thumbnail-temp1-date__wrapper large position-absolute">
+
+                        {date}
 
                     </div>
 
