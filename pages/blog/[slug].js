@@ -5,6 +5,8 @@ import { getScrollProxy } from "../../Comps/PageLayouts/Scrollbar";
 import "../../Comps/PageLayouts/EdgeEasingPlugin";
 import Footer from "../../Comps/PageLayouts/Footer";
 import { contentfulClient } from "../../Lib/ContentfulClient";
+import BlogPostIntro from "../../Comps/BlogPost/BlogPostIntro";
+import { convertDate } from "../../Comps/PageLayouts/util";
 
 export const getStaticPaths = async () => {
 
@@ -50,7 +52,7 @@ export const getStaticProps = async ({ params }) => {
                     return "https:" + image.fields.file.url
                 }),
                 category: blogPostItems.category,
-                date: blogPostItems.date,
+                date: convertDate(blogPostItems.date),
                 sectionTitles: blogPostItems.sectionTitle,
                 slug: blogPostItems.slug,
                 thumbnailText: blogPostItems.thumbnailText,
@@ -59,10 +61,10 @@ export const getStaticProps = async ({ params }) => {
                     .map((key) => blogPostItems[`${key}`])
                     .map((paragraph) => paragraph.content)
                     .map((content) => content
-                    .map((content) => ({
-                        type: content.nodeType,
-                        content: content.content[0].value
-                    })))
+                        .map((content) => ({
+                            type: content.nodeType,
+                            content: content.content[0].value
+                        })))
             },
             footerImage: "https:" + footerRes.items[0].fields.footerImage.fields.file.url,
         }
@@ -73,8 +75,6 @@ const BlogPost = ({ res, blogPost, footerImage }) => {
 
     useEffect(() => {
         getScrollProxy(scrollerRef.current);
-        console.log(res)
-        console.log(blogPost)
     }, [])
 
     const scrollerRef = useRef();
@@ -83,6 +83,8 @@ const BlogPost = ({ res, blogPost, footerImage }) => {
         <div ref={scrollerRef} className="page__wrapper">
 
             <div className="components-wrapper">
+
+                <BlogPostIntro image={blogPost.featureImages[0]} title={blogPost.title} thumbnailText={blogPost.thumbnailText} category={blogPost.category} date={blogPost.date} />
 
             </div>
 
