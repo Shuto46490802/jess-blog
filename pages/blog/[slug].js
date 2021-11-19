@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Head from 'next/head';
 //Compnents
 import { getScrollProxy } from "../../Comps/PageLayouts/Scrollbar";
@@ -7,6 +7,10 @@ import Footer from "../../Comps/PageLayouts/Footer";
 import { contentfulClient } from "../../Lib/ContentfulClient";
 import BlogPostIntro from "../../Comps/BlogPost/BlogPostIntro";
 import { convertDate } from "../../Comps/PageLayouts/util";
+import BlogPostText from "../../Comps/BlogPost/BlogPostText";
+import BlogPostImages from "../../Comps/BlogPost/BlogPostImages";
+import BlogPostTextImage from "../../Comps/BlogPost/BlogPostTextImages";
+import MorePost from "../../Comps/BlogPost/MorePost";
 
 export const getStaticPaths = async () => {
 
@@ -33,6 +37,10 @@ export const getStaticProps = async ({ params }) => {
         "fields.slug": params.slug
     });
 
+    const blogPosts = await contentfulClient.getEntries({
+        content_type: "blogPost",
+    });
+
     const blogPostItems = blogPostRes.items[0].fields;
 
     const paragrapgKeys = Object.keys(blogPostItems).filter((key) => key.includes("sectionParagraph"));
@@ -43,7 +51,12 @@ export const getStaticProps = async ({ params }) => {
 
     return {
         props: {
-            res: blogPostItems,
+            blogPosts: blogPosts.items.map((post) => ({
+                title: post.fields.title,
+                image: "https:" + post.fields.featureImages[0].fields.file.url,
+                slug: post.fields.slug,
+                category: post.fields.category
+            })),
             blogPost: {
                 featureImages: blogPostItems.featureImages.map((image) => {
                     return "https:" + image.fields.file.url
@@ -57,6 +70,7 @@ export const getStaticProps = async ({ params }) => {
                 slug: blogPostItems.slug,
                 thumbnailText: blogPostItems.thumbnailText,
                 title: blogPostItems.title,
+                numOfSection: blogPostItems.featureImages.slice(1),
                 paragraphs: paragrapgKeys
                     .map((key) => blogPostItems[`${key}`])
                     .map((paragraph) => paragraph.content)
@@ -65,19 +79,36 @@ export const getStaticProps = async ({ params }) => {
                             type: content.nodeType,
                             content: content.content[0].value
                         })))
+
             },
             footerImage: "https:" + footerRes.items[0].fields.footerImage.fields.file.url,
         }
     }
 }
 
-const BlogPost = ({ res, blogPost, footerImage }) => {
+const BlogPost = ({ blogPosts, blogPost, footerImage }) => {
 
     useEffect(() => {
         getScrollProxy(scrollerRef.current);
+
+        const randomNumArr = [];
+        while (randomNumArr.length < 3) {
+            let randomNum = Math.floor(Math.random() * blogPosts.length);
+            if (randomNumArr.indexOf(randomNum) === -1) {
+                randomNumArr.push(randomNum);
+            }
+        }
+        setMorePosts(
+            [
+                blogPosts[randomNumArr[0]],
+                blogPosts[randomNumArr[1]],
+                blogPosts[randomNumArr[2]]
+            ]
+        );
     }, [])
 
     const scrollerRef = useRef();
+    const [morePosts, setMorePosts] = useState([]);
 
     return (
         <div ref={scrollerRef} className="page__wrapper">
@@ -85,6 +116,19 @@ const BlogPost = ({ res, blogPost, footerImage }) => {
             <div className="components-wrapper">
 
                 <BlogPostIntro image={blogPost.featureImages[0]} title={blogPost.title} thumbnailText={blogPost.thumbnailText} category={blogPost.category} date={blogPost.date} />
+
+                <BlogPostText sectionTitle={blogPost.sectionTitles[0]} paragraph={blogPost.paragraphs[0]} />
+
+                {
+                    blogPost.numOfSection.map((num, index) => {
+                        return (
+                            <BlogPostTextImage sectionTitle={blogPost.sectionTitles[index + 1]} paragraph={blogPost.paragraphs[index + 1]} smallImage={blogPost.sectionSmallImages[index]} largeImage={blogPost.featureImages[index + 1]} />
+                        )
+
+                    })
+                }
+
+                <MorePost posts={morePosts} />
 
             </div>
 
