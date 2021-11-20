@@ -6,6 +6,11 @@ export const getScrollProxy = (_scroller, _header) => {
 
     const scroller = _scroller;
     const bodyScrollBar = Scrollbar.init(scroller, { damping: 0.1, delegateTo: null });
+
+    if (bodyScrollBar.offset.y !== 0) {
+        bodyScrollBar.scrollTo(0, 0, 0)
+    }
+
     gsap.registerPlugin(ScrollTrigger);
 
     ScrollTrigger.scrollerProxy(_scroller, {

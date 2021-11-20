@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import Head from 'next/head';
+import { useRouter } from "next/router";
 //Compnents
 import { getScrollProxy } from "../../Comps/PageLayouts/Scrollbar";
 import "../../Comps/PageLayouts/EdgeEasingPlugin";
@@ -41,6 +42,22 @@ export const getStaticProps = async ({ params }) => {
         content_type: "blogPost",
     });
 
+    const filteredBlogPosts = blogPosts.items.filter((post) => post.fields.slug !== params.slug)
+
+    const randomNumArr = [];
+    while (randomNumArr.length < 3) {
+        let randomNum = Math.floor(Math.random() * 3);
+        if (randomNumArr.indexOf(randomNum) === -1) {
+            randomNumArr.push(randomNum);
+        }
+    }
+
+    const morePosts = [
+        filteredBlogPosts[0],
+        filteredBlogPosts[1],
+        filteredBlogPosts[2],
+    ]
+
     const blogPostItems = blogPostRes.items[0].fields;
 
     const paragrapgKeys = Object.keys(blogPostItems).filter((key) => key.includes("sectionParagraph"));
@@ -51,7 +68,7 @@ export const getStaticProps = async ({ params }) => {
 
     return {
         props: {
-            blogPosts: blogPosts.items.map((post) => ({
+            morePosts: morePosts.map((post) => ({
                 title: post.fields.title,
                 image: "https:" + post.fields.featureImages[0].fields.file.url,
                 slug: post.fields.slug,
@@ -86,29 +103,15 @@ export const getStaticProps = async ({ params }) => {
     }
 }
 
-const BlogPost = ({ blogPosts, blogPost, footerImage }) => {
+const BlogPost = ({  morePosts, blogPost, footerImage }) => {
+
+    const router = useRouter();
 
     useEffect(() => {
         getScrollProxy(scrollerRef.current);
-
-        const randomNumArr = [];
-        while (randomNumArr.length < 3) {
-            let randomNum = Math.floor(Math.random() * blogPosts.length);
-            if (randomNumArr.indexOf(randomNum) === -1) {
-                randomNumArr.push(randomNum);
-            }
-        }
-        setMorePosts(
-            [
-                blogPosts[randomNumArr[0]],
-                blogPosts[randomNumArr[1]],
-                blogPosts[randomNumArr[2]]
-            ]
-        );
-    }, [])
+    }, [router])
 
     const scrollerRef = useRef();
-    const [morePosts, setMorePosts] = useState([]);
 
     return (
         <div ref={scrollerRef} className="page__wrapper">
@@ -122,7 +125,7 @@ const BlogPost = ({ blogPosts, blogPost, footerImage }) => {
                 {
                     blogPost.numOfSection.map((num, index) => {
                         return (
-                            <BlogPostTextImage sectionTitle={blogPost.sectionTitles[index + 1]} paragraph={blogPost.paragraphs[index + 1]} smallImage={blogPost.sectionSmallImages[index]} largeImage={blogPost.featureImages[index + 1]} />
+                            <BlogPostTextImage key={index} sectionTitle={blogPost.sectionTitles[index + 1]} paragraph={blogPost.paragraphs[index + 1]} smallImage={blogPost.sectionSmallImages[index]} largeImage={blogPost.featureImages[index + 1]} />
                         )
 
                     })
