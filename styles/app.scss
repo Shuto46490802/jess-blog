@@ -840,3 +840,13 @@
   display: block;
   padding-bottom: 118%;
 }
+
+//PrivacyPolicyIntro.js
+.privacy-policy-intro-sub-heading,
+.privacy-policy-intro-heading {
+  z-index: 10;
+}
+
+.privacy-policy-intro-heading{
+  font-size: 3rem;
+}

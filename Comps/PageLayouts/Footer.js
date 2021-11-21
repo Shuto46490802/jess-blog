@@ -162,7 +162,7 @@ const Footer = ({ image }) => {
                             help
                         </span>
 
-                        <Link href="/">
+                        <Link href="/privacy-policy">
 
                             <a className="footer-link small">
                                 Privacy Policy
@@ -170,15 +170,7 @@ const Footer = ({ image }) => {
 
                         </Link>
 
-                        <Link href="/">
-
-                            <a className="footer-link small">
-                                Terms of Service
-                            </a>
-
-                        </Link>
-
-                        <Link href="/">
+                        <Link href="/contact">
 
                             <a className="footer-link small">
                                 Contact
