@@ -6,6 +6,7 @@ import "../Comps/PageLayouts/EdgeEasingPlugin";
 import { contentfulClient } from "../Lib/ContentfulClient";
 import Footer from "../Comps/PageLayouts/Footer";
 import PrivacyPolicyIntro from "../Comps/PrivacyPolicy/PrivacyPolicyIntro";
+import PrivacyPolicyContent from "../Comps/PrivacyPolicy/ProvacyPolicyContent";
 
 export const getStaticProps = async () => {
 
@@ -39,6 +40,8 @@ const PrivacyPolicy = ({privacyPolicyIntroImage, footerImage }) => {
             <div className="components-wrapper">
 
                 <PrivacyPolicyIntro image={privacyPolicyIntroImage} />
+
+                <PrivacyPolicyContent />
 
             </div>
 
