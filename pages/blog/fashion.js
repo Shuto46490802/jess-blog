@@ -1,19 +1,19 @@
-import React, { useEffect, useRef } from "react";
-
+import React, { useEffect, useRef, useState } from "react";
+import { useRouter } from "next/router";
 //Components
-import { getScrollProxy } from "../Comps/PageLayouts/Scrollbar";
-import "../Comps/PageLayouts/EdgeEasingPlugin";
-import { contentfulClient } from "../Lib/ContentfulClient";
-import Footer from "../Comps/PageLayouts/Footer";
-import BlogIntro from "../Comps/Blog/BlogIntro";
-import BlogFilter from "../Comps/Blog/BlogFilter";
-import Pagination from "../Comps/Blog/Pagination";
-import BlogThumbnailTemp1 from "../Comps/Blog/BlogThumbnailTemp1";
-import BlogThumbnailTemp2 from "../Comps/Blog/BlogThumbnailTemp2";
-import BlogThumbnailTemp3 from "../Comps/Blog/BlogThumbnailTemp3";
-import { convertDate } from "../Comps/PageLayouts/util";
+import { getScrollProxy } from "../../Comps/PageLayouts/Scrollbar";
+import "../../Comps/PageLayouts/EdgeEasingPlugin";
+import { contentfulClient } from "../../Lib/ContentfulClient";
+import Footer from "../../Comps/PageLayouts/Footer";
+import BlogIntro from "../../Comps/Blog/BlogIntro";
+import BlogFilter from "../../Comps/Blog/BlogFilter";
+import Pagination from "../../Comps/Blog/Pagination";
+import BlogThumbnailTemp1 from "../../Comps/Blog/BlogThumbnailTemp1";
+import BlogThumbnailTemp2 from "../../Comps/Blog/BlogThumbnailTemp2";
+import BlogThumbnailTemp3 from "../../Comps/Blog/BlogThumbnailTemp3";
+import { convertDate } from "../../Comps/PageLayouts/util";
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async (context) => {
 
     const blogPageRes = await contentfulClient.getEntries({
         content_type: "blogPage"
@@ -21,13 +21,22 @@ export const getStaticProps = async () => {
 
     const blogPostRes = await contentfulClient.getEntries({
         content_type: "blogPost",
+        "fields.category": "Fashion",
         limit: 10,
-        skip: 0
+        skip: ((Number(context.query.page) - 1) * 10)
     })
+
+    const allBlogPostRes = await contentfulClient.getEntries({
+        content_type: "blogPost",
+        "fields.category": "Fashion"
+    })
+
+    const numOfPosts = allBlogPostRes.total;
 
     const footerRes = await contentfulClient.getEntries({
         content_type: "footer"
     })
+
 
     return {
         props: {
@@ -42,25 +51,56 @@ export const getStaticProps = async () => {
                 date: convertDate(post.fields.date),
                 category: post.fields.category
             })),
+            numOfPosts: numOfPosts,
             footerImage: "https:" + footerRes.items[0].fields.footerImage.fields.file.url,
         }
     }
 }
 
-const Blog = ({ blogPageIntroImage, blogPosts, footerImage }) => {
+const Fashion = ({ blogPageIntroImage, blogPosts, numOfPosts, footerImage }) => {
 
     useEffect(() => {
         getScrollProxy(scrollerRef.current);
         sortDescending(blogPosts);
+
+        const _numOfPage = Math.ceil(numOfPosts / 10);
+        setNumOfPage(_numOfPage);
     }, [])
 
+    const router = useRouter();
     const scrollerRef = useRef();
 
     const sortDescending = (_posts) => {
         const result = _posts.sort((a, b) => Number.parseInt(b.dateForSort) - Number.parseInt(a.dateForSort));
 
         return result
+    };
+
+    const [currentPage, setCurrentPage] = useState(1);
+    const [numOfPage, setNumOfPage] = useState(0);
+
+    const paginate = (_num, _currentPage) => {
+        if (_num !== _currentPage) {
+            setCurrentPage(_num)
+            router.push({ pathname: "/blog/fashion", query: { page: _num } })
+        }
     }
+
+    const paginatePrev = () => {
+        if (currentPage > 1) {
+            setCurrentPage(currentPage - 1)
+        } else {
+            return;
+        }
+    };
+
+    const paginateNext = () => {
+        if (currentPage < numOfPage) {
+            setCurrentPage(currentPage + 1)
+        } else {
+            return;
+        }
+    };
 
     return (
         <div ref={scrollerRef} className="page__wrapper">
@@ -81,7 +121,7 @@ const Blog = ({ blogPageIntroImage, blogPosts, footerImage }) => {
                     ))
                 }
 
-                <Pagination />
+                <Pagination numOfPage={numOfPage} currentPage={currentPage} paginate={paginate} paginatePrev={paginatePrev} paginateNext={paginateNext} />
 
             </div>
 
@@ -91,4 +131,4 @@ const Blog = ({ blogPageIntroImage, blogPosts, footerImage }) => {
     );
 }
 
-export default Blog;
+export default Fashion;

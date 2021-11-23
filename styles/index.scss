@@ -75,6 +75,10 @@ button:hover .line-link:after {
     opacity: 1;
     transform: scaleX(1) translateY(0.4em);
 }
+.line-link.active:after {
+    opacity: 1;
+    transform: scaleX(1) translateY(0.4em);
+}
 .line-link-pagination {
     line-height: 0.9;
     position: relative;
@@ -105,6 +109,11 @@ a:hover .line-link-pagination:after {
 }
 
 button:hover .line-link-pagination:after {
+    opacity: 1;
+    transform: scaleX(1);
+}
+
+.line-link-pagination.active:after {
     opacity: 1;
     transform: scaleX(1);
 }

@@ -21,7 +21,7 @@ const Header = () => {
 
                 <div className="links__wrapper d-none d-md-flex">
 
-                    <Link href="/blog">
+                    <Link href={{ pathname: "/blog/all", query: { page: 1 } }}>
 
                         <a className="header-link small">
 

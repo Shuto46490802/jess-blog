@@ -1,7 +1,11 @@
 import React from "react";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 const BlogFilter = () => {
+
+    const router = useRouter();
+
     return (
         <div className="blog-content-filter__wrapper mt-2">
 
@@ -17,11 +21,11 @@ const BlogFilter = () => {
 
                                 <li className="blog-content-filter-list-item">
 
-                                    <Link href="/">
+                                    <Link href={{pathname: "/blog/all", query: { page: 1 }}}>
 
                                         <a className="">
 
-                                            <span className="line-link">
+                                            <span className={`line-link ${router.pathname.includes("all") ? "active" : null}`}>
                                                 View All
                                             </span>
 
@@ -33,11 +37,11 @@ const BlogFilter = () => {
 
                                 <li className="blog-content-filter-list-item">
 
-                                    <Link href="/">
+                                    <Link href={{pathname: "/blog/skincare", query: { page: 1 }}}>
 
                                         <a className="">
 
-                                            <span className="line-link">
+                                            <span className={`line-link ${router.pathname.includes("skincare") ? "active" : null}`}>
                                                 Skincare
                                             </span>
 
@@ -49,11 +53,11 @@ const BlogFilter = () => {
 
                                 <li className="blog-content-filter-list-item">
 
-                                    <Link href="/">
+                                    <Link href={{pathname: "/blog/mental-health", query: { page: 1 }}}>
 
                                         <a className="">
 
-                                            <span className="line-link">
+                                            <span className={`line-link ${router.pathname.includes("mental-health") ? "active" : null}`}>
                                                 Mental Health
                                             </span>
 
@@ -65,11 +69,11 @@ const BlogFilter = () => {
 
                                 <li className="blog-content-filter-list-item">
 
-                                    <Link href="/">
+                                    <Link href={{pathname: "/blog/fashion", query: { page: 1 }}}>
 
                                         <a className="">
 
-                                            <span className="line-link">
+                                            <span className={`line-link ${router.pathname.includes("fashion") ? "active" : null}`}>
                                                 Fashion
                                             </span>
 
