@@ -6,7 +6,7 @@ const AccordionItem = ({ title, content }) => {
             <p>{content}</p>
         ))
 
-    }
+    };
 
     return (
         <div className="accordion__wrapper mb-1">
