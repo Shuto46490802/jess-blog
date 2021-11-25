@@ -1,22 +1,51 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
+//Components
+import { animateParallaxInsideImage, animateParallaxImage, animateTextUp, animateButtonScale } from "../PageLayouts/animation";
 
-const HomeAbout = ({ image1, image2, image3 }) => {
+const HomeAbout = ({ image1, image2, image3, isPageLoaded }) => {
+
+    useEffect(() => {
+        if (isPageLoaded) {
+            animateParallaxInsideImage(imageTriggerRef.current, [image1Ref.current]);
+            animateParallaxImage(sectionRef.current, -100, image2Ref.current);
+            animateParallaxImage(sectionRef.current, -500, image3Ref.current);
+            animateTextUp(textTriggerRef.current, textRefs.current);
+            animateButtonScale(textTriggerRef.current, 0.5, buttonRef.current)
+        }
+    }, [isPageLoaded])
+
+    const sectionRef = useRef();
+    const image1Ref = useRef();
+    const imageTriggerRef = useRef();
+    const image2Ref = useRef();
+    const image3Ref = useRef();
+    const textTriggerRef = useRef();
+    const textRefs = useRef([]);
+    const addToTextRefs = (_el) => {
+        if (_el && !textRefs.current.includes(_el)) {
+            textRefs.current.push(_el)
+        } else {
+            textRefs.current = [];
+        }
+    }
+    const buttonRef = useRef();
+
     return (
-        <section className="home-about position-relative d-flex flex-column flex-md-row align-items-start">
+        <section ref={sectionRef} className="home-about position-relative d-flex flex-column flex-md-row align-items-start pt-4 pb-3 pt-md-5 pb-md-5">
 
             <div className="home-about-image1__wrapper position-relative">
 
                 <div className="home-about-image1__inner">
 
-                    <div className="parallax__wrapper t-0 l-0 overflow-hidden position-absolute">
+                    <div ref={imageTriggerRef} className="parallax__wrapper t-0 l-0 overflow-hidden position-absolute">
 
-                        <div className="parallax should-animate">
+                        <div ref={image1Ref} className="parallax should-animate">
 
                             <figure className="fig__wrapper">
 
-                                <Image src={image1} layout="fill" />
+                                <Image src={image1} layout="fill" objectFit="cover" />
 
                             </figure>
 
@@ -28,11 +57,11 @@ const HomeAbout = ({ image1, image2, image3 }) => {
 
             </div>
 
-            <div className="home-about-text__wrapper col-md position-relative pb-md-2 pb-xl-0">
+            <div ref={textTriggerRef} className="home-about-text__wrapper col-md position-relative pb-md-2 pb-xl-0">
 
                 <div className="home-about-header__wrapper">
 
-                    <h3 className="home-about-header position-relative ls-1 ps-2 pe-1 ps-md-0 pe-md-0 d-none d-md-flex flex-column mb-0">
+                    <h3 ref={addToTextRefs} className="home-about-header position-relative ls-1 ps-2 pe-1 ps-md-0 pe-md-0 d-none d-md-flex flex-column mb-0">
 
                         <div className="lines">
                             <span>Lorem ipsum dolor sit amet,</span>
@@ -44,7 +73,7 @@ const HomeAbout = ({ image1, image2, image3 }) => {
 
                     </h3>
 
-                    <h3 className="home-about-header position-relative ls-1 ps-2 pe-1 ps-md-0 pe-md-0 d-md-none d-flex mb-0">
+                    <h3 ref={addToTextRefs} className="home-about-header position-relative ls-1 ps-2 pe-1 ps-md-0 pe-md-0 d-md-none d-flex mb-0">
 
                         <div className="lines">
                             <span>Lorem ipsum dolor sit amet, et dolore magna aliqua.</span>
@@ -56,7 +85,7 @@ const HomeAbout = ({ image1, image2, image3 }) => {
 
                 <div className="home-about-text__wrapper ">
 
-                    <div className="home-about-description small should-animate ms-md-3 mt-2 mt-lg-2 ps-2 pe-2 ps-md-0 pe-xl-1">
+                    <div ref={addToTextRefs} className="home-about-description small should-animate ms-md-3 mt-2 mt-lg-2 ps-2 pe-2 ps-md-0 pe-xl-1">
 
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 
@@ -64,12 +93,12 @@ const HomeAbout = ({ image1, image2, image3 }) => {
 
                     </div>
 
-                    <div className="home-about-link d-flex jsutify-content-center d-md-block ms-md-3 mt-3">
+                    <div ref={buttonRef} className="home-about-link d-flex jsutify-content-center d-md-inline-block ms-md-3 mt-3">
 
-                        <Link href="/">
+                        <Link href="/about">
 
                             <a>
-                                Read More 
+                                Read More
                             </a>
 
                         </Link>
@@ -82,13 +111,17 @@ const HomeAbout = ({ image1, image2, image3 }) => {
 
                     <div className="home-about-image2__wrapper">
 
-                        <div className="home-about-image2__inner overflow-hidden">
+                        <div ref={image2Ref} style={{ top: "100px" }} className="parallax">
 
-                            <figure className="fig__wrapper">
+                            <div className="home-about-image2__inner overflow-hidden">
 
-                                <Image src={image2} layout="fill" />
+                                <figure className="fig__wrapper">
 
-                            </figure>
+                                    <Image src={image2} layout="fill" />
+
+                                </figure>
+
+                            </div>
 
                         </div>
 
@@ -96,13 +129,17 @@ const HomeAbout = ({ image1, image2, image3 }) => {
 
                     <div className="home-about-image3__wrapper">
 
-                        <div className="home-about-image3__inner overflow-hidden">
+                        <div ref={image3Ref} style={{ top: "500px" }} className="parallax">
 
-                            <figure className="fig__wrapper">
+                            <div className="home-about-image3__inner overflow-hidden">
 
-                                <Image src={image3} layout="fill" />
+                                <figure className="fig__wrapper">
 
-                            </figure>
+                                    <Image src={image3} layout="fill" />
+
+                                </figure>
+
+                            </div>
 
                         </div>
 

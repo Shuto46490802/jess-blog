@@ -25,7 +25,7 @@ const BlogFilter = () => {
 
                                         <a className="">
 
-                                            <span className={`line-link ${router.pathname.includes("all") ? "active" : null}`}>
+                                            <span className={`line-link-pagination ${router.pathname.includes("all") ? "active" : null}`}>
                                                 View All
                                             </span>
 
@@ -41,7 +41,7 @@ const BlogFilter = () => {
 
                                         <a className="">
 
-                                            <span className={`line-link ${router.pathname.includes("skincare") ? "active" : null}`}>
+                                            <span className={`line-link-pagination ${router.pathname.includes("skincare") ? "active" : null}`}>
                                                 Skincare
                                             </span>
 
@@ -57,7 +57,7 @@ const BlogFilter = () => {
 
                                         <a className="">
 
-                                            <span className={`line-link ${router.pathname.includes("mental-health") ? "active" : null}`}>
+                                            <span className={`line-link-pagination ${router.pathname.includes("mental-health") ? "active" : null}`}>
                                                 Mental Health
                                             </span>
 
@@ -73,7 +73,7 @@ const BlogFilter = () => {
 
                                         <a className="">
 
-                                            <span className={`line-link ${router.pathname.includes("fashion") ? "active" : null}`}>
+                                            <span className={`line-link-pagination ${router.pathname.includes("fashion") ? "active" : null}`}>
                                                 Fashion
                                             </span>
 

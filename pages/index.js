@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Head from 'next/head';
 //Components
 import { getScrollProxy } from "../Comps/PageLayouts/Scrollbar";
@@ -11,7 +11,6 @@ import HomeCategory from "../Comps/HomePage/HomeCategory";
 import HomeInstagram from "../Comps/HomePage/HomeInstagram";
 import Footer from "../Comps/PageLayouts/Footer";
 import { convertDate } from "../Comps/PageLayouts/util";
-
 
 export const getStaticProps = async () => {
 
@@ -67,7 +66,11 @@ const HomePage = ({ homeIntroImage, homeAboutImage, homeAboutImage2, homeAboutIm
   useEffect(() => {
     getScrollProxy(scrollerRef.current);
     sortNewPosts(homeNewPosts)
+
+    window.addEventListener("load", () => setIsPageLoaded(true));
   }, [])
+
+  const [isPageLoaded, setIsPageLoaded] = useState(false);
 
   const scrollerRef = useRef();
 
@@ -83,9 +86,9 @@ const HomePage = ({ homeIntroImage, homeAboutImage, homeAboutImage2, homeAboutIm
 
       <div className="components-wrapper">
 
-        <HomeIntro image={homeIntroImage} />
+        <HomeIntro isPageLoaded={isPageLoaded} image={homeIntroImage} />
 
-        <HomeAbout image1={homeAboutImage} image2={homeAboutImage2} image3={homeAboutImage3} />
+        <HomeAbout isPageLoaded={isPageLoaded} image1={homeAboutImage} image2={homeAboutImage2} image3={homeAboutImage3} />
 
         <HomeNewPosts posts={homeNewPosts} />
 

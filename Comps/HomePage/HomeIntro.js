@@ -1,16 +1,32 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Image from "next/image";
+//Components
+import { animateIntroImage } from "../PageLayouts/animation";
 
-const HomeIntro = ({ image }) => {
+const HomeIntro = ({ isPageLoaded, image }) => {
+
+    useEffect(() => {
+        if(isPageLoaded){
+            animateIntroImage(triggerRef.current, imageRef.current)
+        }
+    }, [isPageLoaded])
+
+    const imageRef = useRef();
+    const triggerRef = useRef();
+
     return (
-        <section className="home-intro d-flex flex-column flex-center p-1 p-md-0 overflow-hidden position-relative
+        <section ref={triggerRef} className="home-intro d-flex flex-column flex-center p-1 p-md-0 overflow-hidden position-relative
         vh-100">
 
             <div className="parallax__wrapper t-0 l-0 overflow-hidden position-absolute">
 
-                <div className="parallax should-animate">
+                <div ref={imageRef} className="parallax should-animate">
 
-                    <div className="image cover bg-center h-100 w-100" style={{ backgroundImage: `url(${image})` }}></div>
+                    <figure className="fig__wrapper">
+
+                        <Image src={image} layout="fill" objectFit="cover" />
+
+                    </figure>
 
                 </div>
 

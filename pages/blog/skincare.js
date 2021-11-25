@@ -59,15 +59,18 @@ export const getServerSideProps = async (context) => {
 
 const Skincare = ({ blogPageIntroImage, blogPosts, numOfPosts, footerImage }) => {
 
+    const router = useRouter();
+
     useEffect(() => {
         getScrollProxy(scrollerRef.current);
         sortDescending(blogPosts);
+    }, [router])
 
+    useEffect(() => {
         const _numOfPage = Math.ceil(numOfPosts / 10);
         setNumOfPage(_numOfPage);
     }, [])
 
-    const router = useRouter();
     const scrollerRef = useRef();
 
     const sortDescending = (_posts) => {
