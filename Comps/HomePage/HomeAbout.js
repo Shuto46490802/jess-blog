@@ -12,7 +12,7 @@ const HomeAbout = ({ image1, image2, image3, isPageLoaded }) => {
             animateParallaxImage(sectionRef.current, -100, image2Ref.current);
             animateParallaxImage(sectionRef.current, -500, image3Ref.current);
             animateTextUp(textTriggerRef.current, textRefs.current);
-            animateButtonScale(textTriggerRef.current, 0.5, buttonRef.current)
+            animateButtonScale(textTriggerRef.current, 0.5, buttonRef.current);
         }
     }, [isPageLoaded])
 
