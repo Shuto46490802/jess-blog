@@ -29,7 +29,7 @@ const HomeAbout = ({ image1, image2, image3, isPageLoaded }) => {
         } else {
             textRefs.current = [];
         }
-    }
+    };
     const buttonRef = useRef();
 
     return (
