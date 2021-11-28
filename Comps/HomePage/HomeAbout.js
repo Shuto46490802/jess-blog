@@ -15,6 +15,7 @@ const HomeAbout = ({ image1, image2, image3, isPageLoaded }) => {
             animateButtonScale(textTriggerRef.current, 0.5, buttonRef.current);
         }
     }, [isPageLoaded])
+    
 
     const sectionRef = useRef();
     const image1Ref = useRef();
