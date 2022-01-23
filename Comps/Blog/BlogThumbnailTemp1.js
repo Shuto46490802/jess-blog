@@ -1,11 +1,24 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
+//Components
+import { animateParallaxImage, animateParallaxInsideImage } from "../PageLayouts/animation";
+const BlogThumbnailTemp1 = ({ slug, image1, image2, title, thumbnailText, category, date, isPageLoaded }) => {
 
-const BlogThumbnailTemp1 = ({ slug, image1, image2, title, thumbnailText, category, date }) => {
+    useEffect(() => {
+        if(isPageLoaded){
+            animateParallaxImage(sectionRef.current, -200, smallImgeRef.current);
+            animateParallaxInsideImage(largeImgWrapperRef.current, largeImgRef.current)
+        }
+    }, [isPageLoaded])
+
+    const sectionRef = useRef();
+    const smallImgeRef = useRef();
+    const largeImgWrapperRef = useRef();
+    const largeImgRef = useRef();
     
     return (
-        <div className="blog-thumbnail-temp1 d-md-flex pb-3 pt-1 py-md-4">
+        <div ref={sectionRef} className="blog-thumbnail-temp1 d-md-flex pb-3 pt-1 py-md-4">
 
             <div className="col-md d-none d-lg-block" />
 
@@ -15,7 +28,7 @@ const BlogThumbnailTemp1 = ({ slug, image1, image2, title, thumbnailText, catego
 
                     <div className="parallax__wrapper">
 
-                        <div className="parallax">
+                        <div style={{top: "140px"}} ref={smallImgeRef} className="parallax">
 
                             <div className="blog-thumbnail-temp1-image1 position-relative">
 
@@ -33,13 +46,13 @@ const BlogThumbnailTemp1 = ({ slug, image1, image2, title, thumbnailText, catego
 
                 </div>
 
-                <div className="blog-thumbnail-temp1-image2__wrapper overflow-hidden h-100 w-100">
+                <div ref={largeImgWrapperRef} className="blog-thumbnail-temp1-image2__wrapper overflow-hidden h-100 w-100">
 
                     <div className="position-relative h-100 w-100">
 
                         <div className="parallax__wrapper">
 
-                            <div className="parallax">
+                            <div ref={largeImgRef} className="parallax">
 
                                 <div className="blog-thumbnail-temp1-image2 position-relative h-100">
 

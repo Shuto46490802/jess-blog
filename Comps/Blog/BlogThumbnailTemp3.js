@@ -1,10 +1,24 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
+//Components
+import { animateParallaxImage, animateParallaxInsideImage } from "../PageLayouts/animation";
+const BlogThumbnailTemp3 = ({ slug, image1, image2, title, thumbnailText, category, date, isPageLoaded }) => {
 
-const BlogThumbnailTemp3 = ({ slug, image1, image2, title, thumbnailText, category, date }) => {
+    useEffect(() => {
+        if(isPageLoaded){
+            animateParallaxImage(sectionRef.current, -200, smallImgRef.current);
+            animateParallaxInsideImage(largeImgWrapperRef.current, largeImgRef.current)
+        }
+    }, [isPageLoaded]);
+
+    const sectionRef = useRef();
+    const smallImgRef = useRef();
+    const largeImgWrapperRef = useRef();
+    const largeImgRef = useRef();
+
     return (
-        <div className="blog-thumbnail-temp3 d-flex flex-column flex-column-reverse flex-md-row pb-3 pt-1 py-md-4">
+        <div ref={sectionRef} className="blog-thumbnail-temp3 d-flex flex-column flex-column-reverse flex-md-row pb-3 pt-1 py-md-4">
 
             <div className="blog-thumbnail-temp3-text__wrapper col-md-6 d-flex flex-column flex-center py-2 py-xl-4 position-relative">
 
@@ -16,7 +30,7 @@ const BlogThumbnailTemp3 = ({ slug, image1, image2, title, thumbnailText, catego
 
                     <div className="parallax__wrapper">
 
-                        <div className="parallax">
+                        <div style={{top: "140px"}} ref={smallImgRef} className="parallax">
 
                             <div className="blog-thumbnail-temp3-image1 position-relative">
 
@@ -64,7 +78,7 @@ const BlogThumbnailTemp3 = ({ slug, image1, image2, title, thumbnailText, catego
 
             </div>
 
-            <div className="blog-thumbnail-temp3-image__wrapper col-md-6 overflow-hidden position-relative">
+            <div ref={largeImgWrapperRef} className="blog-thumbnail-temp3-image__wrapper col-md-6 overflow-hidden position-relative">
 
                 <h2 style={{ zIndex: "10", top: "50%", left: "50%", transform: "translate(-50%)" }} className="h1 position-absolute w-100 px-3 px-md-5 text-center">
                     {title}
@@ -74,7 +88,7 @@ const BlogThumbnailTemp3 = ({ slug, image1, image2, title, thumbnailText, catego
 
                     <div className="parallax__wrapper position-absolute t-0 l-0">
 
-                        <div className="parallax">
+                        <div ref={largeImgRef} className="parallax">
 
                             <figure className="fig__wrapper">
 

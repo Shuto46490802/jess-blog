@@ -7,20 +7,20 @@ const HomeIntro = ({ isPageLoaded, image }) => {
 
     useEffect(() => {
         if(isPageLoaded){
-            animateIntroImage(triggerRef.current, imageRef.current)
+            animateIntroImage(sectionRef.current, imgRef.current)
         }
     }, [isPageLoaded])
 
-    const imageRef = useRef();
-    const triggerRef = useRef();
+    const imgRef = useRef();
+    const sectionRef = useRef();
 
     return (
-        <section ref={triggerRef} className="home-intro d-flex flex-column flex-center p-1 p-md-0 overflow-hidden position-relative
+        <section ref={sectionRef} className="home-intro d-flex flex-column flex-center p-1 p-md-0 overflow-hidden position-relative
         vh-100">
 
             <div className="parallax__wrapper t-0 l-0 overflow-hidden position-absolute">
 
-                <div ref={imageRef} className="parallax should-animate">
+                <div ref={imgRef} className="parallax should-animate">
 
                     <figure className="fig__wrapper">
 

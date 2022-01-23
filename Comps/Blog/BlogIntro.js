@@ -1,10 +1,24 @@
-const BlogIntro = ({ image }) => {
+import { useEffect, useRef } from "react";
+//Components
+import { animateIntroImage } from "../PageLayouts/animation";
+
+const BlogIntro = ({ image, isPageLoaded }) => {
+
+    useEffect(() => {
+        if (isPageLoaded) {
+            animateIntroImage(sectionRef.current, imgRef.current);
+        }
+    }, [isPageLoaded]);
+
+    const imgRef = useRef();
+    const sectionRef = useRef();
+
     return (
-        <div className="blog-intro d-flex flex-column align-items-center justify-content-between p-1 p-md-0 overflow-hidden position-relative vh-100">
+        <div ref={sectionRef} className="blog-intro d-flex flex-column align-items-center justify-content-between p-1 p-md-0 overflow-hidden position-relative vh-100">
 
             <div className="parallax__wrapper t-0 l-0 overflow-hidden position-absolute">
 
-                <div className="parallax should-animate">
+                <div ref={imgRef} className="parallax should-animate">
 
                     <div className="image cover bg-center h-100 w-100" style={{ backgroundImage: `url(${image})` }} />
 

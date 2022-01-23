@@ -1,9 +1,34 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Image from "next/image";
+//Components
+import { animateParallaxInsideImage, animateTextUp, animateParallaxImage } from "../PageLayouts/animation";
 
-const AboutMe = ({ image, smallImages }) => {
+const AboutMe = ({ image, smallImages, isPageLoaded }) => {
+
+    useEffect(() => {
+        if (isPageLoaded) {
+            animateParallaxInsideImage(img1WrapperRef.current, img1Ref.current);
+            animateTextUp(textWrapperRef.current, 0, textRefs.current);
+            animateParallaxImage(sectionRef.current, -200, img2Ref.current)
+        }
+    }, [isPageLoaded])
+
+    const sectionRef = useRef();
+    const img1Ref = useRef();
+    const img1WrapperRef = useRef();
+    const textWrapperRef = useRef();
+    const textRefs = useRef([]);
+    const addToTextRefs = (_el) => {
+        if (_el && !textRefs.current.includes(_el)) {
+            textRefs.current.push(_el)
+        } else {
+            textRefs.current = [];
+        }
+    };
+    const img2Ref = useRef();
+
     return (
-        <div className="about-me d-flex flex-wrap">
+        <div ref={sectionRef} className="about-me d-flex flex-wrap pt-1 pb-3 pt-md-3 pt-xl-5 pb-xl-5">
 
             <div className="about-me-image1__wrapper d-flex justify-content-xl-center col-md-5 col ps-xl-4 ps-1 pe-1 pe-md-2 pe-xl-1">
 
@@ -11,9 +36,9 @@ const AboutMe = ({ image, smallImages }) => {
 
                     <div className="about-me-image1 position-relative">
 
-                        <div className="parallax__wrapper t-0 l-0 overflow-hidden position-absolute">
+                        <div ref={img1WrapperRef} className="parallax__wrapper t-0 l-0 overflow-hidden position-absolute">
 
-                            <div className="parallax should-animate">
+                            <div ref={img1Ref} className="parallax should-animate">
 
                                 <figure className="fig__wrapper">
 
@@ -31,15 +56,15 @@ const AboutMe = ({ image, smallImages }) => {
 
             </div>
 
-            <div className="about-me-text__wrapper col-md col-xl-4 ps-md-2 pe-md-2 mt-3 mt-md-2 mt-xl-4">
+            <div ref={textWrapperRef} className="about-me-text__wrapper col-md col-xl-4 ps-md-2 pe-md-2 mt-3 mt-md-2 mt-xl-4">
 
                 <div className="about-me-text__inner ms-1 pe-1 pe-md-0">
 
-                    <h2 className="about-me-heading h2 mb-xl-3 mb-md-2 uppercase">
+                    <h2 ref={addToTextRefs} className="about-me-heading h2 mb-xl-3 mb-md-2 uppercase should-animate">
                         Lorem ipsum dolor sit amet
                     </h2>
 
-                    <div className="about-me-introduction pe-md-2 small">
+                    <div ref={addToTextRefs} className="about-me-introduction pe-md-2 small should-animate">
 
                         <p>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua quis nostrud exercitation ullamco laboris.
@@ -63,25 +88,29 @@ const AboutMe = ({ image, smallImages }) => {
 
                 <div className="about-me-small-images__inner me-md-4">
 
-                    <div className="about-me-small-images overflow-hidden">
+                    <div className="about-me-small-images">
 
-                        <div className="about-me-small-image2 position-relative">
 
-                            <div className="parallax__wrapper t-0 l-0 overflow-hidden position-absolute">
 
-                                <div className="parallax">
+                        {/* <div className="parallax__wrapper t-0 l-0 overflow-hidden position-absolute"> */}
 
-                                    <figure className="fig__wrapper">
+                        <div style={{ top: "200px" }} ref={img2Ref} className="parallax h-100 w-100 should-animate">
 
-                                        <Image src={smallImages[0]} layout="fill" />
+                            <div className="about-me-small-image2 position-relative">
 
-                                    </figure>
+                                <figure className="fig__wrapper">
 
-                                </div>
+                                    <Image src={smallImages[0]} layout="fill" />
+
+                                </figure>
 
                             </div>
 
                         </div>
+
+                        {/* </div> */}
+
+
 
                     </div>
 

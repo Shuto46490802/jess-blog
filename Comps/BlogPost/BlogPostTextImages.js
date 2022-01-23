@@ -4,11 +4,11 @@ import React from "react";
 import BlogPostImages from "./BlogPostImages";
 import BlogPostText from "./BlogPostText";
 
-const BlogPostTextImage = ({ sectionTitle, paragraph, smallImage, largeImage }) => {
+const BlogPostTextImage = ({ sectionTitle, paragraph, smallImage, largeImage, isPageLoaded }) => {
     return (
         <>
 
-            <BlogPostImages smallImage={smallImage} largeImage={largeImage} />
+            <BlogPostImages isPageLoaded={isPageLoaded} smallImage={smallImage} largeImage={largeImage} />
 
             <BlogPostText sectionTitle={sectionTitle} paragraph={paragraph} />
 

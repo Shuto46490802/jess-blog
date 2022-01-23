@@ -69,9 +69,11 @@ const Fashion = ({ blogPageIntroImage, blogPosts, numOfPosts, footerImage }) => 
     useEffect(() => {
         const _numOfPage = Math.ceil(numOfPosts / 10);
         setNumOfPage(_numOfPage);
+        setIsPageLoaded(true);
     }, [])
 
     const scrollerRef = useRef();
+    const [isPageLoaded, setIsPageLoaded] = useState(false);
 
     const sortDescending = (_posts) => {
         const result = _posts.sort((a, b) => Number.parseInt(b.dateForSort) - Number.parseInt(a.dateForSort));
@@ -110,17 +112,17 @@ const Fashion = ({ blogPageIntroImage, blogPosts, numOfPosts, footerImage }) => 
 
             <div className="components-wrapper">
 
-                <BlogIntro image={blogPageIntroImage} />
+                <BlogIntro isPageLoaded={isPageLoaded} image={blogPageIntroImage} />
 
                 <BlogFilter />
 
                 {
                     blogPosts.map((post) => (
                         post.category === "Skincare"
-                            ? <BlogThumbnailTemp1 slug={post.slug} image1={post.image1} image2={post.image2} title={post.title} thumbnailText={post.thumbnailText} category={post.category} date={post.date} />
+                            ? <BlogThumbnailTemp1 isPageLoaded={isPageLoaded} slug={post.slug} image1={post.image1} image2={post.image2} title={post.title} thumbnailText={post.thumbnailText} category={post.category} date={post.date} />
                             : post.category === "Mental Health"
-                                ? <BlogThumbnailTemp2 slug={post.slug} image1={post.image1} image2={post.image2} title={post.title} thumbnailText={post.thumbnailText} category={post.category} date={post.date} />
-                                : <BlogThumbnailTemp3 slug={post.slug} image1={post.image1} image2={post.image2} title={post.title} thumbnailText={post.thumbnailText} category={post.category} date={post.date} />
+                                ? <BlogThumbnailTemp2 isPageLoaded={isPageLoaded} slug={post.slug} image1={post.image1} image2={post.image2} title={post.title} thumbnailText={post.thumbnailText} category={post.category} date={post.date} />
+                                : <BlogThumbnailTemp3 isPageLoaded={isPageLoaded} slug={post.slug} image1={post.image1} image2={post.image2} title={post.title} thumbnailText={post.thumbnailText} category={post.category} date={post.date} />
                     ))
                 }
 
@@ -128,7 +130,7 @@ const Fashion = ({ blogPageIntroImage, blogPosts, numOfPosts, footerImage }) => 
 
             </div>
 
-            <Footer image={footerImage} />
+            <Footer isPageLoaded={isPageLoaded} image={footerImage} />
 
         </div>
     );

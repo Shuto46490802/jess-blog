@@ -66,12 +66,10 @@ const HomePage = ({ homeIntroImage, homeAboutImage, homeAboutImage2, homeAboutIm
   useEffect(() => {
     getScrollProxy(scrollerRef.current);
     sortNewPosts(homeNewPosts)
-
-    window.addEventListener("load", () => setIsPageLoaded(true));
+    setIsPageLoaded(true)
   }, [])
 
   const [isPageLoaded, setIsPageLoaded] = useState(false);
-
   const scrollerRef = useRef();
 
   const sortNewPosts = (_posts) => {
@@ -90,15 +88,15 @@ const HomePage = ({ homeIntroImage, homeAboutImage, homeAboutImage2, homeAboutIm
 
         <HomeAbout isPageLoaded={isPageLoaded} image1={homeAboutImage} image2={homeAboutImage2} image3={homeAboutImage3} />
 
-        <HomeNewPosts posts={homeNewPosts} />
+        <HomeNewPosts isPageLoaded={isPageLoaded} posts={homeNewPosts} />
 
-        <HomeCategory images={homeCategoriesImages} />
+        <HomeCategory isPageLoaded={isPageLoaded} images={homeCategoriesImages} />
 
-        <HomeInstagram instaPosts={instaPosts} />
+        <HomeInstagram isPageLoaded={isPageLoaded} instaPosts={instaPosts} />
 
       </div>
 
-      <Footer image={footerImage} />
+      <Footer isPageLoaded={isPageLoaded} image={footerImage} />
 
     </div>
   )

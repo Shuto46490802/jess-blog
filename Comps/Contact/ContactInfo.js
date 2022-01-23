@@ -1,11 +1,36 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { animateImageScale, animateParallaxImage, animateTextUp } from "../PageLayouts/animation";
 
-const ContactInfo = ({ image, smallImages }) => {
-    
+const ContactInfo = ({ image, smallImages, isPageLoaded }) => {
+
+    useEffect(() => {
+        if (isPageLoaded) {
+            animateImageScale(largeImgWrapperRef.current, largeImgRef.current);
+            animateTextUp(textWrapperRef.current, 0, textRefs.current);
+            animateParallaxImage(sectionRef.current, -200, smallImg1Ref.current);
+            animateParallaxImage(sectionRef.current, -50, smallImg2Ref.current);
+        }
+    }, [isPageLoaded])
+
+    const sectionRef = useRef();
+    const largeImgWrapperRef = useRef();
+    const largeImgRef = useRef();
+    const textWrapperRef = useRef();
+    const textRefs = useRef([]);
+    const addToTextRefs = (_el) => {
+        if (_el && !textRefs.current.includes(_el)) {
+            textRefs.current.push(_el)
+        } else {
+            textRefs.current = [];
+        }
+    };
+    const smallImg1Ref = useRef();
+    const smallImg2Ref = useRef();
+
     return (
-        <div className="contact-info d-flex flex-wrap pt-3 pb-3 pt-xl-4 pb-xl-4">
+        <div ref={sectionRef} className="contact-info d-flex flex-wrap pt-3 pb-3 pt-xl-4 pb-xl-4">
 
             <div className="contact-info-small-images__wrapper col-md-3 ps-2 pe-2 ps-md-4 pe-md-3 pt-md-1 d-md-none d-xl-block">
 
@@ -13,7 +38,7 @@ const ContactInfo = ({ image, smallImages }) => {
 
                     <div className="parallax__wrapper position-absolute t-0 l-0">
 
-                        <div className="parallax">
+                        <div style={{top: "100px"}} ref={smallImg1Ref} className="parallax">
 
                             <figure className="fig__wrapper">
 
@@ -31,7 +56,7 @@ const ContactInfo = ({ image, smallImages }) => {
 
                     <div className="parallax__wrapper position-absolute t-0 l-0">
 
-                        <div className="parallax">
+                        <div style={{top: "25px"}} ref={smallImg2Ref} className="parallax">
 
                             <figure className="fig__wrapper">
 
@@ -47,61 +72,73 @@ const ContactInfo = ({ image, smallImages }) => {
 
             </div>
 
-            <div className="contact-info-text__wrapper col-md-6 col-xl-4 ps-md-5 pt-md-1 mt-2 mt-md-0 ps-1 pe-1 pe-md-0">
+            <div ref={textWrapperRef} className="contact-info-text__wrapper col-md-6 col-xl-4 ps-md-5 pt-md-1 mt-2 mt-md-0 ps-1 pe-1 pe-md-0">
 
                 <div className="contact-info-text__inner mt-md-3">
 
                     <div className="contact-info-text">
 
-                        <h5 className="contact-info-heading mb-1">
+                        <h5 ref={addToTextRefs} className="contact-info-heading mb-1 should-animate">
                             Email:
                         </h5>
 
-                        <Link href="mailto:jessblog@gmail.com">
+                        <div ref={addToTextRefs} className="should-animate">
 
-                            <a>
+                            <Link href="mailto:jessblog@gmail.com">
 
-                                <span className="line-link small">
-                                    jessblog@gmail.com
-                                </span>
+                                <a >
 
-                            </a>
+                                    <span className="line-link small">
+                                        jessblog@gmail.com
+                                    </span>
 
-                        </Link>
+                                </a>
+
+                            </Link>
+
+                        </div>
 
                     </div>
 
                     <div className="contact-info-text">
 
-                        <h5 className="contact-info-heading mb-1">
+                        <h5 ref={addToTextRefs} className="contact-info-heading mb-1 should-animate">
                             Phone:
                         </h5>
 
-                        <Link href="tel:(647) 807-7695">
+                        <div ref={addToTextRefs} className="should-animate">
 
-                            <a>
+                            <Link href="tel:(647) 807-7695">
 
-                                <span className="line-link small">
-                                    (647) 807-7695
-                                </span>
+                                <a>
 
-                            </a>
+                                    <span className="line-link small">
+                                        (647) 807-7695
+                                    </span>
 
-                        </Link>
+                                </a>
+
+                            </Link>
+
+                        </div>
 
                     </div>
 
                     <div className="contact-info-text">
 
-                        <h5 className="contact-info-heading mb-1">
+                        <h5 ref={addToTextRefs} className="contact-info-heading mb-1 should-animate">
                             Address:
                         </h5>
 
-                        <span className="small">
-                            25 Saint Mary Street, Toronto
-                            <br />
-                            Ontario, Canada M4Y 1R2
-                        </span>
+                        <div ref={addToTextRefs} className="should-animate">
+
+                            <span className="small">
+                                25 Saint Mary Street, Toronto
+                                <br />
+                                Ontario, Canada M4Y 1R2
+                            </span>
+
+                        </div>
 
                     </div>
 
@@ -109,13 +146,13 @@ const ContactInfo = ({ image, smallImages }) => {
 
             </div>
 
-            <div className="contact-info-large-image__wrapper overflow-hidden col-md-6 col-xl-5 d-flex flex-column justify-content-center ps-1 pe-1 ps-md-0 pe-xl-4 mt-1 mt-md-0 position-relative">
+            <div ref={largeImgWrapperRef} className="contact-info-large-image__wrapper overflow-hidden col-md-6 col-xl-5 d-flex flex-column justify-content-center ps-1 pe-1 ps-md-0 pe-xl-4 mt-1 mt-md-0 position-relative">
 
                 <div className="contact-info-large-image position-relative">
 
                     <div className="parallax__wrapper position-absolute t-0 l-0 overflow-hidden">
 
-                        <div className="parallax">
+                        <div style={{ transformOrigin: "bottom" }} ref={largeImgRef} className="parallax">
 
                             <figure className="fig__wrapper">
 

@@ -1,44 +1,58 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-
+//Components
+import { animateGallery, animateTextUp } from "../PageLayouts/animation";
 //Lib
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Navigation } from 'swiper';
 
 SwiperCore.use([Navigation]);
 
-const HomeInstagram = ({ instaPosts }) => {
+const HomeInstagram = ({ instaPosts, isPageLoaded }) => {
+
+    useEffect(() => {
+        if (isPageLoaded) {
+            animateGallery(galleryTriggerRef.current, imageRefs.current);
+            animateTextUp(sectionRef.current, 0, textRefs.current)
+        }
+    }, [isPageLoaded])
+
+    const galleryTriggerRef = useRef();
+    const imageRefs = useRef([]);
+    const addToImageRefs = (_el) => {
+        if (_el && !imageRefs.current.includes(_el)) {
+            imageRefs.current.push(_el)
+        } else {
+            imageRefs.current = [];
+        }
+    };
+    const sectionRef = useRef();
+    const textRefs = useRef([]);
+    const addToTextRefs = (_el) => {
+        if (_el && !textRefs.current.includes(_el)) {
+            textRefs.current.push(_el)
+        } else {
+            textRefs.current = [];
+        }
+    };
+
     return (
-        <div className="home-instagram position-relative d-flex flex-column">
+        <div ref={sectionRef} className="home-instagram position-relative d-flex flex-column pt-1 pb-3 pt-md-3 pt-xl-5 pb-xl-5">
 
-            <div className="home-instagram-title__wrapper ps-2 mb-2">
+            <div className="home-instagram-title__wrapper align-self-center text-center  mb-2">
 
-                <p className="home-instagram-title small mb-2">
+                <h6 ref={addToTextRefs} className="home-instagram-title small mb-2 should-animate">
                     INSTAGRAM
-                </p>
+                </h6>
 
-                <h2 className="home-instagram-follow mb-6">
-                    Folow me
-                    <br />
-                    @jessblog
-                </h2>
-
-                <p className="home-instagram-lnk small">
+                <h3 ref={addToTextRefs} className="home-instagram-lnk h3 mb-3 should-animate">
                     Become part of my journey
-                </p>
-
-                <Link href="/">
-                    <a>
-                        <span className="line-link lh-1 small">
-                            Follow Me
-                        </span>
-                    </a>
-                </Link>
+                </h3>
 
             </div>
 
-            <div className="home-instagram-gallery__wrapper overflow-hidden">
+            <div ref={galleryTriggerRef} className="home-instagram-gallery__wrapper overflow-hidden mb-4">
 
                 <div className="home-instagram-gallery position-relative h-100 w-100 ps-2">
 
@@ -71,37 +85,41 @@ const HomeInstagram = ({ instaPosts }) => {
                             instaPosts.map((post, index) => (
                                 <SwiperSlide key={index}>
 
-                                    <div className="home-instagram-gallery-image position-relative ">
+                                    <div ref={addToImageRefs} className="should-animate">
 
-                                        <div className="home-instagram-gallery-image__inner">
+                                        <div className="home-instagram-gallery-image position-relative ">
 
-                                            <figure className="fig__wrapper">
+                                            <div className="home-instagram-gallery-image__inner">
 
-                                                <Image src={post.mediaUrl} layout="fill" objectFit={"cover"} />
+                                                <figure className="fig__wrapper">
 
-                                            </figure>
+                                                    <Image src={post.mediaUrl} layout="fill" objectFit={"cover"} />
+
+                                                </figure>
+
+                                            </div>
 
                                         </div>
 
-                                    </div>
+                                        <div className="home-instagram-gallery-caption__wrapper">
 
-                                    <div className="home-instagram-gallery-caption__wrapper">
+                                            <p className="home-instagram-gallery-category mb-6 small">
+                                                {post.time}
+                                            </p>
 
-                                        <p className="home-instagram-gallery-category mb-6">
-                                            {post.time}
-                                        </p>
+                                            <p className="home-instagram-gallery-description m-0 small">
+                                                {post.caption}
+                                            </p>
 
-                                        <p className="home-instagram-gallery-description m-0 small">
-                                            {post.caption}
-                                        </p>
+                                            <Link href={post.link}>
 
-                                        <Link href={post.link}>
+                                                <a>
+                                                    <span className="line-link small">View On Instagram</span>
+                                                </a>
 
-                                            <a>
-                                                <span className="line-link small">View On Instagram</span>
-                                            </a>
+                                            </Link>
 
-                                        </Link>
+                                        </div>
 
                                     </div>
 

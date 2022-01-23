@@ -1,15 +1,46 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-
+//Components
+import { animateParallaxInsideImage, animateTextUp } from "../PageLayouts/animation";
 //Lib
 import { Swiper, SwiperSlide } from 'swiper/react';
+import ScrollTrigger from 'gsap/ScrollTrigger';
 
-const HomeCategory = ({ images }) => {
+const HomeCategory = ({ images, isPageLoaded }) => {
+
+    useEffect(() => {
+        if(isPageLoaded){
+            animateParallaxInsideImage(imgTriggerRefs.current[0], imgRefs.current[0]);
+            animateParallaxInsideImage(imgTriggerRefs.current[1], imgRefs.current[1]);
+            animateParallaxInsideImage(imgTriggerRefs.current[2], imgRefs.current[2]);
+            animateTextUp(sectionRef.current, 0, headingRef.current);
+        }
+    }, [isPageLoaded])
+
+    const imgRefs = useRef([]);
+    const addToImgRefs = (_el) => {
+        if (_el && !imgRefs.current.includes(_el)) {
+            imgRefs.current.push(_el)
+        } else {
+            imgRefs.current = [];
+        }
+    };
+    const imgTriggerRefs = useRef([]);
+    const addToImgTriggerRefs = (_el) => {
+        if (_el && !imgTriggerRefs.current.includes(_el)) {
+            imgTriggerRefs.current.push(_el)
+        } else {
+            imgTriggerRefs.current = [];
+        }
+    };
+    const sectionRef = useRef();
+    const headingRef = useRef();
+
     return (
-        <div className="home-category position-relative d-flex flex-column flex-center mt-4 mx-2">
+        <div ref={sectionRef} className="home-category position-relative d-flex flex-column flex-center mx-md-2 pt-1 pb-3 pt-md-3 pt-xl-5 pb-xl-5">
 
-            <h2 className="home-category-title h1 text-center">
+            <h2 ref={headingRef} className="home-category-title h1 text-center">
 
                 <span>
                     Dignissim convallis aenean et tortor
@@ -20,11 +51,19 @@ const HomeCategory = ({ images }) => {
             <div className="home-category-gallery__wrapper position-relative h-100 w-100 mt-3 mt-md-4">
 
                 <Swiper
-                    direction={"horizontal"}
                     loop={false}
                     observer={true}
-                    slidesPerView={3}
-                    spaceBetween={40}
+                    breakpoints={{
+                        0: {
+                            direction: "vertical",
+                            spaceBetween: 0
+                        },
+                        768: {
+                            direction: "horizontal",
+                            spaceBetween: 40,
+                            slidesPerView: 3
+                        }
+                    }}
                 >
 
                     {
@@ -37,13 +76,13 @@ const HomeCategory = ({ images }) => {
 
                                         <div className="home-category-gallery-image__inner">
 
-                                            <div className="parallax__wrapper t-0 l-0 overflow-hidden position-absolute">
+                                            <div ref={addToImgTriggerRefs} className="parallax__wrapper t-0 l-0 overflow-hidden position-absolute">
 
-                                                <div className="parallax should-animate">
+                                                <div ref={addToImgRefs} className="parallax should-animate">
 
                                                     <figure className="fig__wrapper">
 
-                                                        <Image src={image} layout="fill" />
+                                                        <Image src={image} layout="fill" objectFit="cover" />
 
                                                     </figure>
 

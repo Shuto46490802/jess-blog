@@ -1,9 +1,23 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Image from "next/image";
+import { animateParallaxImage, animateParallaxInsideImage } from "../PageLayouts/animation";
 
-const BlogPostImages = ({ smallImage, largeImage }) => {
+const BlogPostImages = ({ smallImage, largeImage, isPageLoaded }) => {
+
+    useEffect(() => {
+        if(isPageLoaded){
+            animateParallaxInsideImage(largeImgWrapperRef.current, largeImgRef.current);
+            animateParallaxImage(sectionRef.current, -100, smallImgRef.current)
+        }
+    }, [isPageLoaded]);
+
+    const largeImgWrapperRef = useRef();
+    const largeImgRef = useRef();
+    const sectionRef = useRef();
+    const smallImgRef = useRef();
+
     return (
-        <div className="blog-post-images d-flex flex-md-row flex-column flex-column-reverse">
+        <div ref={sectionRef} className="blog-post-images d-flex flex-md-row flex-column flex-column-reverse">
 
             <div className="col-md-6 ps-md-3 d-flex flex-column align-items-start justify-content-center pt-md-4 pb-md-3">
 
@@ -13,7 +27,7 @@ const BlogPostImages = ({ smallImage, largeImage }) => {
 
                         <div className="parallax__wrapper">
 
-                            <div className="parallax">
+                            <div style={{top: "50px"}} ref={smallImgRef} className="parallax">
 
                                 <div className="blog-post-small-image-mobile position-relative">
 
@@ -45,7 +59,7 @@ const BlogPostImages = ({ smallImage, largeImage }) => {
 
                     <div className="parallax__wrapper d-none d-md-block">
 
-                        <div className="parallax">
+                        <div style={{top: "50px"}} ref={smallImgRef} className="parallax">
 
                             <div className="blog-post-small-image-not-mobile position-relative">
 
@@ -75,9 +89,9 @@ const BlogPostImages = ({ smallImage, largeImage }) => {
 
                 <div className="overflow-hidden">
 
-                    <div className="parallax__wrapper position-absolute t-0 l-0">
+                    <div ref={largeImgWrapperRef} className="parallax__wrapper overflow-hidden position-absolute t-0 l-0">
 
-                        <div className="parallax">
+                        <div ref={largeImgRef} className="parallax">
 
                             <div className="blog-post-large-image h-100">
 

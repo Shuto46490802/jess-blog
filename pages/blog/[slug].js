@@ -109,33 +109,35 @@ const BlogPost = ({  morePosts, blogPost, footerImage }) => {
 
     useEffect(() => {
         getScrollProxy(scrollerRef.current);
+        setIsPageLoaded(true);
     }, [router])
 
     const scrollerRef = useRef();
+    const [isPageLoaded, setIsPageLoaded] = useState(false);
 
     return (
         <div ref={scrollerRef} className="page__wrapper">
 
             <div className="components-wrapper">
 
-                <BlogPostIntro image={blogPost.featureImages[0]} title={blogPost.title} thumbnailText={blogPost.thumbnailText} category={blogPost.category} date={blogPost.date} />
+                <BlogPostIntro isPageLoaded={isPageLoaded} image={blogPost.featureImages[0]} title={blogPost.title} thumbnailText={blogPost.thumbnailText} category={blogPost.category} date={blogPost.date} />
 
                 <BlogPostText sectionTitle={blogPost.sectionTitles[0]} paragraph={blogPost.paragraphs[0]} />
 
                 {
                     blogPost.numOfSection.map((num, index) => {
                         return (
-                            <BlogPostTextImage key={index} sectionTitle={blogPost.sectionTitles[index + 1]} paragraph={blogPost.paragraphs[index + 1]} smallImage={blogPost.sectionSmallImages[index]} largeImage={blogPost.featureImages[index + 1]} />
+                            <BlogPostTextImage isPageLoaded={isPageLoaded} key={index} sectionTitle={blogPost.sectionTitles[index + 1]} paragraph={blogPost.paragraphs[index + 1]} smallImage={blogPost.sectionSmallImages[index]} largeImage={blogPost.featureImages[index + 1]} />
                         )
 
                     })
                 }
 
-                <MorePost posts={morePosts} />
+                <MorePost isPageLoaded={isPageLoaded} posts={morePosts} />
 
             </div>
 
-            <Footer image={footerImage} />
+            <Footer isPageLoaded={isPageLoaded} image={footerImage} />
 
         </div>
     );

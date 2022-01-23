@@ -372,6 +372,8 @@
 }
 
 .home-about-iamges__wrapper {
+  @media (max-width: 767.9px) {
+  }
   @media (min-width: 1200px) {
     transform: translateY(7rem);
   }
@@ -405,9 +407,6 @@
 }
 
 .home-about-image3__wrapper {
-  position: absolute;
-  bottom: 10rem;
-  right: 9rem;
   z-index: 10;
   width: 50vw;
   @media (min-width: 768px) {
@@ -450,6 +449,10 @@
   display: block;
   padding-bottom: 118%;
 }
+.home-instagram-title {
+  font-weight: 400;
+  letter-spacing: 0.5rem;
+}
 
 //HomeCategory.js
 .home-category-gallery-image__inner:before {
@@ -468,6 +471,11 @@
 
 .home-category-gallery-image-discover {
   top: 85%;
+}
+.home-category-gallery-image__wrapper {
+  @media (max-width: 767.98px) {
+    height: 100vw !important;
+  }
 }
 
 //Footer.js
@@ -500,8 +508,16 @@
   font-size: 0.85rem;
 }
 
+.footer-link {
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+  overflow: hidden;
+}
+
 .footer-logo {
-  font-size: 15vw;
+  font-size: 18vw;
+  letter-spacing: -0.7rem;
+  line-height: 0.8;
 }
 
 //AboutIntro.js
@@ -858,15 +874,15 @@
   padding: 0.5rem 0.5rem 0.5rem 0;
   border-bottom: 2px solid rgba(0, 0, 0, 0.1);
 
-  @media (min-width: 768px)  {
+  @media (min-width: 768px) {
     padding: 0.5rem 1rem;
   }
 
-  p{
+  p {
     font-size: 0.75rem;
   }
 
-  p:last-child{
+  p:last-child {
     margin-bottom: 0;
   }
 }

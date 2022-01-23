@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Head from 'next/head';
 //Components
 import { getScrollProxy } from "../Comps/PageLayouts/Scrollbar";
@@ -39,26 +39,28 @@ const About = ({ aboutIntroImage, aboutMeImage, aboutMeSmallImages, aboutContent
 
     useEffect(() => {
         getScrollProxy(scrollerRef.current);
+        setIsPageLoaded(true);
     }, [])
 
     const scrollerRef = useRef();
+    const [isPageLoaded, setIsPageLoaded] = useState(false);
 
     return (
         <div ref={scrollerRef} className="page__wrapper">
 
             <div className="components-wrapper">
 
-                <AboutIntro image={aboutIntroImage} />
+                <AboutIntro isPageLoaded={isPageLoaded} image={aboutIntroImage} />
 
-                <AboutMe image={aboutMeImage} smallImages={aboutMeSmallImages} />
+                <AboutMe isPageLoaded={isPageLoaded} image={aboutMeImage} smallImages={aboutMeSmallImages} />
 
-                <AboutContent1 smallImage={aboutContent1SmallImage} largeImage={aboutContent1LargeImage} secondaryImages={aboutContent1SecondaryImages} />
+                <AboutContent1 isPageLoaded={isPageLoaded} smallImage={aboutContent1SmallImage} largeImage={aboutContent1LargeImage} secondaryImages={aboutContent1SecondaryImages} />
 
-                <AboutContent2 largeImages={aboutContent2LargeImages} secondaryImages={aboutContent2SecondaryImages} />
+                <AboutContent2 isPageLoaded={isPageLoaded} largeImages={aboutContent2LargeImages} secondaryImages={aboutContent2SecondaryImages} />
 
             </div>
 
-            <Footer image={footerImage} />
+            <Footer isPageLoaded={isPageLoaded} image={footerImage} />
 
         </div>
     );

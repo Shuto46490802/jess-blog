@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Head from 'next/head';
 
 //Components
@@ -37,23 +37,26 @@ const Contact = ({ contactIntroImage, contactContentImage1, contactInfoImage, co
     const scrollerRef = useRef();
 
     useEffect(() => {
-        getScrollProxy(scrollerRef.current)
-    }, [])
+        getScrollProxy(scrollerRef.current);
+        setIsPageLoaded(true);
+    }, []);
+
+    const [isPageLoaded, setIsPageLoaded] = useState(false);
 
     return (
         <div ref={scrollerRef} className="page__wrapper">
 
             <div className="components-wrapper">
 
-                <ContactIntro image={contactIntroImage} />
+                <ContactIntro isPageLoaded={isPageLoaded} image={contactIntroImage} />
 
-                <ContactContent image1={contactContentImage1} />
+                <ContactContent isPageLoaded={isPageLoaded} image1={contactContentImage1} />
 
-                <ContactInfo image={contactInfoImage} smallImages={contactInfoSmallImages} />
+                <ContactInfo isPageLoaded={isPageLoaded} image={contactInfoImage} smallImages={contactInfoSmallImages} />
 
             </div>
 
-            <Footer image={footerImage} />
+            <Footer isPageLoaded={isPageLoaded} image={footerImage} />
 
         </div>
     );

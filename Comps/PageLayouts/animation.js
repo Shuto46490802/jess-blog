@@ -40,7 +40,7 @@ export const animateParallaxInsideImage = (_trigger, ..._image) => {
             // refreshPriority: -1,
             onRefresh: () => {
 
-                const _height = _trigger.clientHeight * 1.08;
+                const _height = _trigger.clientHeight * 1.1;
                 const _top = `-${_height / 3.67}`
 
                 gsap.set([_image],
@@ -66,8 +66,6 @@ export const animateParallaxInsideImage = (_trigger, ..._image) => {
 
 export const animateParallaxImage = (_trigger, _factor, _image) => {
 
-    console.log(_trigger && _image)
-
     if (_trigger && _image) {
 
         const trigger = {
@@ -90,7 +88,7 @@ export const animateParallaxImage = (_trigger, _factor, _image) => {
 
 }
 
-export const animateTextUp = (_trigger, ..._text) => {
+export const animateTextUp = (_trigger, _delay, ..._text) => {
 
     if (_trigger && [_text]) {
 
@@ -98,7 +96,7 @@ export const animateTextUp = (_trigger, ..._text) => {
             trigger: _trigger,
             start: "top bottom",
             toggleActions: "play none none reset",
-            ease: "Power2.easeInOut",
+            ease: "Power2.easeOut"
         }
 
         gsap.fromTo([_text],
@@ -111,7 +109,8 @@ export const animateTextUp = (_trigger, ..._text) => {
                 opacity: 1,
                 duration: 0.75,
                 scrollTrigger: trigger,
-                stagger: 0.05
+                stagger: 0.1,
+                delay: _delay
             })
 
     }
@@ -150,6 +149,86 @@ export const animateButtonScale = (_trigger, _delay, _button) => {
                     opacity: 1,
                     duration: 1,
                 }, 0.2)
+
+    }
+
+}
+
+export const animateGallery = (_trigger, ..._image) => {
+
+    if (_trigger && [_image]) {
+
+        const trigger = {
+            trigger: _trigger,
+            start: "top bottom",
+            toggleActions: "play none none reset",
+            ease: "Power2.easeOut",
+        }
+
+        gsap.fromTo([_image],
+            {
+                x: 300
+            },
+            {
+                x: 0,
+                duration: 0.75,
+                scrollTrigger: trigger,
+                stagger: 0.1
+            })
+
+    }
+
+}
+
+export const animateTextHidden = (_trigger, _duration, ..._text) => {
+
+    if (_trigger && [_text]) {
+
+        const trigger = {
+            trigger: _trigger,
+            start: "top bottom",
+            toggleActions: "play none none reset",
+            ease: "Power2.easeOut"
+        }
+
+        gsap.fromTo([_text],
+            {
+                yPercent: 120,
+                opacity: 0
+            },
+            {
+                yPercent: 0,
+                opacity: 1,
+                duration: _duration,
+                scrollTrigger: trigger,
+                stagger: 0.1,
+            })
+
+    }
+
+}
+
+export const animateImageScale = (_trigger, _image) => {
+
+    if(_trigger && _image){
+
+        const trigger = {
+            trigger: _trigger,
+            start: "top bottom",
+            toggleActions: "play none none reset",
+            ease: "Power2.easeOut"
+        }
+
+        gsap.fromTo(_image,
+            {
+                scale: 1.35
+            },
+            {
+                scale: 1,
+                duration: 0.75,
+                scrollTrigger: trigger,
+                stagger: 0.1,
+            })
 
     }
 

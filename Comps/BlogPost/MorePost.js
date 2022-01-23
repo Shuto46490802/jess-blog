@@ -1,23 +1,44 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
+//Components
+import { animateGallery, animateTextUp } from "../PageLayouts/animation";
 
-const MorePost = ({ posts }) => {
+const MorePost = ({ posts, isPageLoaded }) => {
+
+    useEffect(() => {
+        if(isPageLoaded){
+            animateGallery(galleryWrapperRef.current, imageRefs.current);
+            animateTextUp(sectionRef.current, 0, textRef.current)
+        }
+    }, [isPageLoaded]);
+
+    const sectionRef = useRef();
+    const textRef = useRef();
+    const galleryWrapperRef = useRef();
+    const imageRefs = useRef([]);
+    const addToImageRefs = (_el) => {
+        if (_el && !imageRefs.current.includes(_el)) {
+            imageRefs.current.push(_el)
+        } else {
+            imageRefs.current = [];
+        }
+    };
 
     return (
-        <div className="more-posts d-flex flex-column pt-md-3 pb-md-5 px-md-3">
+        <div ref={sectionRef} className="more-posts d-flex flex-column pt-md-3 pb-md-5 px-md-3">
 
             <div className="d-flex flex-center text-center py-2 mb-md-2">
 
-                <h2 className="h1 col-md-5 col-xl-3 px-3 px-md-0">
+                <h2 ref={textRef} className="h1 col-md-5 col-xl-3 px-3 px-md-0">
                     more-stories
                 </h2>
 
             </div>
 
-            <div className="more-posts-posts__wrapper d-flex flex-wrap">
+            <div ref={galleryWrapperRef} className="more-posts-posts__wrapper d-flex flex-wrap">
 
-                <div className="col-md-4">
+                <div ref={addToImageRefs} className="col-md-4">
 
                     <Link href={`/blog/${posts[0].slug}`}>
 
@@ -63,7 +84,7 @@ const MorePost = ({ posts }) => {
 
                 </div>
 
-                <div className="col-md-4">
+                <div ref={addToImageRefs} className="col-md-4">
 
                     <Link href={`/blog/${posts[1].slug}`}>
 
@@ -108,7 +129,7 @@ const MorePost = ({ posts }) => {
                     </Link>
                 </div>
 
-                <div className="col-md-4">
+                <div ref={addToImageRefs} className="col-md-4">
 
                     <Link href={`/blog/${posts[2].slug}`}>
 

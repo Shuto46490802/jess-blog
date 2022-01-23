@@ -1,25 +1,47 @@
 import React, { useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-
+//Components
+import { animateTextUp, animateButtonScale, animateGallery } from "../PageLayouts/animation";
 //Lib
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Navigation } from 'swiper';
 
 SwiperCore.use([Navigation]);
 
-const HomeNewPosts = ({ posts }) => {
+const HomeNewPosts = ({ posts, isPageLoaded }) => {
 
+    useEffect(() => {
+        if (isPageLoaded) {
+            animateButtonScale(textTriggerRef.current, 0, headingRef.current);
+            animateTextUp(textTriggerRef.current, 0.5, subHeadingRef.current);
+            animateGallery(galleryTriggerRef.current, imageRefs.current)
+        }
+    }, [isPageLoaded])
+
+    const textTriggerRef = useRef();
+    const headingRef = useRef();
+    const subHeadingRef = useRef();
+    const galleryTriggerRef = useRef();
+    const imageRefs = useRef([]);
+    const addToImageRefs = (_el) => {
+        if (_el && !imageRefs.current.includes(_el)) {
+            imageRefs.current.push(_el)
+        } else {
+            imageRefs.current = [];
+        }
+    };
+    
     return (
-        <div className="home-new-posts position-relative">
+        <div className="home-new-posts overflow-hidden position-relative pt-1 pb-3 pt-md-3 pt-xl-5 pb-xl-5">
 
-            <div className="home-new-posts-heading__wrapper d-flex justify-content-center pe-md-0 pt-3 pt-md-1 text-center overflow-sm-down-hidden">
+            <div ref={textTriggerRef} className="home-new-posts-heading__wrapper d-flex justify-content-center pe-md-0 pt-3 pt-md-1 text-center overflow-sm-down-hidden">
 
                 <div className="home-new-posts-heading__inner col-md-4 ps-2 pe-2 ps-md-0 pe-md-0">
 
                     <div className="home-new-posts-heading ">
 
-                        <h3 className="home-new-posts-heading-text h2 ls-2 text-center mb-1">
+                        <h3 ref={headingRef} className="home-new-posts-heading-text h2 ls-2 text-center mb-1 should-animate">
 
                             Explore New Posts
 
@@ -27,7 +49,7 @@ const HomeNewPosts = ({ posts }) => {
 
                     </div>
 
-                    <p className="home-new-posts-subheading-text text-center should-animate">
+                    <p ref={subHeadingRef} className="home-new-posts-subheading-text text-center should-animate">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dis parturient montes nascetur ridiculus.
                     </p>
 
@@ -35,7 +57,7 @@ const HomeNewPosts = ({ posts }) => {
 
             </div>
 
-            <div className="home-new-posts-gallery__wrapper overflow-hidden">
+            <div ref={galleryTriggerRef} className="home-new-posts-gallery__wrapper overflow-hidden">
 
                 <Link href="/">
 
@@ -84,7 +106,7 @@ const HomeNewPosts = ({ posts }) => {
 
                             <Link href="/">
 
-                                <a className="h-100 w-100 d-md-flex flex-center">
+                                <a ref={addToImageRefs} className="h-100 w-100 d-md-flex flex-center should-animate">
 
                                     <span style={{ transform: "rotate(-90deg)" }} className="home-new-posts-check-all-text h2 ls-1">
 
@@ -106,7 +128,7 @@ const HomeNewPosts = ({ posts }) => {
 
                                     <Link href="/">
 
-                                        <a className="h-100 w-100 d-flex flex-column">
+                                        <a ref={addToImageRefs} className="h-100 w-100 d-flex flex-column should-animate">
 
                                             <div className="home-new-posts-gallery-image position-relative ">
 

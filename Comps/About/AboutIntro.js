@@ -1,12 +1,24 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
+//Components
+import { animateIntroImage } from "../PageLayouts/animation";
 
-const AboutIntro = ({ image }) => {
+const AboutIntro = ({ image, isPageLoaded }) => {
+
+    useEffect(() => {
+        if(isPageLoaded){{
+            animateIntroImage(sectionRef.current, imgRef.current);
+        }}
+    }, [isPageLoaded])
+
+    const sectionRef = useRef();
+    const imgRef = useRef();
+
     return (
-        <div className="about-intro d-flex flex-column flex-center p-1 p-md-0 overflow-hidden position-relative vh-100">
+        <div ref={sectionRef} className="about-intro d-flex flex-column flex-center p-1 p-md-0 overflow-hidden position-relative vh-100">
 
             <div className="parallax__wrapper t-0 l-0 overflow-hidden position-absolute">
 
-                <div className="parallax should-animate">
+                <div ref={imgRef} className="parallax should-animate">
 
                     <div className="image cover bg-center h-100 w-100" style={{ backgroundImage: `url(${image})` }}/>
 

@@ -11,7 +11,7 @@ const HomeAbout = ({ image1, image2, image3, isPageLoaded }) => {
             animateParallaxInsideImage(imageTriggerRef.current, [image1Ref.current]);
             animateParallaxImage(sectionRef.current, -100, image2Ref.current);
             animateParallaxImage(sectionRef.current, -500, image3Ref.current);
-            animateTextUp(textTriggerRef.current, textRefs.current);
+            animateTextUp(textTriggerRef.current, 0, textRefs.current);
             animateButtonScale(textTriggerRef.current, 0.5, buttonRef.current);
         }
     }, [isPageLoaded])
@@ -34,7 +34,7 @@ const HomeAbout = ({ image1, image2, image3, isPageLoaded }) => {
     const buttonRef = useRef();
 
     return (
-        <section ref={sectionRef} className="home-about position-relative d-flex flex-column flex-md-row align-items-start pt-4 pb-3 pt-md-5 pb-md-5">
+        <section ref={sectionRef} className="home-about position-relative d-flex flex-column flex-md-row align-items-start pt-1 pb-3 pt-md-3 pt-xl-5 pb-xl-5">
 
             <div className="home-about-image1__wrapper position-relative">
 
@@ -62,7 +62,7 @@ const HomeAbout = ({ image1, image2, image3, isPageLoaded }) => {
 
                 <div className="home-about-header__wrapper">
 
-                    <h3 ref={addToTextRefs} className="home-about-header position-relative ls-1 ps-2 pe-1 ps-md-0 pe-md-0 d-none d-md-flex flex-column mb-0">
+                    <h3 ref={addToTextRefs} className="home-about-header position-relative ls-1 ps-2 pe-1 ps-md-0 pe-md-0 d-none d-md-flex flex-column mb-0 should-animate">
 
                         <div className="lines">
                             <span>Lorem ipsum dolor sit amet,</span>
@@ -74,7 +74,7 @@ const HomeAbout = ({ image1, image2, image3, isPageLoaded }) => {
 
                     </h3>
 
-                    <h3 ref={addToTextRefs} className="home-about-header position-relative ls-1 ps-2 pe-1 ps-md-0 pe-md-0 d-md-none d-flex mb-0">
+                    <h3 ref={addToTextRefs} className="home-about-header position-relative ls-1 ps-2 pe-1 ps-md-0 pe-md-0 d-md-none d-flex mb-0 should-animate">
 
                         <div className="lines">
                             <span>Lorem ipsum dolor sit amet, et dolore magna aliqua.</span>
@@ -84,9 +84,9 @@ const HomeAbout = ({ image1, image2, image3, isPageLoaded }) => {
 
                 </div>
 
-                <div className="home-about-text__wrapper ">
+                <div className="home-about-text__wrapper overflow-hidden">
 
-                    <div ref={addToTextRefs} className="home-about-description small should-animate ms-md-3 mt-2 mt-lg-2 ps-2 pe-2 ps-md-0 pe-xl-1">
+                    <div ref={addToTextRefs} className="home-about-description small should-animate ms-md-3 mt-2 mt-lg-2 ps-2 pe-2 ps-md-0 pe-xl-1 should-animate">
 
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 
@@ -94,7 +94,7 @@ const HomeAbout = ({ image1, image2, image3, isPageLoaded }) => {
 
                     </div>
 
-                    <div ref={buttonRef} className="home-about-link d-flex jsutify-content-center d-md-inline-block ms-md-3 mt-3">
+                    <div ref={buttonRef} className="home-about-link d-flex justify-content-center d-md-inline-block ms-md-3 mt-3 should-animate">
 
                         <Link href="/about">
 
@@ -112,7 +112,7 @@ const HomeAbout = ({ image1, image2, image3, isPageLoaded }) => {
 
                     <div className="home-about-image2__wrapper">
 
-                        <div ref={image2Ref} style={{ top: "100px" }} className="parallax">
+                        <div ref={image2Ref} style={{ top: "100px" }} className="parallax should-animate">
 
                             <div className="home-about-image2__inner overflow-hidden">
 
@@ -130,7 +130,7 @@ const HomeAbout = ({ image1, image2, image3, isPageLoaded }) => {
 
                     <div className="home-about-image3__wrapper">
 
-                        <div ref={image3Ref} style={{ top: "500px" }} className="parallax">
+                        <div ref={image3Ref} style={{ top: "500px" }} className="parallax should-animate">
 
                             <div className="home-about-image3__inner overflow-hidden">
 

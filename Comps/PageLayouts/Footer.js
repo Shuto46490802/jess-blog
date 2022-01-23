@@ -1,17 +1,71 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
+//Components
+import { animateParallaxInsideImage, animateTextHidden } from "../PageLayouts/animation";
 
+const Footer = ({ image, isPageLoaded }) => {
 
-const Footer = ({ image }) => {
+    useEffect(() => {
+        if (isPageLoaded) {
+            animateParallaxInsideImage(imgTriggerRef.current, imgRef.current);
+            animateTextHidden(linkWrapperRef1.current, 0.75, linkRefs1.current);
+            animateTextHidden(linkWrapperRef2.current, 0.75, linkRefs2.current);
+            animateTextHidden(linkWrapperRef3.current, 0.75, linkRefs3.current);
+            animateTextHidden(linkWrapperRef4.current, 0.75, linkRefs4.current);
+            animateTextHidden(logoWrapperRef.current, 1.5, logoRef.current);
+        }
+    }, [isPageLoaded])
+
+    const imgTriggerRef = useRef();
+    const imgRef = useRef();
+    const linkWrapperRef1 = useRef();
+    const linkWrapperRef2 = useRef();
+    const linkWrapperRef3 = useRef();
+    const linkWrapperRef4 = useRef();
+    const linkRefs1 = useRef([]);
+    const addToLinkRefs1 = (_el) => {
+        if (_el && !linkRefs1.current.includes(_el)) {
+            linkRefs1.current.push(_el)
+        } else {
+            linkRefs1.current = [];
+        }
+    };
+    const linkRefs2 = useRef([]);
+    const addToLinkRefs2 = (_el) => {
+        if (_el && !linkRefs2.current.includes(_el)) {
+            linkRefs2.current.push(_el)
+        } else {
+            linkRefs2.current = [];
+        }
+    };
+    const linkRefs3 = useRef([]);
+    const addToLinkRefs3 = (_el) => {
+        if (_el && !linkRefs3.current.includes(_el)) {
+            linkRefs3.current.push(_el)
+        } else {
+            linkRefs3.current = [];
+        }
+    };
+    const linkRefs4 = useRef([]);
+    const addToLinkRefs4 = (_el) => {
+        if (_el && !linkRefs4.current.includes(_el)) {
+            linkRefs4.current.push(_el)
+        } else {
+            linkRefs4.current = [];
+        }
+    };
+    const logoWrapperRef = useRef();
+    const logoRef = useRef();
+
     return (
         <div className="footer position-relative overflow-hidden">
 
             <div className="footer-image__wrapper mx-2 d-flex flex-column justify-content-between overflow-hidden position-relative">
 
-                <div className="parallax__wrapper t-0 l-0 overflow-hidden position-absolute">
+                <div ref={imgTriggerRef} className="parallax__wrapper t-0 l-0 overflow-hidden position-absolute">
 
-                    <div className="parallax">
+                    <div ref={imgRef} className="parallax">
 
                         <figure className="fig__wrapper">
 
@@ -52,16 +106,19 @@ const Footer = ({ image }) => {
 
                 <ul className="footer-links d-flex justify-content-around flex-wrap p-0 m-0">
 
-                    <li className="footer-link__wrapper d-flex flex-column col-md-3 col-6 py-md-1 py-2 px-2">
+                    <li ref={linkWrapperRef1} className="footer-link__wrapper d-flex flex-column col-md-3 col-6 py-md-1 py-2 px-2">
 
-                        <span className="footer-link-title uppercase pb-7">
+                        <span className="footer-link-title uppercase pb-6">
                             site
                         </span>
 
                         <Link href="/">
 
                             <a className="footer-link small">
-                                Home
+
+                                <div ref={addToLinkRefs1}>
+                                    Home
+                                </div>
                             </a>
 
                         </Link>
@@ -69,7 +126,11 @@ const Footer = ({ image }) => {
                         <Link href="/">
 
                             <a className="footer-link small">
-                                About
+
+                                <div ref={addToLinkRefs1}>
+                                    About
+                                </div>
+
                             </a>
 
                         </Link>
@@ -77,7 +138,11 @@ const Footer = ({ image }) => {
                         <Link href="/">
 
                             <a className="footer-link small">
-                                Contact
+
+                                <div ref={addToLinkRefs1}>
+                                    Contact
+                                </div>
+
                             </a>
 
                         </Link>
@@ -85,23 +150,31 @@ const Footer = ({ image }) => {
                         <Link href="/">
 
                             <a className="footer-link small">
-                                Blog
+
+                                <div ref={addToLinkRefs1}>
+                                    Blog
+                                </div>
+
                             </a>
 
                         </Link>
 
                     </li>
 
-                    <li className="footer-link__wrapper d-flex flex-column col-md-3 col-6 py-md-1 py-2 px-2">
+                    <li ref={linkWrapperRef2} className="footer-link__wrapper d-flex flex-column col-md-3 col-6 py-md-1 py-2 px-2">
 
-                        <span className="footer-link-title uppercase pb-7">
+                        <span className="footer-link-title uppercase pb-6">
                             posts
                         </span>
 
                         <Link href="/">
 
                             <a className="footer-link small">
-                                Skincare
+
+                                <div ref={addToLinkRefs2}>
+                                    Skincare
+                                </div>
+
                             </a>
 
                         </Link>
@@ -109,7 +182,11 @@ const Footer = ({ image }) => {
                         <Link href="/">
 
                             <a className="footer-link small">
-                                Mental Health
+
+                                <div ref={addToLinkRefs2}>
+                                    Mental Health
+                                </div>
+
                             </a>
 
                         </Link>
@@ -117,23 +194,31 @@ const Footer = ({ image }) => {
                         <Link href="/">
 
                             <a className="footer-link small">
-                                Fashion
+
+                                <div ref={addToLinkRefs2}>
+                                    Fashion
+                                </div>
+
                             </a>
 
                         </Link>
 
                     </li>
 
-                    <li className="footer-link d-flex flex-column col-md-3 col-6 py-md-1 py-2 px-2">
+                    <li ref={linkWrapperRef3} className="footer-link d-flex flex-column col-md-3 col-6 py-md-1 py-2 px-2">
 
-                        <span className="footer-link-title uppercase pb-7">
+                        <span className="footer-link-title uppercase pb-6">
                             socials
                         </span>
 
                         <Link href="/">
 
                             <a className="footer-link small">
-                                Instagram
+
+                                <div ref={addToLinkRefs3}>
+                                    Instagram
+                                </div>
+
                             </a>
 
                         </Link>
@@ -141,7 +226,11 @@ const Footer = ({ image }) => {
                         <Link href="/">
 
                             <a className="footer-link small">
-                                Facebook
+
+                                <div ref={addToLinkRefs3}>
+                                    Facebook
+                                </div>
+
                             </a>
 
                         </Link>
@@ -149,23 +238,31 @@ const Footer = ({ image }) => {
                         <Link href="/">
 
                             <a className="footer-link small">
-                                Poshmark
+
+                                <div ref={addToLinkRefs3}>
+                                    Poshmark
+                                </div>
+
                             </a>
 
                         </Link>
 
                     </li>
 
-                    <li className="footer-link__wrapper d-flex flex-column col-md-3 col-6 py-md-1 py-2 px-2">
+                    <li ref={linkWrapperRef4} className="footer-link__wrapper d-flex flex-column col-md-3 col-6 py-md-1 py-2 px-2">
 
-                        <span className="footer-link-title uppercase pb-7">
+                        <span className="footer-link-title uppercase pb-6">
                             help
                         </span>
 
                         <Link href="/privacy-policy">
 
                             <a className="footer-link small">
-                                Privacy Policy
+
+                                <div ref={addToLinkRefs4}>
+                                    Privacy Policy
+                                </div>
+
                             </a>
 
                         </Link>
@@ -173,7 +270,11 @@ const Footer = ({ image }) => {
                         <Link href="/contact">
 
                             <a className="footer-link small">
-                                Contact
+
+                                <div ref={addToLinkRefs4}>
+                                    Contact
+                                </div>
+
                             </a>
 
                         </Link>
@@ -184,8 +285,12 @@ const Footer = ({ image }) => {
 
                 <div className="footer-logo__wrapper d-flex justify-content-center mt-4">
 
-                    <h1 className="footer-logo">
-                        @JESSBLOG
+                    <h1 ref={logoWrapperRef} className="footer-logo overflow-hidden">
+
+                        <div ref={logoRef}>
+                            JESSBLOG
+                        </div>
+
                     </h1>
 
                 </div>

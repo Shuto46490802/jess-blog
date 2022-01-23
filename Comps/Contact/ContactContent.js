@@ -1,11 +1,23 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Image from "next/image";
+//Components
+import { animateParallaxInsideImage } from "../PageLayouts/animation";
 
-const ContactContent = ({ image1 }) => {
+const ContactContent = ({ image1, isPageLoaded }) => {
+
+    useEffect(() => {
+        if(isPageLoaded){
+            animateParallaxInsideImage(imgWrapperRef.current, imgRef.current)
+        }
+    }, [isPageLoaded]);
+
+    const imgWrapperRef = useRef();
+    const imgRef = useRef();
+
     return (
         <div className="contact-content d-flex flex-wrap">
 
-            <div className="contact-content-image__wrapper col-md-5 col-xl-6 col">
+            <div  className="contact-content-image__wrapper col-md-5 col-xl-6 col">
 
                 <div className="contact-content-image__inner col-8 offset-2 col-xl-6 offset-xl-3 pt-3 pb-3 pb-md-4 pt-md-4 ps-1 pe-1">
 
@@ -13,11 +25,19 @@ const ContactContent = ({ image1 }) => {
 
                         <div className="contact-content-image">
 
-                            <figure className="fig__wraooer">
+                            <div ref={imgWrapperRef} className="parallax__wrapper t-0 l-0 overflow-hidden position-absolute">
 
-                                <Image src={image1} layout="fill" />
+                                <div ref={imgRef} className="parallax should-animate">
 
-                            </figure>
+                                    <figure className="fig__wrapper">
+
+                                        <Image src={image1} layout="fill" objectFit="cover" />
+
+                                    </figure>
+
+                                </div>
+
+                            </div>
 
                         </div>
 
@@ -127,7 +147,7 @@ const ContactContent = ({ image1 }) => {
 
                                         <span class="label">Message</span>
 
-                                        <textarea name="bodyMessage" style={{height: "22px"}} ariaRequired="true" />
+                                        <textarea name="bodyMessage" style={{ height: "22px" }} ariaRequired="true" />
 
                                     </div>
 
@@ -142,7 +162,7 @@ const ContactContent = ({ image1 }) => {
                             <div className="w-100">
 
                                 <div>
-                                    
+
                                     <button type="submit" className="button ">
 
                                         <div className="w-100 rectangle-button position-relative uppercase">
