@@ -9,7 +9,7 @@ const MorePost = ({ posts, isPageLoaded }) => {
     useEffect(() => {
         if(isPageLoaded){
             animateGallery(galleryWrapperRef.current, imageRefs.current);
-            animateTextUp(sectionRef.current, 0, textRef.current)
+            animateTextUp(sectionRef.current, 0, textRef.current);
         }
     }, [isPageLoaded]);
 
