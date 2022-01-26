@@ -1,15 +1,41 @@
-import React, { useState } from "react";
-
+import React, { useEffect, useState } from "react";
 //Conponents
 import Preloader from "./Preloader";
 import Cursor from "./Cursor";
 import Header from "./Header";
 import Popup from "./Popup";
+import Menu from "./Menu";
 
 const Layout = ({ children }) => {
 
+    useEffect(() => {
+        window.addEventListener('load', () => {
+            setIsPageLoaded(true);
+        })
+    }, [])
+
+    const [isPageLoaded, setIsPageLoaded] = useState(false);
     const [isSearchOpen, setIsSearchOpen] = useState(false);
-    console.log(isSearchOpen)
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    const toggleSearch = () => {
+        if (isSearchOpen) {
+            setIsSearchOpen(false)
+        } else {
+            setIsSearchOpen(true)
+        }
+    }
+
+    const toggleMenu = () => {
+
+        if (isMenuOpen) {
+            setIsMenuOpen(false)
+        } else {
+            setIsMenuOpen(true)
+        }
+
+    }
+
 
     return (
         <div className="layout">
@@ -20,9 +46,19 @@ const Layout = ({ children }) => {
 
                 <Cursor />
 
-                <Header setIsSearchOpen={setIsSearchOpen} />
+                <Header toggleMenu={toggleMenu} toggleSearch={toggleSearch} isMenuOpen={isMenuOpen} />
 
-                <Popup isSearchOpen={isSearchOpen} setIsSearchOpen={setIsSearchOpen} />
+                {
+                    isPageLoaded
+                        ?
+                        <>
+                            <Popup isSearchOpen={isSearchOpen} toggleSearch={toggleSearch} />
+                            <Menu isMenuOpen={isMenuOpen} toggleSearch={toggleSearch} />
+                        </>
+                        : null
+                }
+
+
 
                 <div className="page">
 

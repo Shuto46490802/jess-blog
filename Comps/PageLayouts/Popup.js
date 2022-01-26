@@ -5,7 +5,7 @@ import Search from "./Search";
 //Lib
 import { gsap } from "gsap";
 
-const Popup = ({ isSearchOpen, setIsSearchOpen }) => {
+const Popup = ({ isSearchOpen, toggleSearch }) => {
 
     useEffect(() => {
         if (sectionRef) {
@@ -58,7 +58,7 @@ const Popup = ({ isSearchOpen, setIsSearchOpen }) => {
 
                 <div className="close-button d-flex flex-center position-absolute">
 
-                    <Humburger isSearchOpen={isSearchOpen} setIsSearchOpen={setIsSearchOpen} />
+                    <Humburger isSearchOpen={isSearchOpen} handleClick={toggleSearch} />
 
                 </div>
 

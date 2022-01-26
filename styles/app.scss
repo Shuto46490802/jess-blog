@@ -191,6 +191,19 @@
   }
 }
 
+//Menu.js
+.menu{
+  background-color: #efefef;
+}
+
+.menu-link{
+  font-size: 24px;
+}
+
+.menu-sublink{
+  font-size: 16px;
+}
+
 //Popup.js
 .popup {
   position: fixed;
@@ -262,6 +275,10 @@
   width: 0.75rem;
   height: 0.75rem;
   transition: 0.4s;
+}
+
+button.header-link:hover .search-icon {
+  transform: scale(1.1) rotate(-20deg);
 }
 
 .hamburger {

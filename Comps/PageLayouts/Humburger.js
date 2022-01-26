@@ -1,12 +1,10 @@
-const Humburger = ({ isSearchOpen, setIsSearchOpen }) => {
+const Humburger = ({ handleClick, isSearchOpen, isMenuOpen }) => {
     return (
         <button
             type="button"
-            className={`hamburger ${isSearchOpen ? "is-active" : ""}`}
+            className={`hamburger ${isSearchOpen || isMenuOpen ? "is-active" : ""}`}
             onClick={() => {
-                if(isSearchOpen){
-                    setIsSearchOpen(false);
-                }
+                handleClick()
             }}
         >
 

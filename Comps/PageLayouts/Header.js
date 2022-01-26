@@ -3,7 +3,7 @@ import Link from "next/link";
 //Components
 import Humburger from "./Humburger";
 
-const Header = ({ setIsSearchOpen }) => {
+const Header = ({ toggleMenu, toggleSearch, isMenuOpen }) => {
     return (
         <div className="header__wrapper w-100 position-fixed">
 
@@ -62,7 +62,7 @@ const Header = ({ setIsSearchOpen }) => {
                     <button
                         className="header-link"
                         onClick={() => {
-                            setIsSearchOpen(true);
+                            toggleSearch();
                         }}
                     >
 
@@ -79,7 +79,7 @@ const Header = ({ setIsSearchOpen }) => {
 
                 <div className="hamburger__wrapper d-md-none d-flex col-md justify-content-end">
 
-                    <Humburger />
+                    <Humburger handleClick={toggleMenu} isMenuOpen={isMenuOpen} />
 
                 </div>
 
