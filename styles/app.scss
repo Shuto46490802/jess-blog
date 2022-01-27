@@ -945,3 +945,11 @@ button.header-link:hover .search-icon {
     margin-bottom: 0;
   }
 }
+
+//SectionImage.js
+.section-image{
+  height: 100vh;
+  @media (min-width: 768px) {
+    height: 140vh;
+  }
+}

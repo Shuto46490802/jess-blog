@@ -11,6 +11,7 @@ import HomeCategory from "../Comps/HomePage/HomeCategory";
 import HomeInstagram from "../Comps/HomePage/HomeInstagram";
 import Footer from "../Comps/PageLayouts/Footer";
 import { convertDate } from "../Comps/PageLayouts/util";
+import SectionImage from "../Comps/PageLayouts/SectionImage";
 
 export const getStaticProps = async () => {
 
@@ -89,6 +90,8 @@ const HomePage = ({ homeIntroImage, homeAboutImage, homeAboutImage2, homeAboutIm
         <HomeAbout isPageLoaded={isPageLoaded} image1={homeAboutImage} image2={homeAboutImage2} image3={homeAboutImage3} />
 
         <HomeNewPosts isPageLoaded={isPageLoaded} posts={homeNewPosts} />
+
+        <SectionImage />
 
         <HomeCategory isPageLoaded={isPageLoaded} images={homeCategoriesImages} />
 
