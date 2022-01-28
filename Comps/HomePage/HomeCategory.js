@@ -38,7 +38,7 @@ const HomeCategory = ({ images, isPageLoaded }) => {
     const headingRef = useRef();
 
     return (
-        <div ref={sectionRef} className="home-category position-relative d-flex flex-column flex-center mx-md-2 pt-1 pb-3 pt-md-3 pt-xl-5 pb-xl-5">
+        <div ref={sectionRef} className="home-category position-relative d-flex flex-column flex-center px-md-2 pt-1 pb-md-4 pt-md-3 pt-xl-4">
 
             <h2 ref={headingRef} className="home-category-title h1 text-center">
 

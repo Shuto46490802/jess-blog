@@ -33,7 +33,7 @@ const HomeNewPosts = ({ posts, isPageLoaded }) => {
     };
     
     return (
-        <div className="home-new-posts overflow-hidden position-relative pt-1 pb-3 pt-md-3 pt-xl-5 pb-xl-5">
+        <div className="home-new-posts overflow-hidden position-relative pt-1 pb-3 pt-md-3 pb-xl-5">
 
             <div ref={textTriggerRef} className="home-new-posts-heading__wrapper d-flex justify-content-center pe-md-0 pt-3 pt-md-1 text-center overflow-sm-down-hidden">
 

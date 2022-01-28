@@ -61,7 +61,7 @@ const Footer = ({ image, isPageLoaded }) => {
     return (
         <div className="footer position-relative overflow-hidden">
 
-            <div className="footer-image__wrapper mx-2 d-flex flex-column justify-content-between overflow-hidden position-relative">
+            <div className="footer-image__wrapper mx-2 my-3 d-flex flex-column justify-content-between overflow-hidden position-relative">
 
                 <div ref={imgTriggerRef} className="parallax__wrapper t-0 l-0 overflow-hidden position-absolute">
 
@@ -102,7 +102,7 @@ const Footer = ({ image, isPageLoaded }) => {
 
             </div>
 
-            <div className="footer-links__wrapper">
+            <div className="footer-links__wrapper pt-2">
 
                 <ul className="footer-links d-flex justify-content-around flex-wrap p-0 m-0">
 

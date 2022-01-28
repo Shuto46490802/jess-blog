@@ -91,7 +91,7 @@ const HomePage = ({ homeIntroImage, homeAboutImage, homeAboutImage2, homeAboutIm
 
         <HomeNewPosts isPageLoaded={isPageLoaded} posts={homeNewPosts} />
 
-        <SectionImage />
+        <SectionImage isPageLoaded={isPageLoaded} />
 
         <HomeCategory isPageLoaded={isPageLoaded} images={homeCategoriesImages} />
 

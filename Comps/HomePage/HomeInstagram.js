@@ -38,7 +38,7 @@ const HomeInstagram = ({ instaPosts, isPageLoaded }) => {
     };
 
     return (
-        <div ref={sectionRef} className="home-instagram position-relative d-flex flex-column pt-1 pb-3 pt-md-3 pt-xl-5 pb-xl-5">
+        <div ref={sectionRef} className="home-instagram position-relative d-flex flex-column pt-1 pb-3 pt-md-3 pt-xl-4">
 
             <div className="home-instagram-title__wrapper align-self-center text-center  mb-2">
 
@@ -52,7 +52,7 @@ const HomeInstagram = ({ instaPosts, isPageLoaded }) => {
 
             </div>
 
-            <div ref={galleryTriggerRef} className="home-instagram-gallery__wrapper overflow-hidden mb-4">
+            <div ref={galleryTriggerRef} className="home-instagram-gallery__wrapper overflow-hidden mb-2">
 
                 <div className="home-instagram-gallery position-relative h-100 w-100 ps-2">
 

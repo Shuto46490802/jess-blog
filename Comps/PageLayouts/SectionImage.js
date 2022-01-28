@@ -1,13 +1,24 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Image from "next/image";
+import { animateParallaxInsideImage } from "./animation";
 
-const SectionImage = () => {
+const SectionImage = ({ isPageLoaded }) => {
+
+    useEffect(() => {
+        if(isPageLoaded){
+            animateParallaxInsideImage(largeImgWrapperRef.current, largeImgRef.current)
+        }
+    }, [isPageLoaded]);
+
+    const largeImgRef = useRef();
+    const largeImgWrapperRef = useRef();
+
     return (
         <div className="section-image overflow-hidden position-relative w-100">
 
-            <div className="parallax__wrapper t-0 l-0 overflow-hidden position-absolute">
+            <div ref={largeImgWrapperRef} className="parallax__wrapper t-0 l-0 overflow-hidden position-absolute">
 
-                <div className="parallax should-animate">
+                <div ref={largeImgRef} className="parallax should-animate">
 
                     <figure className="fig__wrapper">
 
