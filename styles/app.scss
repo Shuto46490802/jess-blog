@@ -247,6 +247,12 @@
 //Header.js
 .header__wrapper {
   z-index: 9999;
+  a{
+    color: #fff !important;
+  }
+  .line-link:after{
+    background: #fff;
+  }
 }
 
 .header {
@@ -347,7 +353,6 @@ button.header-link:hover .search-icon {
   line-height: 3.5rem;
   text-transform: uppercase;
   z-index: 100;
-  font-style: italic;
   @media screen and (min-width: 768px) {
     letter-spacing: 0;
     font-size: 4rem;
@@ -610,6 +615,11 @@ button.header-link:hover .search-icon {
   line-height: 1.1;
   margin-bottom: 0.5rem;
   overflow: hidden;
+  transition: 0.4s;
+}
+
+.footer-link:hover {
+  opacity: 1;
 }
 
 .footer-logo {
