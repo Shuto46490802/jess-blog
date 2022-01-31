@@ -27,7 +27,7 @@ const Header = ({ toggleMenu, toggleSearch, isMenuOpen }) => {
 
                         <a className="header-link small">
 
-                            <span className="line-link">
+                            <span className="line-link uppercase">
                                 Blog
                             </span>
 
@@ -39,7 +39,7 @@ const Header = ({ toggleMenu, toggleSearch, isMenuOpen }) => {
 
                         <a className="header-link small">
 
-                            <span className="line-link">
+                            <span className="line-link uppercase">
                                 About
                             </span>
 
@@ -51,7 +51,7 @@ const Header = ({ toggleMenu, toggleSearch, isMenuOpen }) => {
 
                         <a className="header-link small">
 
-                            <span className="line-link">
+                            <span className="line-link uppercase">
                                 Contact
                             </span>
 

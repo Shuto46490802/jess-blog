@@ -78,17 +78,17 @@ const BlogThumbnailTemp1 = ({ slug, image1, image2, title, thumbnailText, catego
 
                 <div className="blog-thumbnail-temp1-text__inner d-flex flex-column justify-content-center h-100 ps-md-2 pe-md-2 pe-xlg-5 position-relative">
 
-                    <h6 className="uppercase tiny mt-1 mb-1 mt-md-0 mb-md-2">{category}</h6>
+                    <h6 className="uppercase tiny mt-1 mb-1 mt-md-0 mb-md-2 f-sans">{category}</h6>
 
-                    <h2 className="mb-1 mb-md-2 pe-3 pe-md-0">{title}</h2>
+                    <h2 className="mb-1 mb-md-2 pe-3 pe-md-0 f-serif">{title}</h2>
 
-                    <div className="mb-1 mb-md-2 medium pe-2 pe-md-0">{thumbnailText}</div>
+                    <div className="mb-1 mb-md-2 medium pe-2 pe-md-0 f-sans">{thumbnailText}</div>
 
                     <div className="">
 
                         <Link href={`/blog/${slug}`}>
 
-                            <a className="h4">
+                            <a className="h4 f-gt">
 
                                 Read More
 
@@ -100,7 +100,7 @@ const BlogThumbnailTemp1 = ({ slug, image1, image2, title, thumbnailText, catego
 
                     </div>
 
-                    <div className="blog-thumbnail-temp1-date__wrapper large position-absolute">
+                    <div className="blog-thumbnail-temp1-date__wrapper large position-absolute f-sans">
 
                         {date}
 

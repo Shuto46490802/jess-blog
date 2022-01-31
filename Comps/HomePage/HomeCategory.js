@@ -40,7 +40,7 @@ const HomeCategory = ({ images, isPageLoaded }) => {
     return (
         <div ref={sectionRef} className="home-category position-relative d-flex flex-column flex-center px-md-2 pt-1 pb-md-4 pt-md-3 pt-xl-4">
 
-            <h2 ref={headingRef} className="home-category-title h1 text-center">
+            <h2 ref={headingRef} className="home-category-title f-serif h1 text-center">
 
                 <span>
                     Dignissim convallis aenean et tortor
@@ -92,15 +92,15 @@ const HomeCategory = ({ images, isPageLoaded }) => {
 
                                             <div className="home-category-gallery-image-text__wrapper w-100 h-100 position-absolute t-0 l-0 d-flex flex-column flex-center">
 
-                                                <p className="home-category-gallery-image-subheading small">
+                                                <p className="home-category-gallery-image-subheading small f-sans">
                                                     Lorem ipsum dolor sit amet
                                                 </p>
 
-                                                <h2 className="home-category-gallery-image-heading ">
+                                                <h2 className="home-category-gallery-image-heading f-serif">
                                                     Skin Care
                                                 </h2>
 
-                                                <p className="home-category-gallery-image-discover position-absolute h4">
+                                                <p className="home-category-gallery-image-discover h5 position-absolute  f-gt uppercase">
                                                     Discover
                                                 </p>
 

@@ -60,11 +60,11 @@ const AboutMe = ({ image, smallImages, isPageLoaded }) => {
 
                 <div className="about-me-text__inner ms-1 pe-1 pe-md-0">
 
-                    <h2 ref={addToTextRefs} className="about-me-heading h2 mb-xl-3 mb-md-2 uppercase should-animate">
+                    <h2 ref={addToTextRefs} className="about-me-heading h2 mb-xl-3 mb-md-2 uppercase should-animate f-serif">
                         Lorem ipsum dolor sit amet
                     </h2>
 
-                    <div ref={addToTextRefs} className="about-me-introduction pe-md-2 small should-animate">
+                    <div ref={addToTextRefs} className="about-me-introduction pe-md-2 small should-animate f-sans">
 
                         <p>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua quis nostrud exercitation ullamco laboris.

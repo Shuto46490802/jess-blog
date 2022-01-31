@@ -30,7 +30,7 @@ const BlogIntro = ({ image, isPageLoaded }) => {
 
             <div className="blog-intro-sub-heading__wrapper text-center">
 
-                <div className="blog-intro-sub-heading small text-center mb-6">
+                <div className="blog-intro-sub-heading small text-center mb-6 f-sans">
 
                     <span>
                         WELCOME TO MY BLOG
@@ -38,7 +38,7 @@ const BlogIntro = ({ image, isPageLoaded }) => {
 
                 </div>
 
-                <h1 className="blog-intro-heading text-center m-0">
+                <h1 className="blog-intro-heading text-center m-0 f-serif">
 
                     <span>
                         The Journey
@@ -48,7 +48,7 @@ const BlogIntro = ({ image, isPageLoaded }) => {
 
             </div>
 
-            <div className="blog-intro-sub-caption__wrapper pb-md-2 text-center">
+            <div className="blog-intro-sub-caption__wrapper pb-md-2 text-center f-sans">
 
                 <h2 className="d-none d-md-block h2">
 

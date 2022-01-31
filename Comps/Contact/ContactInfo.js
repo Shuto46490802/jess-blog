@@ -78,7 +78,7 @@ const ContactInfo = ({ image, smallImages, isPageLoaded }) => {
 
                     <div className="contact-info-text">
 
-                        <h5 ref={addToTextRefs} className="contact-info-heading mb-1 should-animate">
+                        <h5 ref={addToTextRefs} className="contact-info-heading f-serif mb-1 should-animate">
                             Email:
                         </h5>
 
@@ -88,7 +88,7 @@ const ContactInfo = ({ image, smallImages, isPageLoaded }) => {
 
                                 <a >
 
-                                    <span className="line-link small">
+                                    <span className="line-link f-sans small">
                                         jessblog@gmail.com
                                     </span>
 
@@ -102,7 +102,7 @@ const ContactInfo = ({ image, smallImages, isPageLoaded }) => {
 
                     <div className="contact-info-text">
 
-                        <h5 ref={addToTextRefs} className="contact-info-heading mb-1 should-animate">
+                        <h5 ref={addToTextRefs} className="contact-info-heading f-serif mb-1 should-animate">
                             Phone:
                         </h5>
 
@@ -112,7 +112,7 @@ const ContactInfo = ({ image, smallImages, isPageLoaded }) => {
 
                                 <a>
 
-                                    <span className="line-link small">
+                                    <span className="line-link small f-sans">
                                         (647) 807-7695
                                     </span>
 
@@ -126,13 +126,13 @@ const ContactInfo = ({ image, smallImages, isPageLoaded }) => {
 
                     <div className="contact-info-text">
 
-                        <h5 ref={addToTextRefs} className="contact-info-heading mb-1 should-animate">
+                        <h5 ref={addToTextRefs} className="contact-info-heading f-serif mb-1 should-animate">
                             Address:
                         </h5>
 
                         <div ref={addToTextRefs} className="should-animate">
 
-                            <span className="small">
+                            <span className="small f-sans">
                                 25 Saint Mary Street, Toronto
                                 <br />
                                 Ontario, Canada M4Y 1R2

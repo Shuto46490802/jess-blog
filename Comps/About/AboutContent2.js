@@ -82,7 +82,7 @@ const AboutContent2 = ({ largeImages, secondaryImages, isPageLoaded }) => {
 
                     <div className="about-content-large-image-text__wrapper w-100 h-100 d-flex flex-center position-absolute t-0 l-0">
 
-                        <h3 className="about-content-large-image-text h1 text-white text-center uppercase">
+                        <h3 className="about-content-large-image-text h1 text-white text-center uppercase f-serif">
                             MENTAL HEALTH
                         </h3>
 
@@ -94,13 +94,13 @@ const AboutContent2 = ({ largeImages, secondaryImages, isPageLoaded }) => {
 
                     <div ref={textWrapper1Ref} className="pt-3 pt-md-2 pb-2 pt-xl-3 pt-xlg-5 ps-1 pe-1 ps-md-2 pe-md-2 pe-xl-0 col-xl-9 ps-xl-4 pb-xl-5">
 
-                        <h3 ref={addToText1Refs} className="h2 mb-2 uppercase should-animate">
+                        <h3 ref={addToText1Refs} className="h2 mb-2 uppercase should-animate f-serif">
                             Lorem ipsum dolor
                             <br />
                             sit amet
                         </h3>
 
-                        <div ref={addToText1Refs} className="should-animate">
+                        <div ref={addToText1Refs} className="should-animate f-sans">
 
                             <p>
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -120,13 +120,13 @@ const AboutContent2 = ({ largeImages, secondaryImages, isPageLoaded }) => {
 
                     <div ref={textWrapper2Ref} className="pt-3 pt-md-2 pb-2 pt-xl-3 pt-xlg-5 ps-1 pe-1 ps-md-2 pe-md-2 pe-xl-0 col-xl-9 ps-xl-4 pb-xl-5">
 
-                        <h3 ref={addToText2Refs} className="h2 mb-2 uppercase should-animate">
+                        <h3 ref={addToText2Refs} className="h2 mb-2 uppercase should-animate f-serif">
                             Lorem ipsum dolor
                             <br />
                             sit amet
                         </h3>
 
-                        <div ref={addToText2Refs} className="should-animate">
+                        <div ref={addToText2Refs} className="should-animate f-sans">
 
                             <p>
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -160,7 +160,7 @@ const AboutContent2 = ({ largeImages, secondaryImages, isPageLoaded }) => {
 
                     <div className="about-content-large-image-text__wrapper w-100 h-100 d-flex flex-center position-absolute t-0 l-0">
 
-                        <h3 className="about-content-large-image-text h1 text-white text-center uppercase">
+                        <h3 className="about-content-large-image-text h1 text-white text-center uppercase f-serif">
                             FASHION
                         </h3>
 
@@ -220,11 +220,11 @@ const AboutContent2 = ({ largeImages, secondaryImages, isPageLoaded }) => {
 
                     <div className="col-xl-8 offset-xl-2">
 
-                        <h3 ref={addToText3Refs} className="h2 mb-2 uppercase pe-4 pe-md-0 should-animate">
+                        <h3 ref={addToText3Refs} className="h2 mb-2 uppercase pe-4 pe-md-0 should-animate f-serif">
                             Ut enim ad minim veniam, quis nostrud
                         </h3>
 
-                        <div ref={addToText3Refs} className="should-animate">
+                        <div ref={addToText3Refs} className="should-animate f-sans">
 
                             <p>
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.

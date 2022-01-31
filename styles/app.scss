@@ -192,15 +192,15 @@
 }
 
 //Menu.js
-.menu{
+.menu {
   background-color: #efefef;
 }
 
-.menu-link{
+.menu-link {
   font-size: 24px;
 }
 
-.menu-sublink{
+.menu-sublink {
   font-size: 16px;
 }
 
@@ -247,10 +247,10 @@
 //Header.js
 .header__wrapper {
   z-index: 9999;
-  a{
+  a {
     color: #fff !important;
   }
-  .line-link:after{
+  .line-link:after {
     background: #fff;
   }
 }
@@ -343,20 +343,21 @@ button.header-link:hover .search-icon {
 }
 
 //HomeIntro.js
-.home-intro{
+.home-intro {
   color: #efefef;
 }
 .home-intro-heading,
 .contact-intro-heading {
-  font-size: 2rem;
-  font-weight: 400;
-  line-height: 3.5rem;
+  font-size: 2rem !important;
   text-transform: uppercase;
   z-index: 100;
   @media screen and (min-width: 768px) {
-    letter-spacing: 0;
-    font-size: 4rem;
-    line-height: 6rem;
+    letter-spacing: -0.1rem;
+    font-size: 4.4rem !important;
+  }
+  span{
+    line-height: 130%;
+    will-change: transform;
   }
 }
 
@@ -367,14 +368,12 @@ button.header-link:hover .search-icon {
   line-height: 3.75vw;
   letter-spacing: 2.1vw;
   text-align: center;
-  font-weight: 300;
   position: absolute;
   left: 0;
   bottom: 11.25vw;
   margin-top: 0.85rem;
   position: relative;
   bottom: 0;
-  font-weight: 400;
 
   @media (min-width: 768px) {
     font-size: 0.85em;
@@ -391,7 +390,7 @@ button.header-link:hover .search-icon {
 }
 
 //HomeAbout.js
-.home-about{
+.home-about {
   // background-color: #E7d4cd;
 }
 .home-about-image1__wrapper {
@@ -499,11 +498,18 @@ button.header-link:hover .search-icon {
 }
 
 //HomeNewPosts.js
-.home-new-posts{
-  background-color: #E7d4cd;
+.home-new-posts {
+  background-color: #e7d4cd;
   color: #fff !important;
-  a{
+  a {
     color: #fff !important;
+  }
+}
+
+.home-new-posts-heading-text {
+  font-size: 2rem;
+  @media screen and (min-width: 768px) {
+    font-size: 4rem;
   }
 }
 
@@ -526,7 +532,7 @@ button.header-link:hover .search-icon {
 }
 
 //HomeInstagram.js
-.home-instagram{
+.home-instagram {
   // background-color: #ebe6d7;
 }
 .home-instagram-gallery-image__inner:before {
@@ -535,16 +541,21 @@ button.header-link:hover .search-icon {
   padding-bottom: 118%;
 }
 .home-instagram-title {
-  font-weight: 400;
   letter-spacing: 0.5rem;
 }
 
 //HomeCategory.js
-.home-category{
-  background-color: #E7d4cd;
+.home-category {
+  background-color: #e7d4cd;
   color: #fff;
-  a{
+  a {
     color: #fff !important;
+  }
+}
+.home-category-title {
+  font-size: 2rem;
+  @media (min-width: 768px) {
+    font-size: 4rem;
   }
 }
 .home-category-gallery-image__inner:before {
@@ -571,9 +582,9 @@ button.header-link:hover .search-icon {
 }
 
 //Footer.js
-.footer{
+.footer {
   color: #efefef;
-  a{
+  a {
     color: #efefef !important;
     opacity: 0.7;
   }
@@ -583,6 +594,12 @@ button.header-link:hover .search-icon {
 
   @media (min-width: 768px) {
     height: 55vw;
+  }
+}
+.footer-image-text-heading {
+  font-size: 2rem;
+  @media (min-width: 768px) {
+    font-size: 4rem;
   }
 }
 .footer-image-input__wrapper {
@@ -602,8 +619,8 @@ button.header-link:hover .search-icon {
   width: 100%;
 }
 
-.footer-links__wrapper{
-  background-color: #AC7252;
+.footer-links__wrapper {
+  background-color: #ac7252;
 }
 
 .footer-link-title {
@@ -992,7 +1009,7 @@ button.header-link:hover .search-icon {
 }
 
 //SectionImage.js
-.section-image{
+.section-image {
   height: 100vh;
   @media (min-width: 768px) {
     height: 140vh;

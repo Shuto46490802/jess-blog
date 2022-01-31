@@ -64,11 +64,11 @@ const HomeAbout = ({ image1, image2, image3, isPageLoaded }) => {
 
                     <h3 ref={addToTextRefs} className="home-about-header position-relative ls-1 ps-2 pe-1 ps-md-0 pe-md-0 d-none d-md-flex flex-column mb-0 should-animate">
 
-                        <div className="lines">
+                        <div className="lines f-serif">
                             <span>Lorem ipsum dolor sit amet,</span>
                         </div>
 
-                        <div className="lines">
+                        <div className="lines f-serif">
                             <span>et dolore magna aliqua.</span>
                         </div>
 
@@ -76,7 +76,7 @@ const HomeAbout = ({ image1, image2, image3, isPageLoaded }) => {
 
                     <h3 ref={addToTextRefs} className="home-about-header position-relative ls-1 ps-2 pe-1 ps-md-0 pe-md-0 d-md-none d-flex mb-0 should-animate">
 
-                        <div className="lines">
+                        <div className="lines f-serif">
                             <span>Lorem ipsum dolor sit amet, et dolore magna aliqua.</span>
                         </div>
 
@@ -86,7 +86,7 @@ const HomeAbout = ({ image1, image2, image3, isPageLoaded }) => {
 
                 <div className="home-about-text__wrapper overflow-hidden">
 
-                    <div ref={addToTextRefs} className="home-about-description small should-animate ms-md-3 mt-2 mt-lg-2 ps-2 pe-2 ps-md-0 pe-xl-1 should-animate">
+                    <div ref={addToTextRefs} className="home-about-description small f-sans should-animate ms-md-3 mt-2 mt-lg-2 ps-2 pe-2 ps-md-0 pe-xl-1 should-animate">
 
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 
@@ -98,8 +98,8 @@ const HomeAbout = ({ image1, image2, image3, isPageLoaded }) => {
 
                         <Link href="/about">
 
-                            <a>
-                                Read More
+                            <a className="uppercase f-gt">
+                                READ MORE
                             </a>
 
                         </Link>

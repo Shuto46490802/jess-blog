@@ -37,11 +37,11 @@ const HomeNewPosts = ({ posts, isPageLoaded }) => {
 
             <div ref={textTriggerRef} className="home-new-posts-heading__wrapper d-flex justify-content-center pe-md-0 pt-3 pt-md-1 text-center overflow-sm-down-hidden">
 
-                <div className="home-new-posts-heading__inner col-md-4 ps-2 pe-2 ps-md-0 pe-md-0">
+                <div className="home-new-posts-heading__inner col-md-6 ps-2 pe-2 ps-md-0 pe-md-0">
 
                     <div className="home-new-posts-heading ">
 
-                        <h3 ref={headingRef} className="home-new-posts-heading-text h2 ls-2 text-center mb-1 should-animate">
+                        <h3 ref={headingRef} className="home-new-posts-heading-text ls-2 text-center mb-1 should-animate f-serif">
 
                             Explore New Posts
 
@@ -49,7 +49,7 @@ const HomeNewPosts = ({ posts, isPageLoaded }) => {
 
                     </div>
 
-                    <p ref={subHeadingRef} className="home-new-posts-subheading-text text-center should-animate">
+                    <p ref={subHeadingRef} className="home-new-posts-subheading-text text-center f-sans should-animate">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dis parturient montes nascetur ridiculus.
                     </p>
 
@@ -63,7 +63,7 @@ const HomeNewPosts = ({ posts, isPageLoaded }) => {
 
                     <a className="home-new-posts-check-all position-relative ps-2 d-block d-md-none">
 
-                        <span className="home-new-posts-check-all-text h2 ls-1">
+                        <span className="home-new-posts-check-all-text f-serif h2 ls-1">
 
                             Check All
                             <br />
@@ -108,7 +108,7 @@ const HomeNewPosts = ({ posts, isPageLoaded }) => {
 
                                 <a ref={addToImageRefs} className="h-100 w-100 d-md-flex flex-center should-animate">
 
-                                    <span style={{ transform: "rotate(-90deg)" }} className="home-new-posts-check-all-text h2 ls-1">
+                                    <span style={{ transform: "rotate(-90deg)" }} className="home-new-posts-check-all-text f-sans h2 ls-1">
 
                                         Check All
                                         <br />
@@ -146,15 +146,15 @@ const HomeNewPosts = ({ posts, isPageLoaded }) => {
 
                                             <div className="home-new-posts-gallery-caption__wrapper">
 
-                                                <p className="home-new-posts-gallery-category mb-6">
+                                                <p className="home-new-posts-gallery-category mb-6 uppercase f-sans">
                                                     {post.category}
                                                 </p>
 
-                                                <h4 className="home-new-posts-gallery-title">
+                                                <h3 className="home-new-posts-gallery-title f-serif">
                                                     {post.title}
-                                                </h4>
+                                                </h3>
 
-                                                <p className="home-new-posts-gallery-description m-0 small">
+                                                <p className="home-new-posts-gallery-description m-0 small f-sans">
                                                     {post.thumbnailText}
                                                 </p>
 

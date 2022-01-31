@@ -42,11 +42,11 @@ const HomeInstagram = ({ instaPosts, isPageLoaded }) => {
 
             <div className="home-instagram-title__wrapper align-self-center text-center  mb-2">
 
-                <h6 ref={addToTextRefs} className="home-instagram-title small mb-2 should-animate">
+                <h6 ref={addToTextRefs} className="home-instagram-title small mb-2 f-sans should-animate">
                     INSTAGRAM
                 </h6>
 
-                <h3 ref={addToTextRefs} className="home-instagram-lnk h3 mb-3 should-animate">
+                <h3 ref={addToTextRefs} className="home-instagram-lnk h2 mb-3 should-animate f-serif">
                     Become part of my journey
                 </h3>
 
@@ -103,18 +103,18 @@ const HomeInstagram = ({ instaPosts, isPageLoaded }) => {
 
                                         <div className="home-instagram-gallery-caption__wrapper">
 
-                                            <p className="home-instagram-gallery-category mb-6 small">
+                                            <p className="home-instagram-gallery-category mb-6 small f-gt">
                                                 {post.time}
                                             </p>
 
-                                            <p className="home-instagram-gallery-description m-0 small">
+                                            <p className="home-instagram-gallery-description m-0 small f-sans">
                                                 {post.caption}
                                             </p>
 
                                             <Link href={post.link}>
 
                                                 <a>
-                                                    <span className="line-link small">View On Instagram</span>
+                                                    <span className="line-link small f-gt">View On Instagram</span>
                                                 </a>
 
                                             </Link>

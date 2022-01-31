@@ -79,7 +79,7 @@ const Footer = ({ image, isPageLoaded }) => {
 
                 <div className="footer-image-text__wrapper position-relative w-100 h-100 d-flex flex-column flex-center">
 
-                    <h2 className="footer-image-text-heading h1 uppercase d-flex flex-column flex-center">
+                    <h2 className="footer-image-text-heading h1 uppercase d-flex flex-column flex-center f-serif">
 
                         <div className="lines">Become part of</div>
                         <div className="lines">my journey</div>
@@ -90,7 +90,7 @@ const Footer = ({ image, isPageLoaded }) => {
 
                         <form action="input" className="footer-image-input-form d-flex align-items-center px-1 justify-centent-between">
 
-                            <input className="footer-image-input py-6" type="email" placeholder="YOUR EMAIL" />
+                            <input className="footer-image-input py-6 f-gt" type="email" placeholder="YOUR EMAIL" />
 
                             <button type="submit">▼</button>
 
@@ -104,7 +104,7 @@ const Footer = ({ image, isPageLoaded }) => {
 
             <div className="footer-links__wrapper pt-2">
 
-                <ul className="footer-links d-flex justify-content-around flex-wrap p-0 m-0">
+                <ul className="footer-links f-gt d-flex justify-content-around flex-wrap p-0 m-0">
 
                     <li ref={linkWrapperRef1} className="footer-link__wrapper d-flex flex-column col-md-3 col-6 py-md-1 py-2 px-2">
 
@@ -285,7 +285,7 @@ const Footer = ({ image, isPageLoaded }) => {
 
                 <div className="footer-logo__wrapper d-flex justify-content-center mt-4">
 
-                    <h1 ref={logoWrapperRef} className="footer-logo overflow-hidden">
+                    <h1 ref={logoWrapperRef} className="footer-logo overflow-hidden f-serif">
 
                         <div ref={logoRef}>
                             JESSBLOG
@@ -297,7 +297,7 @@ const Footer = ({ image, isPageLoaded }) => {
 
                 <div className="footer-copywrite__wrapper d-flex justify-content-end me-2 mt-4">
 
-                    <p className="small">© 2021 JessBlog - ALL RIGHT RESERVED</p>
+                    <p className="small f-sans">© 2021 JessBlog - ALL RIGHT RESERVED</p>
 
                 </div>
 

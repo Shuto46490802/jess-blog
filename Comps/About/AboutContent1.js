@@ -66,7 +66,7 @@ const AboutContent1 = ({ smallImage, largeImage, secondaryImages, isPageLoaded }
 
                         <div ref={textWrapperRef} className="about-content-column-small-image-text__wrapper col-md-10 offset-md-1 col-xl-12 offset-xl-0">
 
-                            <div ref={textRef} className="about-content-column-small-image-text__inner small mt-1 mt-lg-2">
+                            <div ref={textRef} className="about-content-column-small-image-text__inner small mt-1 mt-lg-2 f-sans">
 
                                 <p>
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.
@@ -104,7 +104,7 @@ const AboutContent1 = ({ smallImage, largeImage, secondaryImages, isPageLoaded }
 
                         <div className="about-content-large-image-text__wrapper w-100 h-100 d-flex flex-center position-absolute t-0 l-0">
 
-                            <h3 className="about-content-large-image-text h1 text-white text-center uppercase">
+                            <h3 className="about-content-large-image-text h1 text-white text-center uppercase f-serif">
                                 SKINCARE
                             </h3>
 
@@ -142,11 +142,11 @@ const AboutContent1 = ({ smallImage, largeImage, secondaryImages, isPageLoaded }
 
                         <div ref={textWrapper2Ref}>
 
-                            <h2 ref={addToTextRefs} className="about-content1-secondary-content-left-heading mb-1 mb-md-2 uppercase col-md-7 col-lg-6 should-animate">
+                            <h2 ref={addToTextRefs} className="about-content1-secondary-content-left-heading mb-1 mb-md-2 uppercase col-md-7 col-lg-6 should-animate f-serif">
                                 Lorem ipsum dolor sit amet consectetur
                             </h2>
 
-                            <div ref={addToTextRefs} className="about-content1-secondary-content-left-description two-cols-xl pe-md-3 me-md-1 mb-2 mb-md-0 small should-animate">
+                            <div ref={addToTextRefs} className="about-content1-secondary-content-left-description two-cols-xl pe-md-3 me-md-1 mb-2 mb-md-0 small should-animate f-sans">
 
                                 <p>
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.

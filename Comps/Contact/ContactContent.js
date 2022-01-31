@@ -51,21 +51,21 @@ const ContactContent = ({ image1, isPageLoaded }) => {
 
                 <div className="contact-content-form__inner col-xl-8 offset-xl-2">
 
-                    <h1 className="h3 pt-xl-3 mt-md-1 mb-1 mb-md-6">
+                    <h1 className="h3 pt-xl-3 mt-md-1 mb-1 mb-md-6 f-serif">
                         Contact
                     </h1>
 
-                    <p className="ls-big mb-2 mb-md-3 uppercase small">
+                    <p className="ls-big mb-2 mb-md-3 uppercase small f-sans">
                         Contact Me
                     </p>
 
-                    <h5 className="mb-1 mb-md-2">
+                    <h5 className="mb-1 mb-md-2 f-serif">
                         Fill the form below:
                     </h5>
 
                     <div className="contact-content-container position-relative mt-6 mt-md-0">
 
-                        <form action="" className="contact-content-form">
+                        <form action="" className="contact-content-form f-sans">
 
                             <div className="d-flex flex-wrap w-100">
 
@@ -169,7 +169,7 @@ const ContactContent = ({ image1, isPageLoaded }) => {
 
                                             <span className="button-background position-absolute t-0 l-0 w-100 h-100 behind-1" />
 
-                                            <span className="button-text">
+                                            <span className="button-text f-sans">
                                                 Send
                                             </span>
 

@@ -22,7 +22,7 @@ const BlogThumbnailTemp3 = ({ slug, image1, image2, title, thumbnailText, catego
 
             <div className="blog-thumbnail-temp3-text__wrapper col-md-6 d-flex flex-column flex-center py-2 py-xl-4 position-relative">
 
-                <h5 className="uppercase tiny mt-1 mb-1 mt-0 mb-2">
+                <h5 className="uppercase tiny mt-1 mb-1 mt-0 mb-2 f-sans">
                     {category}
                 </h5>
 
@@ -48,7 +48,7 @@ const BlogThumbnailTemp3 = ({ slug, image1, image2, title, thumbnailText, catego
 
                 </div>
 
-                <div className="blog-thumbnail-temp3-text text-center medium px-3 px-md-0 mb-2 mb-md-3">
+                <div className="blog-thumbnail-temp3-text text-center medium px-3 px-md-0 mb-2 mb-md-3 f-sans">
 
                     {thumbnailText}
 
@@ -58,7 +58,7 @@ const BlogThumbnailTemp3 = ({ slug, image1, image2, title, thumbnailText, catego
 
                     <Link href={`/blog/${slug}`}>
 
-                        <a className="h4">
+                        <a className="h4 f-gt">
 
                             Read More
 
@@ -70,7 +70,7 @@ const BlogThumbnailTemp3 = ({ slug, image1, image2, title, thumbnailText, catego
 
                 </div>
 
-                <div className="blog-thumbnail-temp3-date__wrapper large position-absolute">
+                <div className="blog-thumbnail-temp3-date__wrapper large position-absolute f-sans">
 
                     {date}
 
@@ -80,7 +80,7 @@ const BlogThumbnailTemp3 = ({ slug, image1, image2, title, thumbnailText, catego
 
             <div ref={largeImgWrapperRef} className="blog-thumbnail-temp3-image__wrapper col-md-6 overflow-hidden position-relative">
 
-                <h2 style={{ zIndex: "10", top: "50%", left: "50%", transform: "translate(-50%)" }} className="h1 position-absolute w-100 px-3 px-md-5 text-center">
+                <h2 style={{ zIndex: "10", top: "50%", left: "50%", transform: "translate(-50%)" }} className="h1 position-absolute f-serif w-100 px-3 px-md-5 text-center">
                     {title}
                 </h2>
 

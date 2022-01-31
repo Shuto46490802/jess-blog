@@ -26,7 +26,7 @@ const ContactIntro = ({ image, isPageLoaded }) => {
 
             </div>
 
-            <h1 className="contact-intro-heading text-center uppercase d-flex flex-column flex-center" >
+            <h1 className="contact-intro-heading text-center uppercase d-flex flex-column flex-center f-serif" >
 
                 <span className="h1__wrapper">
 

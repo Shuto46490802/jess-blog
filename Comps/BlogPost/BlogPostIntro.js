@@ -30,23 +30,23 @@ const BlogPostIntro = ({ image, title, thumbnailText, category, date, isPageLoad
 
                 <div className="col-md-6 order-md-0 order-1 d-flex flex-column justify-content-end">
 
-                    <h5 className="mb-6 mb-md-1">
+                    <h5 className="mb-6 mb-md-1 f-sans">
                         Words and Photos By
                     </h5>
 
-                    <p>Jessica Pham</p>
+                    <p className="f-sans">Jessica Pham</p>
 
                 </div>
 
                 <div className="col-md-6 order-md-1 order-0 pb-md-0 pb-2">
 
-                    <h6 className="uppercase medium mt-1 mb-1 mt-md-0 mb-md-2">{category}</h6>
+                    <h6 className="uppercase medium mt-1 mb-1 mt-md-0 mb-md-2 f-sans">{category}</h6>
 
-                    <h1 className="mb-6 mb-md-1 pe-3 pe-md-0">{title}</h1>
+                    <h1 className="mb-6 mb-md-1 pe-3 pe-md-0 f-serif">{title}</h1>
 
-                    <div className="mb-1 mb-md-2 large pe-2 pe-md-0">{thumbnailText}</div>
+                    <div className="mb-1 mb-md-2 large pe-2 pe-md-0 f-sans">{thumbnailText}</div>
 
-                    <p className="medium">{date}</p>
+                    <p className="medium f-sans">{date}</p>
 
                 </div>
 

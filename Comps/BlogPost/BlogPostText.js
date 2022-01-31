@@ -10,7 +10,7 @@ const BlogPostText = ({ sectionTitle, paragraph }) => {
 
             <div className="blog-post-text-heading__wrapper col-md-6 col">
 
-                <h2 className="blog-post-text-heading mb-2 mb-md-0">
+                <h2 className="blog-post-text-heading mb-2 mb-md-0 f-serif">
 
                     {sectionTitle}
 
@@ -22,7 +22,7 @@ const BlogPostText = ({ sectionTitle, paragraph }) => {
 
                 <div className="blog-post-text-content__inner col-xl-9">
 
-                    <div className="pr-md-2 lh-16 mb-1 mb-2">
+                    <div className="pr-md-2 lh-16 mb-1 mb-2 f-sans">
 
                         {convertParagraph(paragraph)}
 

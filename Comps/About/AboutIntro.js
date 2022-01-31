@@ -26,7 +26,7 @@ const AboutIntro = ({ image, isPageLoaded }) => {
 
             </div>
 
-            <div className="about-intro-sub-heading small text-center mb-6">
+            <div className="about-intro-sub-heading small text-center mb-6 f-sans uppercase">
 
                 <span>
                     WHO I AM AND WHY I DO WHAT I DO
@@ -34,7 +34,7 @@ const AboutIntro = ({ image, isPageLoaded }) => {
 
             </div>
 
-            <h1 className="about-intro-heading text-center m-0">
+            <h1 className="about-intro-heading text-center m-0 f-serif">
 
                 <span>
                     About Jess Blog

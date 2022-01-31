@@ -6,7 +6,7 @@ import { animateIntroImage } from "../PageLayouts/animation";
 const HomeIntro = ({ isPageLoaded, image }) => {
 
     useEffect(() => {
-        if(isPageLoaded){
+        if (isPageLoaded) {
             animateIntroImage(sectionRef.current, imgRef.current)
         }
     }, [isPageLoaded])
@@ -32,27 +32,26 @@ const HomeIntro = ({ isPageLoaded, image }) => {
 
             </div>
 
-            <h1 className="home-intro-heading text-center should-animate" >
+            <div className="home-intro-heading__wrapper text-center should-animate" >
 
-                <span className="h1__wrapper">
+                <h1 className="home-intro-heading f-serif">
 
-                    <div className="h1__inner should-animate">
-                        Lorem ipsum dolor sit amet
-                    </div>
+                    <span>Lorem</span>
+                    <span className="ms-6">ipsum</span>
+                    <span className="ms-6">dolor</span>
+                    <span className="ms-6">sitamet</span>
 
-                </span>
+                </h1>
 
-                <span className="h1__wrapper">
+                <h1 className="home-intro-heading f-serif">
+                    <span>consectetur</span>
+                    <span className="ms-6">adipiscing</span>
+                    <span className="ms-6">elitsed</span>
+                </h1>
 
-                    <div className="h1__inner should-animate">
-                        consectetur adipiscing elit sed
-                    </div>
+            </div>
 
-                </span>
-
-            </h1>
-
-            <div className="home-intro-subheading d-flex justify-content-center should-animate">
+            <div className="home-intro-subheading d-flex justify-content-center should-animate f-sans">
                 <div>I</div>
                 <div>T</div>
                 <div>'</div>

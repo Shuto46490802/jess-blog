@@ -45,7 +45,7 @@ const BlogPostImages = ({ smallImage, largeImage, isPageLoaded }) => {
 
                     </div>
 
-                    <div className="medium lh-16 mb-md-2">
+                    <div className="medium lh-16 mb-md-2 f-sans">
 
                         <p>
                             Facilisis gravida neque convallis a cras semper auctor neque. Tempor commodo ullamcorper a lacus vestibulum sed arcu non odio. Tellus at urna condimentum mattis pellentesque id nibh tortor. Tellus id interdum velit laoreet id donec ultrices tincidunt arcu.
@@ -71,7 +71,7 @@ const BlogPostImages = ({ smallImage, largeImage, isPageLoaded }) => {
 
                             </div>
 
-                            <div className="d-flex tiny align-items-center justify-content-end">
+                            <div className="d-flex tiny align-items-center justify-content-end f-sans">
 
                                 <span>Vestibulum lectus mauris ultrices</span>
 
