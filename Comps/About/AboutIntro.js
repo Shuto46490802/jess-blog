@@ -1,17 +1,31 @@
 import React, { useEffect, useRef } from "react";
 //Components
-import { animateIntroImage } from "../PageLayouts/animation";
+import { animateIntroHeading, animateIntroImage, animateIntroSubheadingDown, animateIntroImageScale } from "../PageLayouts/animation";
 
 const AboutIntro = ({ image, isPageLoaded }) => {
 
     useEffect(() => {
-        if(isPageLoaded){{
-            animateIntroImage(sectionRef.current, imgRef.current);
-        }}
+        if (isPageLoaded) {
+            {
+                animateIntroImage(sectionRef.current, imgRef.current);
+                animateIntroHeading(textRefs.current);
+                animateIntroSubheadingDown(subHeadingRef.current);
+                animateIntroImageScale(imgRef.current);
+            }
+        }
     }, [isPageLoaded])
 
     const sectionRef = useRef();
     const imgRef = useRef();
+    const textRefs = useRef([]);
+    const addToTextRefs = (_el) => {
+        if (_el && !textRefs.current.includes(_el)) {
+            textRefs.current.push(_el)
+        } else {
+            textRefs.current = [];
+        }
+    };
+    const subHeadingRef = useRef();
 
     return (
         <div ref={sectionRef} className="about-intro d-flex flex-column flex-center p-1 p-md-0 overflow-hidden position-relative vh-100">
@@ -20,7 +34,7 @@ const AboutIntro = ({ image, isPageLoaded }) => {
 
                 <div ref={imgRef} className="parallax should-animate">
 
-                    <div className="image cover bg-center h-100 w-100" style={{ backgroundImage: `url(${image})` }}/>
+                    <div className="image cover bg-center h-100 w-100" style={{ backgroundImage: `url(${image})` }} />
 
                 </div>
 
@@ -28,19 +42,22 @@ const AboutIntro = ({ image, isPageLoaded }) => {
 
             <div className="about-intro-sub-heading small text-center mb-6 f-sans uppercase">
 
-                <span>
+                <span ref={subHeadingRef}>
                     WHO I AM AND WHY I DO WHAT I DO
                 </span>
 
             </div>
 
-            <h1 className="about-intro-heading text-center m-0 f-serif">
+            <div className="about-intro-heading__wrapper text-center">
 
-                <span>
-                    About Jess Blog
-                </span>
+                <h1 className="about-intro-heading f-serif overflow-hidden">
+                    <span ref={addToTextRefs}>About</span>
+                    <span ref={addToTextRefs} className="ms-6">Jess</span>
+                    <span ref={addToTextRefs} className="ms-6">blog</span>
 
-            </h1>
+                </h1>
+
+            </div>
 
         </div>
     );

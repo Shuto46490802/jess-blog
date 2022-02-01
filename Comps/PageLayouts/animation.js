@@ -233,3 +233,80 @@ export const animateImageScale = (_trigger, _image) => {
     }
 
 }
+
+export const animateIntroHeading = (..._text) => {
+
+    if([..._text]){
+
+        gsap.fromTo([..._text],
+            {
+                yPercent: 120
+            },
+            {
+                yPercent: 0,
+                duration: 2,
+                ease: "power4",
+                stagger: 0.1
+            })
+
+    }
+
+}
+
+export const animateIntroSubheadingDown = (_text) => {
+
+    if(_text){
+
+        gsap.fromTo(_text,
+            {
+                y: -25,
+                opacity: 0
+            },
+            {
+                y: 0,
+                opacity: 1,
+                duration: 2,
+                ease: "power4",
+            })
+
+    }
+
+}
+
+export const animateIntroSubheadingUp = (_text) => {
+
+    if(_text){
+
+        gsap.fromTo(_text,
+            {
+                y: 100,
+                opacity: 0
+            },
+            {
+                y: 0,
+                opacity: 1,
+                duration: 2,
+                ease: "power4",
+            })
+
+    }
+
+}
+
+export const animateIntroImageScale = (_img) => {
+
+    if(_img){
+
+        gsap.fromTo(_img,
+            {
+                scale: 2
+            },
+            {
+                scale: 1,
+                duration: 2,
+                ease: "Expo.easeInOut",
+            })
+
+    }
+
+}

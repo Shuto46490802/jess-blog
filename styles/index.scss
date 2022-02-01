@@ -140,6 +140,7 @@ button:hover .line-link-pagination:after {
     will-change: transform;
     backface-visibility: hidden;
     height: 100%;
+    transform-origin: center;
 }
 
 .fig__wrapper {
@@ -492,6 +493,10 @@ ul {
 
 .uppsercase {
     text-transform: uppercase;
+}
+
+span{
+    display: inline-block;
 }
 
 //bootstrap customize
