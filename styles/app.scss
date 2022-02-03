@@ -656,7 +656,7 @@ button.header-link:hover .search-icon {
 }
 
 //AboutIntro.js
-.about-intro{
+.about-intro {
   color: #fff;
 }
 .about-intro-sub-heading,
@@ -786,7 +786,7 @@ button.header-link:hover .search-icon {
 }
 
 //ContactInfo.js
-.contact-intro{
+.contact-intro {
   color: #fff;
 }
 
@@ -834,7 +834,7 @@ button.header-link:hover .search-icon {
 }
 
 //BlogIntro.js
-.blog-intro{
+.blog-intro {
   color: #fff;
 }
 .blog-intro-sub-heading__wrapper,
@@ -1041,5 +1041,114 @@ button.header-link:hover .search-icon {
   height: 100vh;
   @media (min-width: 768px) {
     height: 140vh;
+  }
+}
+
+//Intro.js
+.intro {
+  // z-index: 10000;
+}
+.intro-fader {
+  z-index: -1;
+  background: rgba(0, 0, 0, 0.85);
+}
+
+.intro-logo__wrapper {
+  margin-top: -4rem;
+  @media only screen and (min-width: 768px) {
+    margin: 0;
+  }
+}
+
+.intro-logo h1 {
+  width: 9rem;
+  @media only screen and (min-width: 1025px) {
+    width: 10rem;
+  }
+}
+
+.intro-logo {
+  margin-bottom: 0.8rem;
+
+  p{
+    font-size: 1rem;
+  }
+}
+
+.intro-image {
+  width: 42vw;
+  position: absolute;
+  clip-path: circle(100%);
+  transition: 1s;
+  @media only screen and (min-width: 768px) {
+    width: 23vw;
+  }
+}
+
+.intro-image__inner {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.intro-image__inner:after{
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+}
+
+.intro-image:nth-child(2) {
+  transform: translate(-8rem);
+  width: 25vw;
+  @media only screen and (min-width: 768px) {
+    transform: translate(-10rem);
+    width: 21vw;
+  }
+}
+
+.intro-image:nth-child(3) {
+  transform: translate(1rem, 10rem);
+  width: 31vw;
+  @media only screen and (min-width: 768px) {
+    transform: translate(4rem, 10rem);
+    width: 23vw;
+  }
+}
+
+.intro-image:nth-child(4) {
+  transform: translate(4rem, -9rem);
+  width: 25vw;
+  @media only screen and (min-width: 768px) {
+    transform: translate(14rem, -2rem);
+    width: 15vw;
+  }
+}
+
+.intro-image:nth-child(5) {
+  transform: translate(-4rem, -8rem);
+  width: 20vw;
+  @media only screen and (min-width: 768px) {
+    transform: translate(8rem, -10rem);
+    width: 21vw;
+  }
+}
+
+.intro-image:nth-child(6) {
+  transform: translate(4rem, -3rem);
+  width: 34vw;
+  @media only screen and (min-width: 768px) {
+    transform: translate(16rem, 10rem);
+    width: 21vw;
+  }
+}
+
+.intro-image:nth-child(7) {
+  transform: translate(8rem, 4rem);
+  width: 28vw;
+  @media only screen and (min-width: 768px) {
+    transform: translate(-6rem, -10rem);
+    width: 14vw;
   }
 }

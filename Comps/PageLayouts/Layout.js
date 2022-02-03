@@ -5,6 +5,7 @@ import Cursor from "./Cursor";
 import Header from "./Header";
 import Popup from "./Popup";
 import Menu from "./Menu";
+import Intro from "./Intro";
 
 const Layout = ({ children }) => {
 
@@ -41,6 +42,8 @@ const Layout = ({ children }) => {
         <div className="layout">
 
             <div className="app__wrapper">
+
+                <Intro />
 
                 <Preloader />
 

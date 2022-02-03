@@ -52,6 +52,7 @@ const HomeIntro = ({ isPageLoaded, image }) => {
                     opacity: 1,
                     duration: 1.5,
                     ease: "power4",
+                    delay: 1
                 })
             
                 gsap.fromTo(secondArr,
@@ -64,6 +65,7 @@ const HomeIntro = ({ isPageLoaded, image }) => {
                         opacity: 1,
                         duration: 1.5,
                         ease: "power4",
+                        delay: 1
                     })
         }
 

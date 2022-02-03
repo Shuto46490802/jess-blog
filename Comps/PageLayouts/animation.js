@@ -246,7 +246,8 @@ export const animateIntroHeading = (..._text) => {
                 yPercent: 0,
                 duration: 2,
                 ease: "power4",
-                stagger: 0.1
+                stagger: 0.1,
+                delay: 1
             })
 
     }
@@ -267,6 +268,7 @@ export const animateIntroSubheadingDown = (_text) => {
                 opacity: 1,
                 duration: 2,
                 ease: "power4",
+                delay: 1
             })
 
     }
@@ -287,6 +289,7 @@ export const animateIntroSubheadingUp = (_text) => {
                 opacity: 1,
                 duration: 2,
                 ease: "power4",
+                delay: 1
             })
 
     }
