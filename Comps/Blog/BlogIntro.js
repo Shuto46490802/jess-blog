@@ -1,18 +1,20 @@
 import { useEffect, useRef } from "react";
 //Components
-import { animateIntroHeading, animateIntroImage, animateIntroSubheadingDown, animateIntroSubheadingUp, animateIntroImageScale } from "../PageLayouts/animation";
+import { animateIntroHeading, animateIntroImage, animateIntroSubheadingDown, animateIntroSubheadingUp, animateParallaxIntroImage } from "../PageLayouts/animation";
 
-const BlogIntro = ({ image, isPageLoaded }) => {
+const BlogIntro = ({ isTransitionning, image, isPageLoaded }) => {
 
     useEffect(() => {
         if (isPageLoaded) {
-            animateIntroImage(sectionRef.current, imgRef.current);
-            animateIntroHeading(textRefs.current);
-            animateIntroSubheadingDown(subHeadingRef.current);
-            animateIntroSubheadingUp(subHeading2Ref.current);
-            animateIntroImageScale(imgRef.current)
+            if (!isTransitionning) {
+                animateIntroImage(imgRef.current);
+                animateIntroHeading(textRefs.current);
+                animateIntroSubheadingDown(subHeadingRef.current);
+                animateIntroSubheadingUp(subHeading2Ref.current);
+                animateParallaxIntroImage(sectionRef.current, imgRef.current);
+            }
         }
-    }, [isPageLoaded]);
+    }, [isPageLoaded, isTransitionning]);
 
     const imgRef = useRef();
     const sectionRef = useRef();
@@ -54,14 +56,14 @@ const BlogIntro = ({ image, isPageLoaded }) => {
 
                 <div className="blog-intro-heading__wrapper text-center">
 
-                <h1 className="blog-intro-heading f-serif overflow-hidden">
-                    <span ref={addToTextRefs}>The</span>
-                    <span ref={addToTextRefs} className="ms-6">journey</span>
-                    <span ref={addToTextRefs} className="ms-6">blog</span>
+                    <h1 className="blog-intro-heading f-serif overflow-hidden">
+                        <span ref={addToTextRefs}>The</span>
+                        <span ref={addToTextRefs} className="ms-6">journey</span>
+                        <span ref={addToTextRefs} className="ms-6">blog</span>
 
-                </h1>
+                    </h1>
 
-            </div>
+                </div>
 
             </div>
 

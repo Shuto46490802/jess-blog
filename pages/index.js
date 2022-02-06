@@ -12,6 +12,8 @@ import HomeInstagram from "../Comps/HomePage/HomeInstagram";
 import Footer from "../Comps/PageLayouts/Footer";
 import { convertDate } from "../Comps/PageLayouts/util";
 import SectionImage from "../Comps/PageLayouts/SectionImage";
+//Lib
+import { motion } from "framer-motion";
 
 export const getStaticProps = async () => {
 
@@ -62,12 +64,12 @@ export const getStaticProps = async () => {
   }
 }
 
-const HomePage = ({ homeIntroImage, homeAboutImage, homeAboutImage2, homeAboutImage3, homeNewPosts, homeCategoriesImages, instaPosts, footerImage }) => {
+const HomePage = ({ setIsFirstLoaded, isFirstLoaded, isFirstIntroDone, setIsFirstIntroDone, isTransitionning, homeIntroImage, homeAboutImage, homeAboutImage2, homeAboutImage3, homeNewPosts, homeCategoriesImages, instaPosts, footerImage }) => {
 
   useEffect(() => {
     getScrollProxy(scrollerRef.current);
-    sortNewPosts(homeNewPosts)
-    setIsPageLoaded(true)
+    sortNewPosts(homeNewPosts);
+    setIsPageLoaded(true);
   }, [])
 
   const [isPageLoaded, setIsPageLoaded] = useState(false);
@@ -81,11 +83,18 @@ const HomePage = ({ homeIntroImage, homeAboutImage, homeAboutImage2, homeAboutIm
   }
 
   return (
-    <div ref={scrollerRef} className="page__wrapper">
+    <motion.div
+      ref={scrollerRef}
+      className="page__wrapper"
+      initial={{ visibility: 'hidden' }}
+      animate={{ visibility: 'visible' }}
+      exit={{ visibility: 'hidden' }}
+      transition={{ ease: "none", duration: 0, delay: 1.3 }}
+    >
 
       <div className="components-wrapper">
 
-        <HomeIntro isPageLoaded={isPageLoaded} image={homeIntroImage} />
+        <HomeIntro setIsFirstLoaded={setIsFirstLoaded} isFirstLoaded={isFirstLoaded} setIsFirstIntroDone={setIsFirstIntroDone} isFirstIntroDone={isFirstIntroDone} isPageLoaded={isPageLoaded} isTransitionning={isTransitionning} image={homeIntroImage} />
 
         <HomeAbout isPageLoaded={isPageLoaded} image1={homeAboutImage} image2={homeAboutImage2} image3={homeAboutImage3} />
 
@@ -101,7 +110,7 @@ const HomePage = ({ homeIntroImage, homeAboutImage, homeAboutImage2, homeAboutIm
 
       <Footer isPageLoaded={isPageLoaded} image={footerImage} />
 
-    </div>
+    </motion.div>
   )
 }
 

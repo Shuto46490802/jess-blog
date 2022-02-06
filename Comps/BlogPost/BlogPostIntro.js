@@ -1,12 +1,12 @@
 import React, { useEffect, useRef } from "react";
 //Components
-import { animateIntroImage } from "../PageLayouts/animation";
+import { animateParallaxIntroImage } from "../PageLayouts/animation";
 
 const BlogPostIntro = ({ image, title, thumbnailText, category, date, isPageLoaded }) => {
 
     useEffect(() => {
         if(isPageLoaded){
-            animateIntroImage(sectionRef.current, imgRef.current);
+            animateParallaxIntroImage(sectionRef.current, imgRef.current);
         }
     }, [isPageLoaded])
 

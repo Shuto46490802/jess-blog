@@ -12,6 +12,8 @@ import BlogThumbnailTemp1 from "../../Comps/Blog/BlogThumbnailTemp1";
 import BlogThumbnailTemp2 from "../../Comps/Blog/BlogThumbnailTemp2";
 import BlogThumbnailTemp3 from "../../Comps/Blog/BlogThumbnailTemp3";
 import { convertDate } from "../../Comps/PageLayouts/util";
+//Lib
+import { motion } from "framer-motion";
 
 export const getServerSideProps = async (context) => {
 
@@ -55,7 +57,7 @@ export const getServerSideProps = async (context) => {
     }
 }
 
-const All = ({ blogPageIntroImage, blogPosts, numOfPosts, footerImage }) => {
+const All = ({ isTransitionning, blogPageIntroImage, blogPosts, numOfPosts, footerImage }) => {
 
     const router = useRouter();
 
@@ -69,7 +71,7 @@ const All = ({ blogPageIntroImage, blogPosts, numOfPosts, footerImage }) => {
         setNumOfPage(_numOfPage);
         setIsPageLoaded(true);
     }, [])
-    
+
     const scrollerRef = useRef();
     const [isPageLoaded, setIsPageLoaded] = useState(false);
 
@@ -106,11 +108,18 @@ const All = ({ blogPageIntroImage, blogPosts, numOfPosts, footerImage }) => {
     };
 
     return (
-        <div ref={scrollerRef} className="page__wrapper">
+        <motion.div
+            ref={scrollerRef}
+            className="page__wrapper"
+            initial={{ visibility: 'hidden' }}
+            animate={{ visibility: 'visible' }}
+            exit={{ visibility: 'hidden' }}
+            transition={{ ease: "none", duration: 0, delay: 1.3 }}
+        >
 
             <div className="components-wrapper">
 
-                <BlogIntro isPageLoaded={isPageLoaded} image={blogPageIntroImage} />
+                <BlogIntro isTransitionning={isTransitionning} isPageLoaded={isPageLoaded} image={blogPageIntroImage} />
 
                 <BlogFilter />
 
@@ -130,7 +139,7 @@ const All = ({ blogPageIntroImage, blogPosts, numOfPosts, footerImage }) => {
 
             <Footer isPageLoaded={isPageLoaded} image={footerImage} />
 
-        </div>
+        </motion.div>
     );
 }
 

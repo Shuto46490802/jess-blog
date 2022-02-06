@@ -1,13 +1,14 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 //Components
 import Layout from "../Comps/PageLayouts/Layout";
 import ScrollTrigger from "gsap/ScrollTrigger";
-
 //CSS
 import '../styles/index.scss';
 import '../styles/app.scss';
 import '../node_modules/swiper/swiper.scss';
+//Lib
+import { AnimatePresence } from "framer-motion";
 
 function MyApp({ Component, pageProps }) {
 
@@ -15,16 +16,30 @@ function MyApp({ Component, pageProps }) {
 
   useEffect(() => {
     return () => {
-      console.log(ScrollTrigger.getAll())
       ScrollTrigger.getAll().forEach((t) => t.kill())
-      console.log(ScrollTrigger.getAll())
     }
-  }, [router.asPath])
+  }, [router.asPath]);
+
+  useEffect(() => {
+    window.addEventListener('load', () => {
+      setIsFirstLoaded(true);
+    })
+  }, [])
+
+  const [isFirstLoaded, setIsFirstLoaded] = useState(false);
+  const [isFirstIntroDone, setIsFirstIntroDone] = useState(false);
+  const [isTransitionning, setIsTransitioning] = useState(false);
 
   return (
-    <Layout>
+    <Layout isFirstLoaded={isFirstLoaded} setIsTransitioning={setIsTransitioning}>
 
-      <Component {...pageProps} />
+      <AnimatePresence
+        exitBeforeEnter
+      >
+
+        <Component key={router.asPath} isFirstLoaded={isFirstLoaded} setIsFirstLoaded={setIsFirstLoaded} isFirstIntroDone={isFirstIntroDone} setIsFirstIntroDone={setIsFirstIntroDone} isTransitionning={isTransitionning} {...pageProps} />
+
+      </AnimatePresence>
 
     </Layout>
   )

@@ -16,7 +16,8 @@ const Popup = ({ isSearchOpen, toggleSearch }) => {
                 })
                     .set(sectionRef.current,
                         {
-                            zIndex: 10000
+                            zIndex: 10000,
+                            visibility: "visible"
                         })
                     .fromTo(sectionRef.current,
                         {
@@ -41,7 +42,8 @@ const Popup = ({ isSearchOpen, toggleSearch }) => {
                         })
                     .set(sectionRef.current,
                         {
-                            zIndex: -1
+                            zIndex: -1,
+                            visibility: "hidden"
                         })
             }
         }

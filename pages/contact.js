@@ -9,6 +9,8 @@ import Footer from "../Comps/PageLayouts/Footer";
 import ContactIntro from "../Comps/Contact/ContactIntro";
 import ContactContent from "../Comps/Contact/ContactContent";
 import ContactInfo from "../Comps/Contact/ContactInfo";
+//Lib
+import { motion } from "framer-motion";
 
 export const getStaticProps = async () => {
 
@@ -32,7 +34,7 @@ export const getStaticProps = async () => {
 
 }
 
-const Contact = ({ contactIntroImage, contactContentImage1, contactInfoImage, contactInfoSmallImages, footerImage }) => {
+const Contact = ({ isTransitionning, contactIntroImage, contactContentImage1, contactInfoImage, contactInfoSmallImages, footerImage }) => {
 
     const scrollerRef = useRef();
 
@@ -44,11 +46,18 @@ const Contact = ({ contactIntroImage, contactContentImage1, contactInfoImage, co
     const [isPageLoaded, setIsPageLoaded] = useState(false);
 
     return (
-        <div ref={scrollerRef} className="page__wrapper">
+        <motion.div
+            ref={scrollerRef}
+            className="page__wrapper"
+            initial={{ visibility: 'hidden' }}
+            animate={{ visibility: 'visible' }}
+            exit={{ visibility: 'hidden' }}
+            transition={{ ease: "none", duration: 0, delay: 1.3 }}
+        >
 
             <div className="components-wrapper">
 
-                <ContactIntro isPageLoaded={isPageLoaded} image={contactIntroImage} />
+                <ContactIntro isTransitionning={isTransitionning} isPageLoaded={isPageLoaded} image={contactIntroImage} />
 
                 <ContactContent isPageLoaded={isPageLoaded} image1={contactContentImage1} />
 
@@ -58,7 +67,7 @@ const Contact = ({ contactIntroImage, contactContentImage1, contactInfoImage, co
 
             <Footer isPageLoaded={isPageLoaded} image={footerImage} />
 
-        </div>
+        </motion.div>
     );
 }
 

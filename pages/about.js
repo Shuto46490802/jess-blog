@@ -9,6 +9,8 @@ import AboutIntro from "../Comps/About/AboutIntro";
 import AboutMe from "../Comps/About/AboutMe";
 import AboutContent1 from "../Comps/About/AboutContent1";
 import AboutContent2 from "../Comps/About/AboutContent2";
+//Lib
+import { motion } from "framer-motion";
 
 export const getStaticProps = async () => {
 
@@ -35,7 +37,7 @@ export const getStaticProps = async () => {
     }
 }
 
-const About = ({ aboutIntroImage, aboutMeImage, aboutMeSmallImages, aboutContent1SmallImage, aboutContent1LargeImage, aboutContent1SecondaryImages, aboutContent2LargeImages, aboutContent2SecondaryImages, footerImage }) => {
+const About = ({ isTransitionning, aboutIntroImage, aboutMeImage, aboutMeSmallImages, aboutContent1SmallImage, aboutContent1LargeImage, aboutContent1SecondaryImages, aboutContent2LargeImages, aboutContent2SecondaryImages, footerImage }) => {
 
     useEffect(() => {
         getScrollProxy(scrollerRef.current);
@@ -46,11 +48,18 @@ const About = ({ aboutIntroImage, aboutMeImage, aboutMeSmallImages, aboutContent
     const [isPageLoaded, setIsPageLoaded] = useState(false);
 
     return (
-        <div ref={scrollerRef} className="page__wrapper">
+        <motion.div
+            ref={scrollerRef}
+            className="page__wrapper"
+            initial={{ visibility: 'hidden' }}
+            animate={{ visibility: 'visible' }}
+            exit={{ visibility: 'hidden' }}
+            transition={{ ease: "none", duration: 0, delay: 1.3 }}
+        >
 
             <div className="components-wrapper">
 
-                <AboutIntro isPageLoaded={isPageLoaded} image={aboutIntroImage} />
+                <AboutIntro isTransitionning={isTransitionning} isPageLoaded={isPageLoaded} image={aboutIntroImage} />
 
                 <AboutMe isPageLoaded={isPageLoaded} image={aboutMeImage} smallImages={aboutMeSmallImages} />
 
@@ -62,7 +71,7 @@ const About = ({ aboutIntroImage, aboutMeImage, aboutMeSmallImages, aboutContent
 
             <Footer isPageLoaded={isPageLoaded} image={footerImage} />
 
-        </div>
+        </motion.div>
     );
 }
 

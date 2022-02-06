@@ -1,52 +1,89 @@
 import React, { useEffect, useRef } from "react";
-import Image from "next/image"
+import Image from "next/image";
+//Lib
+import { gsap } from "gsap";
 
-const Intro = () => {
+const Intro = ({ isFirstLoaded }) => {
 
     useEffect(() => {
 
-        const images = document.getElementsByTagName('img');
+        if (isFirstLoaded) {
 
-        console.log(images[0].attributes.src)
+            gsap.timeline({ paused: false })
+                .fromTo(imgWrapperRefs.current,
+                    {
+                        clipPath: "circle(0%)"
+                    },
+                    {
+                        clipPath: "circle(50%)",
+                        duration: 2,
+                        ease: "power4",
+                        stagger: 0.3
+                    })
+                .fromTo(imgRefs.current,
+                    {
+                        scale: 1.8
+                    },
+                    {
+                        scale: 1,
+                        duration: 2,
+                        ease: "power4",
+                        stagger: 0.3
+                    }, 0)
+                .fromTo(imagesWrapperRef.current,
+                    {
+                        yPercent: 0
+                    },
+                    {
+                        yPercent: -50,
+                        duration: 1.2,
+                        ease: "Expo.easeInOut"
+                    })
+                .fromTo(faderRef.current,
+                    {
+                        opacity: 0,
+                    },
+                    {
+                        opacity: 1,
+                        duration: 1.2,
+                        ease: "Expo.easeInOut"
+                    }, 3.8)
+                .set(sectionRef.current,
+                    {
+                        visibility: "hidden",
+                    })
 
-        let count = 0;
-        let current = 0;
-        let intervalCount = 0;
+        }
 
-        const onLoadImage = setInterval(() => {
-            const img = new Image();
+    }, [isFirstLoaded])
 
-            img.onload(() => {
-                count++;
-                current = Math.floor(count / images.length * 100);
-                percentRef.current = current;
-            });
+    const sectionRef = useRef();
+    const imgWrapperRefs = useRef([]);
+    const addToImgWrapperRefs = (_el) => {
+        if (_el && !imgWrapperRefs.current.includes(_el)) {
+            imgWrapperRefs.current.push(_el)
+        } else {
+            imgWrapperRefs.current = [];
+        }
+    };
 
-            img.onerror(() => {
-                count += 1;
-            })
-
-            // img.src = images[intervalCount].attributes.src;
-
-            intervalCount++;
-            if (intervalCount >= images.length) {
-                clearInterval(onLoadImage);
-            }
-        }, 100);
-
-    }, [])
-
-    
-
-    const percentRef = useRef();
-    console.log(percentRef.current)
+    const imgRefs = useRef([]);
+    const addToImgRefs = (_el) => {
+        if (_el && !imgRefs.current.includes(_el)) {
+            imgRefs.current.push(_el)
+        } else {
+            imgRefs.current = [];
+        }
+    };
+    const imagesWrapperRef = useRef();
+    const faderRef = useRef();
 
     return (
-        <div className="intro position-fixed vh-100 l-0 t-0 vw-100">
+        <div ref={sectionRef} className="intro position-fixed vh-100 l-0 t-0 vw-100 bg-w">
 
-            <div className="intro-fader position-absolute vh-100 vh-100 l-0 t-0 vw-100" />
+            <div ref={faderRef} className="intro-fader position-absolute vh-100 vh-100 l-0 t-0 vw-100" />
 
-            <div className="intro-logo__wrapper position-absolute w-100 h-100 d-flex flex-center flex-column">
+            {/* <div className="intro-logo__wrapper position-absolute w-100 h-100 d-flex flex-center flex-column">
 
                 <div className="intro-logo">
 
@@ -54,7 +91,7 @@ const Intro = () => {
 
                     <p className="intro-logo-counter d-flex f-gt">
 
-                        <span ref={percentRef} className="counter">
+                        <span className="counter">
                             0
                         </span>
                         %
@@ -62,17 +99,17 @@ const Intro = () => {
 
                 </div>
 
-            </div>
+            </div> */}
 
-            <ul className="intro-images__wrapper d-flex flex-center h-100 position-relative w-100">
+            <ul ref={imagesWrapperRef} className="intro-images__wrapper d-flex flex-center h-100 position-relative w-100">
 
-                <li className="intro-image">
+                <li ref={addToImgWrapperRefs} className="intro-image">
 
                     <div className="intro-image__inner">
 
-                        <figure className="fig__wrapper">
+                        <figure ref={addToImgRefs} className="fig__wrapper">
 
-                            <Image src={"/ceramic.jpg"} layout="fill" objectFit="cover" />
+                            <Image src={"/ceramic.jpg"} layout="fill" objectFit="cover" priority />
 
                         </figure>
 
@@ -80,13 +117,13 @@ const Intro = () => {
 
                 </li>
 
-                <li className="intro-image">
+                <li ref={addToImgWrapperRefs} className="intro-image">
 
-                    <div className="intro-image__inner">
+                    <div ref={addToImgRefs} className="intro-image__inner">
 
                         <figure className="fig__wrapper">
 
-                            <Image src={"/ceramic.jpg"} layout="fill" objectFit="cover" />
+                            <Image src={"/ceramic.jpg"} layout="fill" objectFit="cover" priority />
 
                         </figure>
 
@@ -94,13 +131,13 @@ const Intro = () => {
 
                 </li>
 
-                <li className="intro-image">
+                <li ref={addToImgWrapperRefs} className="intro-image">
 
-                    <div className="intro-image__inner">
+                    <div ref={addToImgRefs} className="intro-image__inner">
 
                         <figure className="fig__wrapper">
 
-                            <Image src={"/ceramic.jpg"} layout="fill" objectFit="cover" />
+                            <Image src={"/ceramic.jpg"} layout="fill" objectFit="cover" priority />
 
                         </figure>
 
@@ -108,13 +145,13 @@ const Intro = () => {
 
                 </li>
 
-                <li className="intro-image">
+                <li ref={addToImgWrapperRefs} className="intro-image">
 
-                    <div className="intro-image__inner">
+                    <div ref={addToImgRefs} className="intro-image__inner">
 
                         <figure className="fig__wrapper">
 
-                            <Image src={"/ceramic.jpg"} layout="fill" objectFit="cover" />
+                            <Image src={"/ceramic.jpg"} layout="fill" objectFit="cover" priority />
 
                         </figure>
 
@@ -122,13 +159,13 @@ const Intro = () => {
 
                 </li>
 
-                <li className="intro-image">
+                <li ref={addToImgWrapperRefs} className="intro-image">
 
-                    <div className="intro-image__inner">
+                    <div ref={addToImgRefs} className="intro-image__inner">
 
                         <figure className="fig__wrapper">
 
-                            <Image src={"/ceramic.jpg"} layout="fill" objectFit="cover" />
+                            <Image src={"/ceramic.jpg"} layout="fill" objectFit="cover" priority />
 
                         </figure>
 
@@ -136,13 +173,13 @@ const Intro = () => {
 
                 </li>
 
-                <li className="intro-image">
+                <li ref={addToImgWrapperRefs} className="intro-image">
 
-                    <div className="intro-image__inner">
+                    <div ref={addToImgRefs} className="intro-image__inner">
 
                         <figure className="fig__wrapper">
 
-                            <Image src={"/ceramic.jpg"} layout="fill" objectFit="cover" />
+                            <Image src={"/ceramic.jpg"} layout="fill" objectFit="cover" priority />
 
                         </figure>
 
@@ -150,13 +187,13 @@ const Intro = () => {
 
                 </li>
 
-                <li className="intro-image">
+                <li ref={addToImgWrapperRefs} className="intro-image">
 
-                    <div className="intro-image__inner">
+                    <div ref={addToImgRefs} className="intro-image__inner">
 
                         <figure className="fig__wrapper">
 
-                            <Image src={"/ceramic.jpg"} layout="fill" objectFit="cover" />
+                            <Image src={"/ceramic.jpg"} layout="fill" objectFit="cover" priority />
 
                         </figure>
 

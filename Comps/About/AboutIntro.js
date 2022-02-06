@@ -1,19 +1,19 @@
 import React, { useEffect, useRef } from "react";
 //Components
-import { animateIntroHeading, animateIntroImage, animateIntroSubheadingDown, animateIntroImageScale } from "../PageLayouts/animation";
+import { animateIntroHeading, animateIntroImage, animateIntroSubheadingDown, animateParallaxIntroImage } from "../PageLayouts/animation";
 
-const AboutIntro = ({ image, isPageLoaded }) => {
+const AboutIntro = ({ isTransitionning, image, isPageLoaded }) => {
 
     useEffect(() => {
         if (isPageLoaded) {
-            {
-                animateIntroImage(sectionRef.current, imgRef.current);
+            if (!isTransitionning) {
+                animateIntroImage(imgRef.current);
                 animateIntroHeading(textRefs.current);
                 animateIntroSubheadingDown(subHeadingRef.current);
-                animateIntroImageScale(imgRef.current);
+                animateParallaxIntroImage(sectionRef.current, imgRef.current);
             }
         }
-    }, [isPageLoaded])
+    }, [isPageLoaded, isTransitionning])
 
     const sectionRef = useRef();
     const imgRef = useRef();

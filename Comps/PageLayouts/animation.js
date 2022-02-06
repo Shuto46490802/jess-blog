@@ -1,7 +1,7 @@
 //Libraries
 import { gsap } from "gsap";
 
-export const animateIntroImage = (_trigger, ..._image) => {
+export const animateParallaxIntroImage = (_trigger, ..._image) => {
 
     if ([_image] && _trigger) {
 
@@ -210,7 +210,7 @@ export const animateTextHidden = (_trigger, _duration, ..._text) => {
 
 export const animateImageScale = (_trigger, _image) => {
 
-    if(_trigger && _image){
+    if (_trigger && _image) {
 
         const trigger = {
             trigger: _trigger,
@@ -234,9 +234,28 @@ export const animateImageScale = (_trigger, _image) => {
 
 }
 
+//Intro animation
+export const animateIntroImage = (_image) => {
+
+    if (_image) {
+
+        gsap.fromTo(_image,
+            {
+                scale: 1.35
+            },
+            {
+                scale: 1,
+                ease: "power4",
+                duration: 2
+            })
+
+    }
+
+}
+
 export const animateIntroHeading = (..._text) => {
 
-    if([..._text]){
+    if ([..._text]) {
 
         gsap.fromTo([..._text],
             {
@@ -247,7 +266,7 @@ export const animateIntroHeading = (..._text) => {
                 duration: 2,
                 ease: "power4",
                 stagger: 0.1,
-                delay: 1
+                delay: 1,
             })
 
     }
@@ -256,7 +275,7 @@ export const animateIntroHeading = (..._text) => {
 
 export const animateIntroSubheadingDown = (_text) => {
 
-    if(_text){
+    if (_text) {
 
         gsap.fromTo(_text,
             {
@@ -277,7 +296,7 @@ export const animateIntroSubheadingDown = (_text) => {
 
 export const animateIntroSubheadingUp = (_text) => {
 
-    if(_text){
+    if (_text) {
 
         gsap.fromTo(_text,
             {
@@ -296,20 +315,4 @@ export const animateIntroSubheadingUp = (_text) => {
 
 }
 
-export const animateIntroImageScale = (_img) => {
 
-    if(_img){
-
-        gsap.fromTo(_img,
-            {
-                scale: 2
-            },
-            {
-                scale: 1,
-                duration: 2,
-                ease: "Expo.easeInOut",
-            })
-
-    }
-
-}

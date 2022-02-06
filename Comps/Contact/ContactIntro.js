@@ -1,16 +1,18 @@
 import React, { useEffect, useRef } from "react";
 //Components
-import { animateIntroHeading, animateIntroImage, animateIntroImageScale } from "../PageLayouts/animation";
+import { animateIntroHeading, animateIntroImage, animateParallaxIntroImage } from "../PageLayouts/animation";
 
-const ContactIntro = ({ image, isPageLoaded }) => {
+const ContactIntro = ({ isTransitionning, image, isPageLoaded }) => {
 
     useEffect(() => {
         if (isPageLoaded) {
-            animateIntroImage(sectionRef.current, imgRef.current);
-            animateIntroHeading(textRefs.current);
-            animateIntroImageScale(imgRef.current);
+            if (!isTransitionning) {
+                animateIntroImage(imgRef.current);
+                animateIntroHeading(textRefs.current);
+                animateParallaxIntroImage(sectionRef.current, imgRef.current);
+            }
         }
-    }, [isPageLoaded]);
+    }, [isPageLoaded, isTransitionning]);
 
     const sectionRef = useRef();
     const imgRef = useRef();

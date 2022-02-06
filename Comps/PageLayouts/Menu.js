@@ -14,7 +14,8 @@ const Menu = ({ isMenuOpen, toggleSearch }) => {
                 })
                     .set(sectionRef.current,
                         {
-                            zIndex: 9000
+                            zIndex: 9000,
+                            visibility: "visible"
                         })
                     .fromTo(sectionRef.current,
                         {
@@ -39,7 +40,8 @@ const Menu = ({ isMenuOpen, toggleSearch }) => {
                         })
                     .set(sectionRef.current,
                         {
-                            zIndex: -1
+                            zIndex: -1,
+                            visibility: "hidden"
                         })
             }
         }

@@ -12,6 +12,8 @@ import BlogPostText from "../../Comps/BlogPost/BlogPostText";
 import BlogPostImages from "../../Comps/BlogPost/BlogPostImages";
 import BlogPostTextImage from "../../Comps/BlogPost/BlogPostTextImages";
 import MorePost from "../../Comps/BlogPost/MorePost";
+//Lib
+import { motion } from "framer-motion";
 
 export const getStaticPaths = async () => {
 
@@ -103,7 +105,7 @@ export const getStaticProps = async ({ params }) => {
     }
 }
 
-const BlogPost = ({  morePosts, blogPost, footerImage }) => {
+const BlogPost = ({ morePosts, blogPost, footerImage }) => {
 
     const router = useRouter();
 
@@ -116,7 +118,14 @@ const BlogPost = ({  morePosts, blogPost, footerImage }) => {
     const [isPageLoaded, setIsPageLoaded] = useState(false);
 
     return (
-        <div ref={scrollerRef} className="page__wrapper">
+        <motion.div
+            ref={scrollerRef}
+            className="page__wrapper"
+            initial={{ visibility: 'hidden' }}
+            animate={{ visibility: 'visible' }}
+            exit={{ visibility: 'hidden' }}
+            transition={{ ease: "none", duration: 0, delay: 1.3 }}
+        >
 
             <div className="components-wrapper">
 
@@ -139,7 +148,7 @@ const BlogPost = ({  morePosts, blogPost, footerImage }) => {
 
             <Footer isPageLoaded={isPageLoaded} image={footerImage} />
 
-        </div>
+        </motion.div>
     );
 }
 
