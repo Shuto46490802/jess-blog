@@ -30,24 +30,24 @@ export const getScrollProxy = (_scroller, _header) => {
     bodyScrollBar.addListener(({ offset }) => {
         ScrollTrigger.update()
 
-        // if (offset.y > 0) {
-        //     _header.classList.add("shrinked")
-        // } else {
-        //     _header.classList.remove("shrinked")
-        // }
+        if (offset.y > 0) {
+            _header.classList.add("shrinked")
+        } else {
+            _header.classList.remove("shrinked")
+        }
 
-        // if (!lastOffset) {
-        //     lastOffset = offset;
-        //     return;
-        // }
+        if (!lastOffset) {
+            lastOffset = offset;
+            return;
+        }
 
-        // if (offset.y < lastOffset.y) {
-        //     _header.classList.remove("pull-up")
-        // } else if (offset.y > lastOffset.y) {
-        //     _header.classList.add("pull-up")
-        // } else {
-        //     console.log("still")
-        // }
+        if (offset.y < lastOffset.y) {
+            _header.classList.remove("pull-up")
+        } else if (offset.y > lastOffset.y) {
+            _header.classList.add("pull-up")
+        } else {
+            console.log("still")
+        }
 
         lastOffset = offset;
     });

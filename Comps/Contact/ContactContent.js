@@ -17,7 +17,7 @@ const ContactContent = ({ image1, isPageLoaded }) => {
     return (
         <div className="contact-content d-flex flex-wrap">
 
-            <div  className="contact-content-image__wrapper col-md-5 col-xl-6 col">
+            <div  className="contact-content-image__wrapper bg-p col-md-5 col-xl-6 col">
 
                 <div className="contact-content-image__inner col-8 offset-2 col-xl-6 offset-xl-3 pt-3 pb-3 pb-md-4 pt-md-4 ps-1 pe-1">
 

@@ -7,7 +7,7 @@ import Menu from "./Menu";
 import Intro from "./Intro";
 import PageTransition from "./PageTransition";
 
-const Layout = ({ children, isFirstLoaded, setIsTransitioning, isTransitionning, isFirstIntroDone }) => {
+const Layout = ({ children, isFirstLoaded, setIsTransitioning, isTransitionning, isFirstIntroDone, headerRef }) => {
 
     useEffect(() => {
         window.addEventListener('load', () => {
@@ -48,7 +48,7 @@ const Layout = ({ children, isFirstLoaded, setIsTransitioning, isTransitionning,
 
                 <Cursor />
 
-                <Header isTransitionning={isTransitionning} isPageLoaded={isPageLoaded} isFirstLoaded={isFirstLoaded} isFirstIntroDone={isFirstIntroDone} toggleMenu={toggleMenu} toggleSearch={toggleSearch} isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
+                <Header headerRef={headerRef} isTransitionning={isTransitionning} isPageLoaded={isPageLoaded} isFirstLoaded={isFirstLoaded} isFirstIntroDone={isFirstIntroDone} toggleMenu={toggleMenu} toggleSearch={toggleSearch} isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
 
                 {
                     isPageLoaded

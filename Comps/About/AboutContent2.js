@@ -90,7 +90,7 @@ const AboutContent2 = ({ largeImages, secondaryImages, isPageLoaded }) => {
 
                 </div>
 
-                <div className="about-content-column col-md-6 position-relative">
+                <div className="about-content-column bg-r text-w col-md-6 position-relative">
 
                     <div ref={textWrapper1Ref} className="pt-3 pt-md-2 pb-2 pt-xl-3 pt-xlg-5 ps-1 pe-1 ps-md-2 pe-md-2 pe-xl-0 col-xl-9 ps-xl-4 pb-xl-5">
 

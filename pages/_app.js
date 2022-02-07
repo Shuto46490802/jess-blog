@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useRouter } from "next/router";
 //Components
 import Layout from "../Comps/PageLayouts/Layout";
@@ -33,15 +33,16 @@ function MyApp({ Component, pageProps }) {
   const [isFirstLoaded, setIsFirstLoaded] = useState(false);
   const [isFirstIntroDone, setIsFirstIntroDone] = useState(false);
   const [isTransitionning, setIsTransitioning] = useState(false);
+  const headerRef = useRef();
 
   return (
-    <Layout isTransitionning={isTransitionning} isFirstLoaded={isFirstLoaded} setIsTransitioning={setIsTransitioning} isFirstIntroDone={isFirstIntroDone}>
+    <Layout headerRef={headerRef} isTransitionning={isTransitionning} isFirstLoaded={isFirstLoaded} setIsTransitioning={setIsTransitioning} isFirstIntroDone={isFirstIntroDone}>
 
       <AnimatePresence
         exitBeforeEnter
       >
 
-        <Component key={router.asPath} isFirstLoaded={isFirstLoaded} setIsFirstLoaded={setIsFirstLoaded} isFirstIntroDone={isFirstIntroDone} setIsFirstIntroDone={setIsFirstIntroDone} isTransitionning={isTransitionning} {...pageProps} />
+        <Component key={router.asPath} headerRef={headerRef} isFirstLoaded={isFirstLoaded} setIsFirstLoaded={setIsFirstLoaded} isFirstIntroDone={isFirstIntroDone} setIsFirstIntroDone={setIsFirstIntroDone} isTransitionning={isTransitionning} {...pageProps} />
 
       </AnimatePresence>
 

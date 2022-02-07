@@ -64,10 +64,10 @@ export const getStaticProps = async () => {
   }
 }
 
-const HomePage = ({ setIsFirstLoaded, isFirstLoaded, isFirstIntroDone, setIsFirstIntroDone, isTransitionning, homeIntroImage, homeAboutImage, homeAboutImage2, homeAboutImage3, homeNewPosts, homeCategoriesImages, instaPosts, footerImage }) => {
+const HomePage = ({ setIsFirstLoaded, isFirstLoaded, isFirstIntroDone, setIsFirstIntroDone, isTransitionning, homeIntroImage, homeAboutImage, homeAboutImage2, homeAboutImage3, homeNewPosts, homeCategoriesImages, instaPosts, footerImage, headerRef }) => {
 
   useEffect(() => {
-    getScrollProxy(scrollerRef.current);
+    getScrollProxy(scrollerRef.current, headerRef.current);
     sortNewPosts(homeNewPosts);
     setIsPageLoaded(true);
   }, [])

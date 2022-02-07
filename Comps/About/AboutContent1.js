@@ -42,7 +42,7 @@ const AboutContent1 = ({ smallImage, largeImage, secondaryImages, isPageLoaded }
 
             <div ref={sectionRef} className="about-content-two-column d-flex flex-wrap">
 
-                <div className="about-content-column col-md-6 d-flex flex-center order-1 order-md-0 pt-2 pb-2">
+                <div className="about-content-column bg-p text-w col-md-6 d-flex flex-center order-1 order-md-0 pt-2 pb-2">
 
                     <div className="about-content-column__inner col-xl-6 px-1">
 
