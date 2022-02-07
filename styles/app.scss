@@ -248,12 +248,21 @@
 
 //Header.js
 .header__wrapper {
-  z-index: 9999;
+  z-index: 9500;
+  visibility: hidden;
   a {
     color: #fff !important;
   }
   .line-link:after {
     background: #fff;
+  }
+
+  .logo{
+    transition: 0.4s;
+  }
+
+  .is-active .logo{
+    color: #212529;
   }
 }
 
@@ -322,7 +331,7 @@ button.header-link:hover .search-icon {
 
   .line {
     display: block;
-    background-color: #212529;
+    background-color: #efefef;
     width: 100%;
     height: 2px;
     transition: 0.35s ease-out;
@@ -330,6 +339,10 @@ button.header-link:hover .search-icon {
     transform-origin: center;
     top: 0;
   }
+}
+
+.is-active .line {
+  background-color: #212529;
 }
 
 .is-active .line-1 {
@@ -955,6 +968,9 @@ button.header-link:hover .search-icon {
 }
 
 //BlogPostIntro.js
+.blog-post-intro{
+  color: #fff;
+}
 .blog-post-intro-text__wrapper {
   z-index: 10;
 }

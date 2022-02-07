@@ -1,17 +1,66 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Link from "next/link";
 //Components
 import Humburger from "./Humburger";
+import { animateIntroSubheadingDown } from "./animation";
+import { gsap } from "gsap";
 
-const Header = ({ toggleMenu, toggleSearch, isMenuOpen }) => {
+const Header = ({ isFirstLoaded, isFirstIntroDone, isTransitionning, isPageLoaded, toggleMenu, toggleSearch, isMenuOpen, setIsMenuOpen }) => {
+
+    useEffect(() => {
+        if (isFirstLoaded) {
+            if (!isFirstIntroDone) {
+                gsap.set(sectionRef.current,
+                    {
+                        visibility: "visible"
+                    })
+                animateIntroSubheadingDown(5, textRefs.current)
+            }
+        }
+    }, [isFirstLoaded])
+
+    useEffect(() => {
+        if (isFirstIntroDone) {
+            if (isPageLoaded) {
+                if (!isTransitionning) {
+                    gsap.set(sectionRef.current,
+                        {
+                            visibility: "visible"
+                        })
+                    animateIntroSubheadingDown(0, textRefs.current);
+                }
+            }
+        }
+    }, [isPageLoaded, isTransitionning])
+
+    const textRefs = useRef([]);
+    const addToTextRefs = (_el) => {
+        if (_el && !textRefs.current.includes(_el)) {
+            textRefs.current.push(_el)
+        } else {
+            textRefs.current = [];
+        }
+    };
+    const sectionRef = useRef();
+
     return (
-        <div className="header__wrapper w-100 position-fixed">
+        <div ref={sectionRef} className="header__wrapper w-100 position-fixed">
 
             <div className="header w-100 d-flex align-items-center justify-content-between">
 
                 <Link href="/">
 
-                    <a className="logo__wrapper col-md">
+                    <a 
+                    ref={addToTextRefs} 
+                    className={`logo__wrapper col-md ${isMenuOpen ? "is-active" : ""}`}
+                    onClick={()=>{
+                        setTimeout(() => {
+                            if(isMenuOpen){
+                                setIsMenuOpen(false);
+                            }
+                        }, 800)
+                    }}
+                    >
 
                         <h2 className="logo">
                             JessBlog
@@ -25,7 +74,7 @@ const Header = ({ toggleMenu, toggleSearch, isMenuOpen }) => {
 
                     <Link href={{ pathname: "/blog/all", query: { page: 1 } }}>
 
-                        <a className="header-link small">
+                        <a ref={addToTextRefs} className="header-link small">
 
                             <span className="line-link uppercase">
                                 Blog
@@ -37,7 +86,7 @@ const Header = ({ toggleMenu, toggleSearch, isMenuOpen }) => {
 
                     <Link href="/about">
 
-                        <a className="header-link small">
+                        <a ref={addToTextRefs} className="header-link small">
 
                             <span className="line-link uppercase">
                                 About
@@ -49,7 +98,7 @@ const Header = ({ toggleMenu, toggleSearch, isMenuOpen }) => {
 
                     <Link href="/contact">
 
-                        <a className="header-link small">
+                        <a ref={addToTextRefs} className="header-link small">
 
                             <span className="line-link uppercase">
                                 Contact
@@ -64,6 +113,7 @@ const Header = ({ toggleMenu, toggleSearch, isMenuOpen }) => {
                         onClick={() => {
                             toggleSearch();
                         }}
+                        ref={addToTextRefs}
                     >
 
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 21" className="search-icon">
@@ -77,7 +127,7 @@ const Header = ({ toggleMenu, toggleSearch, isMenuOpen }) => {
 
                 </div>
 
-                <div className="hamburger__wrapper d-md-none d-flex col-md justify-content-end">
+                <div ref={addToTextRefs} className="hamburger__wrapper d-md-none d-flex col-md justify-content-end">
 
                     <Humburger handleClick={toggleMenu} isMenuOpen={isMenuOpen} />
 

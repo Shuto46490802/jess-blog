@@ -23,7 +23,11 @@ function MyApp({ Component, pageProps }) {
   useEffect(() => {
     window.addEventListener('load', () => {
       setIsFirstLoaded(true);
-    })
+    });
+    if (router.asPath !== "/") {
+      setIsFirstIntroDone(true);
+    }
+
   }, [])
 
   const [isFirstLoaded, setIsFirstLoaded] = useState(false);
@@ -31,7 +35,7 @@ function MyApp({ Component, pageProps }) {
   const [isTransitionning, setIsTransitioning] = useState(false);
 
   return (
-    <Layout isFirstLoaded={isFirstLoaded} setIsTransitioning={setIsTransitioning}>
+    <Layout isTransitionning={isTransitionning} isFirstLoaded={isFirstLoaded} setIsTransitioning={setIsTransitioning} isFirstIntroDone={isFirstIntroDone}>
 
       <AnimatePresence
         exitBeforeEnter

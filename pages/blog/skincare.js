@@ -113,10 +113,10 @@ const Skincare = ({ isTransitionning, blogPageIntroImage, blogPosts, numOfPosts,
         <motion.div
             ref={scrollerRef}
             className="page__wrapper"
-            initial={{ visibility: 'hidden' }}
-            animate={{ visibility: 'visible' }}
-            exit={{ visibility: 'hidden' }}
-            transition={{ ease: "none", duration: 0, delay: 1.3 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.6 }}
         >
 
             <div className="components-wrapper">

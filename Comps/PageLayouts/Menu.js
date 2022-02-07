@@ -3,7 +3,7 @@ import Link from "next/link";
 //Lib
 import { gsap } from "gsap";
 
-const Menu = ({ isMenuOpen, toggleSearch }) => {
+const Menu = ({ isMenuOpen, toggleSearch, toggleMenu }) => {
 
     useEffect(() => {
         if (sectionRef) {
@@ -14,7 +14,7 @@ const Menu = ({ isMenuOpen, toggleSearch }) => {
                 })
                     .set(sectionRef.current,
                         {
-                            zIndex: 9000,
+                            zIndex: 8999,
                             visibility: "visible"
                         })
                     .fromTo(sectionRef.current,
@@ -62,9 +62,15 @@ const Menu = ({ isMenuOpen, toggleSearch }) => {
 
                             <div className="menu-link mb-2">
 
-                                <Link href="/">
+                                <Link href={{ pathname: "/blog/all", query: { page: 1 } }}>
 
-                                    <a>
+                                    <a
+                                        onClick={() => {
+                                            setTimeout(() => {
+                                                toggleMenu();
+                                            }, 800)
+                                        }}
+                                    >
 
                                         Blog
 
@@ -76,9 +82,15 @@ const Menu = ({ isMenuOpen, toggleSearch }) => {
 
                             <div className="menu-link mb-2">
 
-                                <Link href="/">
+                                <Link href="/about">
 
-                                    <a>
+                                    <a
+                                        onClick={() => {
+                                            setTimeout(() => {
+                                                toggleMenu();
+                                            }, 800)
+                                        }}
+                                    >
 
                                         About
 
@@ -90,9 +102,15 @@ const Menu = ({ isMenuOpen, toggleSearch }) => {
 
                             <div className="menu-link mb-2">
 
-                                <Link href="/">
+                                <Link href="/contact">
 
-                                    <a>
+                                    <a
+                                        onClick={() => {
+                                            setTimeout(() => {
+                                                toggleMenu();
+                                            }, 800)
+                                        }}
+                                    >
 
                                         Contact
 

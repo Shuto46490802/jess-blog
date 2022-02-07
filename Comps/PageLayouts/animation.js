@@ -246,7 +246,7 @@ export const animateIntroImage = (_image) => {
             {
                 scale: 1,
                 ease: "power4",
-                duration: 2
+                duration: 2,
             })
 
     }
@@ -273,11 +273,11 @@ export const animateIntroHeading = (..._text) => {
 
 }
 
-export const animateIntroSubheadingDown = (_text) => {
+export const animateIntroSubheadingDown = (_delay, ..._text) => {
 
-    if (_text) {
+    if ([_text]) {
 
-        gsap.fromTo(_text,
+        gsap.fromTo([_text],
             {
                 y: -25,
                 opacity: 0
@@ -287,7 +287,7 @@ export const animateIntroSubheadingDown = (_text) => {
                 opacity: 1,
                 duration: 2,
                 ease: "power4",
-                delay: 1
+                delay: 1 + _delay
             })
 
     }

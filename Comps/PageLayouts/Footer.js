@@ -123,7 +123,7 @@ const Footer = ({ image, isPageLoaded }) => {
 
                         </Link>
 
-                        <Link href="/">
+                        <Link href="/about">
 
                             <a className="footer-link small">
 
@@ -135,7 +135,7 @@ const Footer = ({ image, isPageLoaded }) => {
 
                         </Link>
 
-                        <Link href="/">
+                        <Link href="/contact">
 
                             <a className="footer-link small">
 
@@ -147,7 +147,7 @@ const Footer = ({ image, isPageLoaded }) => {
 
                         </Link>
 
-                        <Link href="/">
+                        <Link href={{ pathname: "/blog/all", query: { page: 1 } }}>
 
                             <a className="footer-link small">
 
@@ -167,7 +167,7 @@ const Footer = ({ image, isPageLoaded }) => {
                             posts
                         </span>
 
-                        <Link href="/">
+                        <Link href={{ pathname: "/blog/skincare", query: { page: 1 } }}>
 
                             <a className="footer-link small">
 
@@ -179,7 +179,7 @@ const Footer = ({ image, isPageLoaded }) => {
 
                         </Link>
 
-                        <Link href="/">
+                        <Link href={{ pathname: "/blog/mental-health", query: { page: 1 } }}>
 
                             <a className="footer-link small">
 
@@ -191,7 +191,7 @@ const Footer = ({ image, isPageLoaded }) => {
 
                         </Link>
 
-                        <Link href="/">
+                        <Link href={{ pathname: "/blog/fashion", query: { page: 1 } }}>
 
                             <a className="footer-link small">
 

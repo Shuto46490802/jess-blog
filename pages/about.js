@@ -37,7 +37,7 @@ export const getStaticProps = async () => {
     }
 }
 
-const About = ({ isTransitionning, aboutIntroImage, aboutMeImage, aboutMeSmallImages, aboutContent1SmallImage, aboutContent1LargeImage, aboutContent1SecondaryImages, aboutContent2LargeImages, aboutContent2SecondaryImages, footerImage }) => {
+const About = ({ isTransitionning, isFirstLoaded, aboutIntroImage, aboutMeImage, aboutMeSmallImages, aboutContent1SmallImage, aboutContent1LargeImage, aboutContent1SecondaryImages, aboutContent2LargeImages, aboutContent2SecondaryImages, footerImage }) => {
 
     useEffect(() => {
         getScrollProxy(scrollerRef.current);
@@ -51,10 +51,10 @@ const About = ({ isTransitionning, aboutIntroImage, aboutMeImage, aboutMeSmallIm
         <motion.div
             ref={scrollerRef}
             className="page__wrapper"
-            initial={{ visibility: 'hidden' }}
-            animate={{ visibility: 'visible' }}
-            exit={{ visibility: 'hidden' }}
-            transition={{ ease: "none", duration: 0, delay: 1.3 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.6 }}
         >
 
             <div className="components-wrapper">

@@ -7,7 +7,7 @@ import Menu from "./Menu";
 import Intro from "./Intro";
 import PageTransition from "./PageTransition";
 
-const Layout = ({ children, isFirstLoaded, setIsTransitioning }) => {
+const Layout = ({ children, isFirstLoaded, setIsTransitioning, isTransitionning, isFirstIntroDone }) => {
 
     useEffect(() => {
         window.addEventListener('load', () => {
@@ -42,20 +42,20 @@ const Layout = ({ children, isFirstLoaded, setIsTransitioning }) => {
 
             <div className="app__wrapper">
 
-                <Intro isFirstLoaded={isFirstLoaded} />
+                <Intro isFirstLoaded={isFirstLoaded} isFirstIntroDone={isFirstIntroDone} />
 
                 <PageTransition setIsTransitioning={setIsTransitioning} />
 
                 <Cursor />
 
-                <Header toggleMenu={toggleMenu} toggleSearch={toggleSearch} isMenuOpen={isMenuOpen} />
+                <Header isTransitionning={isTransitionning} isPageLoaded={isPageLoaded} isFirstLoaded={isFirstLoaded} isFirstIntroDone={isFirstIntroDone} toggleMenu={toggleMenu} toggleSearch={toggleSearch} isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
 
                 {
                     isPageLoaded
                         ?
                         <>
                             <Popup isSearchOpen={isSearchOpen} toggleSearch={toggleSearch} />
-                            <Menu isMenuOpen={isMenuOpen} toggleSearch={toggleSearch} />
+                            <Menu isMenuOpen={isMenuOpen} toggleSearch={toggleSearch} toggleMenu={toggleMenu} />
                         </>
                         : null
                 }

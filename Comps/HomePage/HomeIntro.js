@@ -9,9 +9,11 @@ const HomeIntro = ({ setIsFirstLoaded, isFirstLoaded, setIsFirstIntroDone, isFir
 
     useEffect(() => {
         if (isFirstLoaded) {
-            animateFirstIntroImageScale(sectionRef.current, imgWrapperRef.current, imgRef.current);
-            animateFirstIntroHeading(textRefs.current);
-            animateFirstIntroSubheading(text2Refs.current);
+            if (!isFirstIntroDone) {
+                animateFirstIntroImageScale(sectionRef.current, imgWrapperRef.current, imgRef.current);
+                animateFirstIntroHeading(textRefs.current);
+                animateFirstIntroSubheading(text2Refs.current);
+            }
         }
     }, [isFirstLoaded])
 

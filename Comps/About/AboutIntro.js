@@ -9,7 +9,7 @@ const AboutIntro = ({ isTransitionning, image, isPageLoaded }) => {
             if (!isTransitionning) {
                 animateIntroImage(imgRef.current);
                 animateIntroHeading(textRefs.current);
-                animateIntroSubheadingDown(subHeadingRef.current);
+                animateIntroSubheadingDown(0, subHeadingRef.current);
                 animateParallaxIntroImage(sectionRef.current, imgRef.current);
             }
         }

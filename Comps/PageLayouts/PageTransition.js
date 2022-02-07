@@ -80,6 +80,7 @@ const PageTransition = ({ setIsTransitioning }) => {
                     visibility: "hidden",
                     onComplete: () => {
                         setIsEntered(false);
+
                     }
                 })
 
