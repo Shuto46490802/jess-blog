@@ -105,12 +105,12 @@ export const getStaticProps = async ({ params }) => {
     }
 }
 
-const BlogPost = ({ morePosts, blogPost, footerImage }) => {
+const BlogPost = ({ morePosts, blogPost, footerImage, headerRef }) => {
 
     const router = useRouter();
 
     useEffect(() => {
-        getScrollProxy(scrollerRef.current);
+        getScrollProxy(scrollerRef.current, headerRef.current);
         setIsPageLoaded(true);
     }, [router])
 

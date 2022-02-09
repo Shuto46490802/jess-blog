@@ -59,12 +59,12 @@ export const getServerSideProps = async (context) => {
     }
 }
 
-const Fashion = ({ isTransitionning, blogPageIntroImage, blogPosts, numOfPosts, footerImage }) => {
+const Fashion = ({ isTransitionning, blogPageIntroImage, blogPosts, numOfPosts, footerImage, headerRef }) => {
 
     const router = useRouter();
 
     useEffect(() => {
-        getScrollProxy(scrollerRef.current);
+        getScrollProxy(scrollerRef.current, headerRef.current);
         sortDescending(blogPosts);
     }, [router])
 

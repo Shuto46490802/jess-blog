@@ -34,12 +34,12 @@ export const getStaticProps = async () => {
 
 }
 
-const Contact = ({ isTransitionning, contactIntroImage, contactContentImage1, contactInfoImage, contactInfoSmallImages, footerImage }) => {
+const Contact = ({ isTransitionning, contactIntroImage, contactContentImage1, contactInfoImage, contactInfoSmallImages, footerImage, headerRef }) => {
 
     const scrollerRef = useRef();
 
     useEffect(() => {
-        getScrollProxy(scrollerRef.current);
+        getScrollProxy(scrollerRef.current, headerRef.current);
         setIsPageLoaded(true);
     }, []);
 

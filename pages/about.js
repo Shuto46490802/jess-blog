@@ -37,10 +37,10 @@ export const getStaticProps = async () => {
     }
 }
 
-const About = ({ isTransitionning, isFirstLoaded, aboutIntroImage, aboutMeImage, aboutMeSmallImages, aboutContent1SmallImage, aboutContent1LargeImage, aboutContent1SecondaryImages, aboutContent2LargeImages, aboutContent2SecondaryImages, footerImage }) => {
+const About = ({ isTransitionning, isFirstLoaded, aboutIntroImage, aboutMeImage, aboutMeSmallImages, aboutContent1SmallImage, aboutContent1LargeImage, aboutContent1SecondaryImages, aboutContent2LargeImages, aboutContent2SecondaryImages, footerImage, headerRef }) => {
 
     useEffect(() => {
-        getScrollProxy(scrollerRef.current);
+        getScrollProxy(scrollerRef.current, headerRef.current);
         setIsPageLoaded(true);
     }, [])
 

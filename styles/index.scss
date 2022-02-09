@@ -64,7 +64,7 @@ a {
     background: #212529;
     position: absolute;
     top: 100%;
-    transform: scaleX(0) translateY(0.4em);
+    transform: scaleX(0);
     opacity: 0;
     transition: 0.4s;
     margin-top: -1px;
@@ -72,16 +72,16 @@ a {
 
 a:hover .line-link:after {
     opacity: 1;
-    transform: scaleX(1) translateY(0.4em);
+    transform: scaleX(1);
 }
 
 button:hover .line-link:after {
     opacity: 1;
-    transform: scaleX(1) translateY(0.4em);
+    transform: scaleX(1);
 }
 .line-link.active:after {
     opacity: 1;
-    transform: scaleX(1) translateY(0.4em);
+    transform: scaleX(1);
 }
 .line-link-pagination {
     line-height: 0.9;
@@ -495,27 +495,27 @@ ul {
     text-transform: uppercase;
 }
 
-span{
+span {
     display: inline-block;
 }
 
-.bg-w{
+.bg-w {
     background: #efefef !important;
 }
 
-.bg-r{
+.bg-r {
     background: #ac7252;
 }
 
-.bg-p{
+.bg-p {
     background: #e7d4cd;
 }
 
-.text-o{
+.text-o {
     color: #de312f !important;
 }
 
-.text-w{
+.text-w {
     color: #efefef !important;
 }
 

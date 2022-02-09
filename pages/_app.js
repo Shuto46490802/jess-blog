@@ -17,6 +17,7 @@ function MyApp({ Component, pageProps }) {
   useEffect(() => {
     return () => {
       ScrollTrigger.getAll().forEach((t) => t.kill())
+      headerRef.current.classList.remove("shrinked", "pull-up")
     }
   }, [router.asPath]);
 

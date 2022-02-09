@@ -279,14 +279,17 @@
   padding: 0.2rem 1rem 0.2rem 1rem;
   background: #efefef;
   a {
-    color: #212529 !important;
+    color: #9b918e !important;
   }
-  .path{
-    fill: #212529 !important;
+  .line-link:after {
+    background: #9b918e;
   }
-  .hamburger{
-    .line{
-      background: #212529;
+  .path {
+    fill: #9b918e !important;
+  }
+  .hamburger {
+    .line {
+      background: #9b918e;
     }
   }
   @media (min-width: 768px) {
@@ -1085,6 +1088,28 @@ button.header-link:hover .search-icon {
   @media (min-width: 768px) {
     height: 140vh;
   }
+}
+
+.section-image-small-image1__wrapper {
+  position: absolute;
+  width: 18vw;
+  z-index: 1;
+  left: 5vw;
+  top: 10vh;
+}
+
+.section-image-small-image2__wrapper {
+  position: absolute;
+  width: 18vw;
+  z-index: 1;
+  right: 5vw;
+  bottom: 10vh;
+}
+
+.section-image-small-image__inner:before {
+  content: "";
+  display: block;
+  padding-bottom: 130%;
 }
 
 //Intro.js
