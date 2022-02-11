@@ -10,7 +10,7 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 const HomeCategory = ({ images, isPageLoaded }) => {
 
     useEffect(() => {
-        if(isPageLoaded){
+        if (isPageLoaded) {
             animateParallaxInsideImage(imgTriggerRefs.current[0], imgRefs.current[0]);
             animateParallaxInsideImage(imgTriggerRefs.current[1], imgRefs.current[1]);
             animateParallaxInsideImage(imgTriggerRefs.current[2], imgRefs.current[2]);
@@ -53,6 +53,7 @@ const HomeCategory = ({ images, isPageLoaded }) => {
                 <Swiper
                     loop={false}
                     observer={true}
+                    allowTouchMove={false}
                     breakpoints={{
                         0: {
                             direction: "vertical",

@@ -32,28 +32,28 @@ const Intro = ({ isFirstLoaded, isFirstIntroDone }) => {
                             ease: "power4",
                             stagger: 0.3
                         }, 0)
-                    .fromTo(imagesWrapperRef.current,
-                        {
-                            yPercent: 0
-                        },
-                        {
-                            yPercent: -50,
-                            duration: 1.2,
-                            ease: "Expo.easeInOut"
-                        })
-                    .fromTo(faderRef.current,
-                        {
-                            opacity: 0,
-                        },
-                        {
-                            opacity: 1,
-                            duration: 1.2,
-                            ease: "Expo.easeInOut"
-                        }, 3.8)
-                    .set(sectionRef.current,
-                        {
-                            visibility: "hidden",
-                        })
+                .fromTo(imagesWrapperRef.current,
+                    {
+                        yPercent: 0
+                    },
+                    {
+                        yPercent: -50,
+                        duration: 1.2,
+                        ease: "Expo.easeInOut"
+                    })
+                .fromTo(faderRef.current,
+                    {
+                        opacity: 0,
+                    },
+                    {
+                        opacity: 1,
+                        duration: 1.2,
+                        ease: "Expo.easeInOut"
+                    }, 3.8)
+                .set(sectionRef.current,
+                    {
+                        visibility: "hidden",
+                    })
 
             }
 
@@ -111,9 +111,9 @@ const Intro = ({ isFirstLoaded, isFirstIntroDone }) => {
 
                     <div className="intro-image__inner">
 
-                        <figure ref={addToImgRefs} className="fig__wrapper">
+                        <figure className="fig__wrapper">
 
-                            <Image src={"/ceramic.jpg"} layout="fill" objectFit="cover" priority />
+                            <Image ref={addToImgRefs} src={"/ceramic.jpg"} layout="fill" objectFit="cover" priority />
 
                         </figure>
 
@@ -123,11 +123,11 @@ const Intro = ({ isFirstLoaded, isFirstIntroDone }) => {
 
                 <li ref={addToImgWrapperRefs} className="intro-image">
 
-                    <div ref={addToImgRefs} className="intro-image__inner">
+                    <div className="intro-image__inner">
 
                         <figure className="fig__wrapper">
 
-                            <Image src={"/ceramic.jpg"} layout="fill" objectFit="cover" priority />
+                            <Image ref={addToImgRefs} src={"/ceramic.jpg"} layout="fill" objectFit="cover" priority />
 
                         </figure>
 
@@ -137,11 +137,11 @@ const Intro = ({ isFirstLoaded, isFirstIntroDone }) => {
 
                 <li ref={addToImgWrapperRefs} className="intro-image">
 
-                    <div ref={addToImgRefs} className="intro-image__inner">
+                    <div className="intro-image__inner">
 
                         <figure className="fig__wrapper">
 
-                            <Image src={"/ceramic.jpg"} layout="fill" objectFit="cover" priority />
+                            <Image ref={addToImgRefs} src={"/ceramic.jpg"} layout="fill" objectFit="cover" priority />
 
                         </figure>
 
@@ -151,11 +151,11 @@ const Intro = ({ isFirstLoaded, isFirstIntroDone }) => {
 
                 <li ref={addToImgWrapperRefs} className="intro-image">
 
-                    <div ref={addToImgRefs} className="intro-image__inner">
+                    <div className="intro-image__inner">
 
                         <figure className="fig__wrapper">
 
-                            <Image src={"/ceramic.jpg"} layout="fill" objectFit="cover" priority />
+                            <Image ref={addToImgRefs} src={"/ceramic.jpg"} layout="fill" objectFit="cover" priority />
 
                         </figure>
 
@@ -165,11 +165,11 @@ const Intro = ({ isFirstLoaded, isFirstIntroDone }) => {
 
                 <li ref={addToImgWrapperRefs} className="intro-image">
 
-                    <div ref={addToImgRefs} className="intro-image__inner">
+                    <div className="intro-image__inner">
 
                         <figure className="fig__wrapper">
 
-                            <Image src={"/ceramic.jpg"} layout="fill" objectFit="cover" priority />
+                            <Image ref={addToImgRefs} src={"/ceramic.jpg"} layout="fill" objectFit="cover" priority />
 
                         </figure>
 
@@ -179,11 +179,11 @@ const Intro = ({ isFirstLoaded, isFirstIntroDone }) => {
 
                 <li ref={addToImgWrapperRefs} className="intro-image">
 
-                    <div ref={addToImgRefs} className="intro-image__inner">
+                    <div className="intro-image__inner">
 
                         <figure className="fig__wrapper">
 
-                            <Image src={"/ceramic.jpg"} layout="fill" objectFit="cover" priority />
+                            <Image ref={addToImgRefs} src={"/ceramic.jpg"} layout="fill" objectFit="cover" priority />
 
                         </figure>
 
@@ -193,11 +193,11 @@ const Intro = ({ isFirstLoaded, isFirstIntroDone }) => {
 
                 <li ref={addToImgWrapperRefs} className="intro-image">
 
-                    <div ref={addToImgRefs} className="intro-image__inner">
+                    <div  className="intro-image__inner">
 
                         <figure className="fig__wrapper">
 
-                            <Image src={"/ceramic.jpg"} layout="fill" objectFit="cover" priority />
+                            <Image ref={addToImgRefs} src={"/ceramic.jpg"} layout="fill" objectFit="cover" priority />
 
                         </figure>
 
