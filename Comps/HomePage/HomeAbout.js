@@ -34,7 +34,7 @@ const HomeAbout = ({ image1, image2, image3, isPageLoaded }) => {
     const buttonRef = useRef();
 
     return (
-        <section ref={sectionRef} className="home-about position-relative d-flex flex-column flex-md-row align-items-start pt-1 pb-3 pt-md-3 pt-xl-5 pb-xl-5">
+        <section ref={sectionRef} className="home-about position-relative d-flex flex-column flex-md-row align-items-start pt-1 pb-5 pt-md-3 pt-xl-5">
 
             <div className="home-about-image1__wrapper position-relative">
 
