@@ -6,7 +6,7 @@ import { animateParallaxImage, animateParallaxInsideImage } from "../PageLayouts
 const BlogThumbnailTemp1 = ({ slug, image1, image2, title, thumbnailText, category, date, isPageLoaded }) => {
 
     useEffect(() => {
-        if(isPageLoaded){
+        if (isPageLoaded) {
             animateParallaxImage(sectionRef.current, -200, smallImgeRef.current);
             animateParallaxInsideImage(largeImgWrapperRef.current, largeImgRef.current)
         }
@@ -16,9 +16,9 @@ const BlogThumbnailTemp1 = ({ slug, image1, image2, title, thumbnailText, catego
     const smallImgeRef = useRef();
     const largeImgWrapperRef = useRef();
     const largeImgRef = useRef();
-    
+
     return (
-        <div ref={sectionRef} className="blog-thumbnail-temp1 d-md-flex pb-3 pt-1 py-md-4">
+        <div ref={sectionRef} className="blog-thumbnail-temp1 d-md-flex pb-3 pt-1 py-md-4 overflow-hidden">
 
             <div className="col-md d-none d-lg-block" />
 
@@ -28,7 +28,7 @@ const BlogThumbnailTemp1 = ({ slug, image1, image2, title, thumbnailText, catego
 
                     <div className="parallax__wrapper">
 
-                        <div style={{top: "140px"}} ref={smallImgeRef} className="parallax">
+                        <div style={{ top: "140px" }} ref={smallImgeRef} className="parallax">
 
                             <div className="blog-thumbnail-temp1-image1 position-relative">
 
@@ -46,15 +46,15 @@ const BlogThumbnailTemp1 = ({ slug, image1, image2, title, thumbnailText, catego
 
                 </div>
 
-                <div ref={largeImgWrapperRef} className="blog-thumbnail-temp1-image2__wrapper overflow-hidden h-100 w-100">
+                <div  className="blog-thumbnail-temp1-image2__wrapper overflow-hidden h-100 w-100">
 
                     <div className="position-relative h-100 w-100">
 
-                        <div className="parallax__wrapper">
+                        <div className="blog-thumbnail-temp1-image2 position-relative h-100">
 
-                            <div ref={largeImgRef} className="parallax">
+                            <div ref={largeImgWrapperRef} className="parallax__wrapper t-0 l-0 overflow-hidden position-absolute">
 
-                                <div className="blog-thumbnail-temp1-image2 position-relative h-100">
+                                <div ref={largeImgRef} className="parallax">
 
                                     <figure className="fig__wrapper">
 
@@ -100,7 +100,7 @@ const BlogThumbnailTemp1 = ({ slug, image1, image2, title, thumbnailText, catego
 
                     </div>
 
-                    <div className="blog-thumbnail-temp1-date__wrapper large position-absolute f-sans">
+                    <div className="blog-thumbnail-temp1-date__wrapper tiny position-absolute f-sans">
 
                         {date}
 

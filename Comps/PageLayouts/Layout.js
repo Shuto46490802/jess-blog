@@ -42,29 +42,33 @@ const Layout = ({ children, isFirstLoaded, setIsTransitioning, isTransitionning,
 
             <div className="app__wrapper">
 
-                <Intro isFirstLoaded={isFirstLoaded} isFirstIntroDone={isFirstIntroDone} />
+                <>
 
-                <PageTransition setIsTransitioning={setIsTransitioning} />
+                    <Intro isFirstLoaded={isFirstLoaded} isFirstIntroDone={isFirstIntroDone} />
 
-                <Cursor />
+                    <PageTransition setIsTransitioning={setIsTransitioning} />
 
-                <Header headerRef={headerRef} isTransitionning={isTransitionning} isPageLoaded={isPageLoaded} isFirstLoaded={isFirstLoaded} isFirstIntroDone={isFirstIntroDone} toggleMenu={toggleMenu} toggleSearch={toggleSearch} isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
+                    <Cursor />
 
-                {
-                    isPageLoaded
-                        ?
-                        <>
-                            <Popup isSearchOpen={isSearchOpen} toggleSearch={toggleSearch} />
-                            <Menu isMenuOpen={isMenuOpen} toggleSearch={toggleSearch} toggleMenu={toggleMenu} />
-                        </>
-                        : null
-                }
+                    <Header headerRef={headerRef} isTransitionning={isTransitionning} isPageLoaded={isPageLoaded} isFirstLoaded={isFirstLoaded} isFirstIntroDone={isFirstIntroDone} toggleMenu={toggleMenu} toggleSearch={toggleSearch} isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
 
-                <div className="page">
+                    {
+                        isPageLoaded
+                            ?
+                            <>
+                                <Popup isSearchOpen={isSearchOpen} toggleSearch={toggleSearch} />
+                                <Menu isMenuOpen={isMenuOpen} toggleSearch={toggleSearch} toggleMenu={toggleMenu} />
+                            </>
+                            : null
+                    }
 
-                    {children}
+                    <div className="page">
 
-                </div>
+                        {children}
+
+                    </div>
+
+                </>
 
             </div>
 

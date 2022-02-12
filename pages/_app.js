@@ -28,13 +28,18 @@ function MyApp({ Component, pageProps }) {
     if (router.asPath !== "/") {
       setIsFirstIntroDone(true);
     }
-
   }, [])
 
   const [isFirstLoaded, setIsFirstLoaded] = useState(false);
   const [isFirstIntroDone, setIsFirstIntroDone] = useState(false);
   const [isTransitionning, setIsTransitioning] = useState(false);
   const headerRef = useRef();
+
+  useEffect(() => {
+    if(isFirstIntroDone){
+      document.body.classList.add("is-done")
+    }
+  }, [isFirstIntroDone])
 
   return (
     <Layout headerRef={headerRef} isTransitionning={isTransitionning} isFirstLoaded={isFirstLoaded} setIsTransitioning={setIsTransitioning} isFirstIntroDone={isFirstIntroDone}>

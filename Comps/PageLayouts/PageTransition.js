@@ -11,6 +11,7 @@ const PageTransition = ({ setIsTransitioning }) => {
         router.events.on("routeChangeStart", () => {
             onEnter();
             setIsTransitioning(true);
+            document.body.classList.remove("is-done")
         })
     }, [])
 
@@ -80,7 +81,9 @@ const PageTransition = ({ setIsTransitioning }) => {
                     visibility: "hidden",
                     onComplete: () => {
                         setIsEntered(false);
-
+                        setTimeout(() => {
+                            document.body.classList.add("is-done")
+                        }, 1000)
                     }
                 })
 

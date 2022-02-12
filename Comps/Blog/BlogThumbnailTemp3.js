@@ -70,7 +70,7 @@ const BlogThumbnailTemp3 = ({ slug, image1, image2, title, thumbnailText, catego
 
                 </div>
 
-                <div className="blog-thumbnail-temp3-date__wrapper large position-absolute f-sans">
+                <div className="blog-thumbnail-temp3-date__wrapper tiny position-absolute f-sans p-md-0 pe-1">
 
                     {date}
 

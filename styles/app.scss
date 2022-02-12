@@ -703,7 +703,7 @@ button.header-link:hover .search-icon {
   font-size: 4rem;
 }
 
-.about-me-image1 {
+.about-me-image1:before {
   content: "";
   display: block;
   padding-bottom: 136%;
@@ -976,22 +976,32 @@ button.header-link:hover .search-icon {
   padding-bottom: 100%;
 }
 
-.blog-thumbnail-temp1-date__wrapper {
-  transform: rotate(-90deg);
-  left: -2.5rem;
-  bottom: 4rem;
+.blog-thumbnail-temp1-date__wrapper{
+  top:0;
+  left: 85%;
+  @media (min-width: 768px) {
+    transform: rotate(-90deg);
+    left: -2rem;
+    top: calc(100% - 5rem);
+  }
 }
-
-.blog-thumbnail-temp2-date__wrapper {
-  transform: rotate(-90deg);
-  right: -2.5rem;
-  bottom: 4rem;
+.blog-thumbnail-temp2-date__wrapper{
+  top:0;
+  right: 0;
+  @media (min-width: 768px) {
+    transform: rotate(-90deg);
+    right: -2rem;
+    top: calc(100% - 5rem);
+  }
 }
-
 .blog-thumbnail-temp3-date__wrapper {
-  transform: rotate(-90deg);
-  right: -2.5rem;
-  bottom: 4rem;
+  top:0;
+  right: 0;
+  @media (min-width: 768px) {
+    transform: rotate(-90deg);
+    right: -2rem;
+    top: calc(100% - 5rem);
+  }
 }
 
 //BlogPostIntro.js

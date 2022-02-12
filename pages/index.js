@@ -72,6 +72,12 @@ const HomePage = ({ setIsFirstLoaded, isFirstLoaded, isFirstIntroDone, setIsFirs
     setIsPageLoaded(true);
   }, [])
 
+  useEffect(() => {
+    if(isFirstIntroDone){
+      
+    }
+  }, [isFirstIntroDone])
+
   const [isPageLoaded, setIsPageLoaded] = useState(false);
   const scrollerRef = useRef();
 

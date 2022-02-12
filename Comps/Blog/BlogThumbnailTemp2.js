@@ -3,10 +3,10 @@ import Link from "next/link";
 import Image from "next/image";
 import { animateParallaxImage, animateParallaxInsideImage } from "../PageLayouts/animation";
 
-const BlogThumbnailTemp2 = ({ slug, image1, image2, title, thumbnailText, category, date, isPageLoaded}) => {
+const BlogThumbnailTemp2 = ({ slug, image1, image2, title, thumbnailText, category, date, isPageLoaded }) => {
 
     useEffect(() => {
-        if(isPageLoaded){
+        if (isPageLoaded) {
             animateParallaxImage(sectionRef.current, -200, smallImgRef.current);
             animateParallaxInsideImage(largeImgWrapperRef.current, largeImgRef.current)
         }
@@ -18,9 +18,9 @@ const BlogThumbnailTemp2 = ({ slug, image1, image2, title, thumbnailText, catego
     const largeImgRef = useRef();
 
     return (
-        <div ref={sectionRef} className="blog-thumbnail-temp2 d-md-flex pb-3 pt-1 py-md-4">
+        <div ref={sectionRef} className="blog-thumbnail-temp2 d-flex flex-md-row flex-column  pb-3 pt-1 py-md-4 overflow-hidden">
 
-            <div className="blog-thumbnail-temp2-text__wrapper col-md px-1 px-md-0">
+            <div className="blog-thumbnail-temp2-text__wrapper col-md px-1 px-md-0 order-md-0 order-1">
 
                 <div className="blog-thumbnail-temp2-text__inner d-flex flex-column justify-content-center h-100 ps-md-2 pe-md-2 pe-xlg-5 position-relative">
 
@@ -30,7 +30,7 @@ const BlogThumbnailTemp2 = ({ slug, image1, image2, title, thumbnailText, catego
 
                     <div className="mb-1 mb-md-2 medium pe-2 pe-md-0 f-sans">{thumbnailText}</div>
 
-                    <div className="text-right">
+                    <div className="text-md-right">
 
                         <Link href={`/blog/${slug}`}>
 
@@ -46,7 +46,7 @@ const BlogThumbnailTemp2 = ({ slug, image1, image2, title, thumbnailText, catego
 
                     </div>
 
-                    <div className="blog-thumbnail-temp2-date__wrapper large position-absolute f-sans">
+                    <div className="blog-thumbnail-temp2-date__wrapper tiny position-absolute f-sans">
 
                         {date}
 
@@ -56,13 +56,13 @@ const BlogThumbnailTemp2 = ({ slug, image1, image2, title, thumbnailText, catego
 
             </div>
 
-            <div className="blog-thumbnail-temp2-images__wrapper col-md-5 position-relative">
+            <div className="blog-thumbnail-temp2-images__wrapper col-md-5 order-md-1 order-0 position-relative">
 
                 <div className="blog-thumbnail-temp2-image1__wrapper col-md-5 d-none d-lg-block mt-md-2">
 
                     <div className="parallax__wrapper">
 
-                        <div style={{top: "140px"}} ref={smallImgRef} className="parallax">
+                        <div style={{ top: "140px" }} ref={smallImgRef} className="parallax">
 
                             <div className="blog-thumbnail-temp2-image1 position-relative">
 
@@ -80,15 +80,15 @@ const BlogThumbnailTemp2 = ({ slug, image1, image2, title, thumbnailText, catego
 
                 </div>
 
-                <div ref={largeImgWrapperRef} className="blog-thumbnail-temp2-image2__wrapper overflow-hidden h-100 w-100">
+                <div className="blog-thumbnail-temp2-image2__wrapper overflow-hidden h-100 w-100">
 
                     <div className="position-relative h-100 w-100">
 
-                        <div className="parallax__wrapper">
+                        <div className="blog-thumbnail-temp2-image2 position-relative h-100">
 
-                            <div ref={largeImgRef} className="parallax">
+                            <div ref={largeImgWrapperRef} className="parallax__wrapper t-0 l-0 overflow-hidden position-absolute">
 
-                                <div className="blog-thumbnail-temp2-image2 position-relative h-100">
+                                <div ref={largeImgRef} className="parallax">
 
                                     <figure className="fig__wrapper">
 
@@ -108,7 +108,7 @@ const BlogThumbnailTemp2 = ({ slug, image1, image2, title, thumbnailText, catego
 
             </div>
 
-            <div className="col-md d-none d-lg-block" />
+            <div className="col-md d-none d-lg-block order-md-2" />
 
         </div>
     );

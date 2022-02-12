@@ -40,7 +40,7 @@ export const animateParallaxInsideImage = (_trigger, ..._image) => {
             // refreshPriority: -1,
             onRefresh: () => {
 
-                const _height = _trigger.clientHeight * 1.1;
+                const _height = _trigger.clientHeight * 1.15;
                 const _top = `-${_height / 3.67}`
 
                 gsap.set([_image],
