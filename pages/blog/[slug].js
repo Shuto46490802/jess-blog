@@ -105,7 +105,7 @@ export const getStaticProps = async ({ params }) => {
     }
 }
 
-const BlogPost = ({ morePosts, blogPost, footerImage, headerRef }) => {
+const BlogPost = ({ morePosts, blogPost, footerImage, headerRef, isTransitionning }) => {
 
     const router = useRouter();
 
@@ -129,7 +129,7 @@ const BlogPost = ({ morePosts, blogPost, footerImage, headerRef }) => {
 
             <div className="components-wrapper">
 
-                <BlogPostIntro isPageLoaded={isPageLoaded} image={blogPost.featureImages[0]} title={blogPost.title} thumbnailText={blogPost.thumbnailText} category={blogPost.category} date={blogPost.date} />
+                <BlogPostIntro isTransitionning={isTransitionning} isPageLoaded={isPageLoaded} image={blogPost.featureImages[0]} title={blogPost.title} thumbnailText={blogPost.thumbnailText} category={blogPost.category} date={blogPost.date} />
 
                 <BlogPostText sectionTitle={blogPost.sectionTitles[0]} paragraph={blogPost.paragraphs[0]} />
 

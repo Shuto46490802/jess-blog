@@ -294,11 +294,11 @@ export const animateIntroSubheadingDown = (_delay, ..._text) => {
 
 }
 
-export const animateIntroSubheadingUp = (_text) => {
+export const animateIntroSubheadingUp = (..._text) => {
 
-    if (_text) {
+    if ([_text]) {
 
-        gsap.fromTo(_text,
+        gsap.fromTo([_text],
             {
                 y: 100,
                 opacity: 0
@@ -308,6 +308,7 @@ export const animateIntroSubheadingUp = (_text) => {
                 opacity: 1,
                 duration: 2,
                 ease: "power4",
+                stagger: 0.1,
                 delay: 1
             })
 

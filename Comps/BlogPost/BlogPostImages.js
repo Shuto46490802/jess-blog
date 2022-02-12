@@ -7,7 +7,8 @@ const BlogPostImages = ({ smallImage, largeImage, isPageLoaded }) => {
     useEffect(() => {
         if(isPageLoaded){
             animateParallaxInsideImage(largeImgWrapperRef.current, largeImgRef.current);
-            animateParallaxImage(sectionRef.current, -100, smallImgRef.current)
+            animateParallaxImage(sectionRef.current, -100, smallImgRef.current);
+            animateParallaxImage(sectionRef.current, -100, smallImgMobileRef.current)
         }
     }, [isPageLoaded]);
 
@@ -15,6 +16,7 @@ const BlogPostImages = ({ smallImage, largeImage, isPageLoaded }) => {
     const largeImgRef = useRef();
     const sectionRef = useRef();
     const smallImgRef = useRef();
+    const smallImgMobileRef = useRef();
 
     return (
         <div ref={sectionRef} className="blog-post-images d-flex flex-md-row flex-column flex-column-reverse">
@@ -59,7 +61,7 @@ const BlogPostImages = ({ smallImage, largeImage, isPageLoaded }) => {
 
                     <div className="parallax__wrapper d-none d-md-block">
 
-                        <div style={{top: "50px"}} ref={smallImgRef} className="parallax">
+                        <div style={{top: "50px"}} ref={smallImgMobileRef} className="parallax">
 
                             <div className="blog-post-small-image-not-mobile position-relative">
 

@@ -7,7 +7,7 @@ const BlogFilter = () => {
     const router = useRouter();
 
     return (
-        <div className="blog-content-filter__wrapper mt-2 ps-md-0 ps-1">
+        <div className="blog-content-filter__wrapper mt-2 pb-2 ps-md-0 ps-1">
 
             <div className="blog-content-filter__inner w-100 ps-md-2 pe-md-2">
 

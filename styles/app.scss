@@ -901,6 +901,10 @@ button.header-link:hover .search-icon {
 }
 
 //BlogThumbnailTemp.js
+.read-more{
+  font-size: 1.1rem;
+}
+
 .blog-thumbnail-temp1,
 .blog-thumbnail-temp2 {
   @media (min-width: 768px) {
@@ -981,7 +985,7 @@ button.header-link:hover .search-icon {
   left: 85%;
   @media (min-width: 768px) {
     transform: rotate(-90deg);
-    left: -2rem;
+    left: -1.5rem;
     top: calc(100% - 5rem);
   }
 }
@@ -990,7 +994,7 @@ button.header-link:hover .search-icon {
   right: 0;
   @media (min-width: 768px) {
     transform: rotate(-90deg);
-    right: -2rem;
+    right: -1.5rem;
     top: calc(100% - 5rem);
   }
 }
@@ -999,7 +1003,7 @@ button.header-link:hover .search-icon {
   right: 0;
   @media (min-width: 768px) {
     transform: rotate(-90deg);
-    right: -2rem;
+    right: -1.5rem;
     top: calc(100% - 5rem);
   }
 }

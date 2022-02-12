@@ -3,13 +3,24 @@ import Link from "next/link";
 import Image from "next/image";
 //Components
 import { animateGallery, animateTextUp } from "../PageLayouts/animation";
+//Lib
+import ScrollTrigger from "gsap/ScrollTrigger";
 
 const MorePost = ({ posts, isPageLoaded }) => {
 
     useEffect(() => {
-        if(isPageLoaded){
-            animateGallery(galleryWrapperRef.current, imageRefs.current);
-            animateTextUp(sectionRef.current, 0, textRef.current);
+        if (isPageLoaded) {
+            ScrollTrigger.saveStyles([
+                imageRefs.current
+            ])
+            ScrollTrigger.matchMedia({
+                "(min-width: 768px)": () => {
+                    animateGallery(galleryWrapperRef.current, imageRefs.current);
+                },
+                "all": () => {
+                    animateTextUp(sectionRef.current, 0, textRef.current);
+                }
+            })
         }
     }, [isPageLoaded]);
 
@@ -36,7 +47,7 @@ const MorePost = ({ posts, isPageLoaded }) => {
 
             </div>
 
-            <div ref={galleryWrapperRef} className="more-posts-posts__wrapper d-flex flex-wrap">
+            <div ref={galleryWrapperRef} className="more-posts-posts__wrapper d-flex flex-md-row flex-column">
 
                 <div ref={addToImageRefs} className="col-md-4">
 

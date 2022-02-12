@@ -30,11 +30,11 @@ const BlogThumbnailTemp2 = ({ slug, image1, image2, title, thumbnailText, catego
 
                     <div className="mb-1 mb-md-2 medium pe-2 pe-md-0 f-sans">{thumbnailText}</div>
 
-                    <div className="text-md-right">
+                    <div className="text-md-right read-more">
 
                         <Link href={`/blog/${slug}`}>
 
-                            <a className="h4 f-gt text-o">
+                            <a className="f-gt text-o">
 
                                 Read More
 

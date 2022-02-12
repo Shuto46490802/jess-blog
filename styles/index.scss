@@ -5,6 +5,7 @@ html {
     width: 100%;
     color: #212529;
     background-color: #efefef !important;
+    overscroll-behavior: none;
     @media (min-width: 768px) {
         position: fixed;
         overflow: hidden;
