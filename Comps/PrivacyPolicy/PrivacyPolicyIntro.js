@@ -1,12 +1,38 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
+//Comp
+import { animateIntroHeading, animateIntroImage, animateIntroSubheadingDown, animateParallaxIntroImage } from "../PageLayouts/animation";
 
-const PrivacyPolicyIntro = ({ image }) => {
+const PrivacyPolicyIntro = ({ image, isTransitionning, isPageLoaded }) => {
+
+    useEffect(() => {
+        if (isPageLoaded) {
+            if (!isTransitionning) {
+                animateIntroImage(imgRef.current);
+                animateIntroHeading(textRefs.current);
+                animateIntroSubheadingDown(0, subHeadingRef.current);
+                animateParallaxIntroImage(sectionRef.current, imgRef.current);
+            }
+        }
+    }, [isPageLoaded, isTransitionning])
+
+    const sectionRef = useRef();
+    const imgRef = useRef();
+    const textRefs = useRef([]);
+    const addToTextRefs = (_el) => {
+        if (_el && !textRefs.current.includes(_el)) {
+            textRefs.current.push(_el)
+        } else {
+            textRefs.current = [];
+        }
+    };
+    const subHeadingRef = useRef();
+
     return (
-        <div className="privacy-policy-intro d-flex flex-column flex-center p-1 p-md-0 overflow-hidden position-relative vh-100">
+        <div ref={sectionRef} className="privacy-policy-intro d-flex flex-column flex-center p-1 p-md-0 overflow-hidden position-relative vh-100">
 
             <div className="parallax__wrapper t-0 l-0 overflow-hidden position-absolute">
 
-                <div className="parallax should-animate">
+                <div ref={imgRef} className="parallax should-animate">
 
                     <div className="image cover bg-center h-100 w-100" style={{ backgroundImage: `url(${image})` }} />
 
@@ -14,21 +40,25 @@ const PrivacyPolicyIntro = ({ image }) => {
 
             </div>
 
-            <div className="privacy-policy-intro-sub-heading small text-center mb-6">
+            <div className="privacy-policy-intro-sub-heading small text-center mb-6 f-sans uppercase">
 
-                <span>
+                <span ref={subHeadingRef}>
                     Terms of
                 </span>
 
             </div>
 
-            <h1 className="privacy-policy-intro-heading text-center m-0">
+            <div className="privacy-policy-intro-heading__wrapper text-center">
 
-                <span>
-                    Service & Policy
-                </span>
+                <h1 className="privacy-policy-intro-heading f-serif overflow-hidden">
+                    <span ref={addToTextRefs}>Service</span>
+                    <span ref={addToTextRefs} className="ms-6">&</span>
+                    <span ref={addToTextRefs} className="ms-6">Policy</span>
 
-            </h1>
+                </h1>
+
+            </div>
+
 
         </div>
     );

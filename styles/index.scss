@@ -465,6 +465,10 @@ ul {
     }
 }
 
+.is-active .plus__wrapper {
+    transform: rotate(180deg);
+}
+
 .minus {
     position: absolute;
     top: 50%;
@@ -484,6 +488,11 @@ ul {
     height: 100%;
     transition: 0.4s;
     background-color: #000;
+}
+
+.is-active .vertical-line {
+    transform: rotate(90deg) translateX(-50%);
+    opacity: 0;
 }
 
 .f-serif {
@@ -526,6 +535,10 @@ span {
 
 .text-w {
     color: #efefef !important;
+}
+
+.text-g {
+    color: #9b918e !important;
 }
 
 //bootstrap customize

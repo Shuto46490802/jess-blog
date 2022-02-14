@@ -71,7 +71,7 @@ const HomeCategory = ({ images, isPageLoaded }) => {
                         images.map((image, index) => (
                             <SwiperSlide key={index} className="home-category-gallery-image__wrapper">
 
-                                <Link href="/">
+                                <Link href={{ pathname: "/blog/skincare", query: { page: 1 } }}>
 
                                     <a className="h-100 w-100">
 

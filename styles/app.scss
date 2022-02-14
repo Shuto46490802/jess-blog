@@ -392,7 +392,8 @@ button.header-link:hover .search-icon {
 .home-intro-heading,
 .contact-intro-heading,
 .about-intro-heading,
-.blog-intro-heading {
+.blog-intro-heading,
+.privacy-policy-intro-heading {
   font-size: 2rem !important;
   text-transform: uppercase;
   z-index: 100;
@@ -1067,6 +1068,9 @@ button.header-link:hover .search-icon {
 }
 
 //PrivacyPolicyIntro.js
+.privacy-policy-intro{
+  color: #fff;
+}
 .privacy-policy-intro-sub-heading,
 .privacy-policy-intro-heading {
   z-index: 10;
@@ -1078,6 +1082,9 @@ button.header-link:hover .search-icon {
 
 //PrivacyPolicyContent.js
 .accordion__wrapper {
+  .accordion-title{
+    transition: 0.4s;
+  }
   cursor: pointer;
   overflow: hidden;
   padding: 0.5rem 0.5rem 0.5rem 0;
@@ -1094,6 +1101,19 @@ button.header-link:hover .search-icon {
   p:last-child {
     margin-bottom: 0;
   }
+
+  .accordion-title__wrapper.is-active{
+    color: #de312f !important;
+    
+    span{
+      background-color: #de312f !important;
+    }
+  }
+}
+
+.accordion-content__wrapper{
+  height: 0;
+  visibility: hidden;
 }
 
 //SectionImage.js

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Head from 'next/head';
 //Components
 import { getScrollProxy } from "../Comps/PageLayouts/Scrollbar";
@@ -7,6 +7,8 @@ import { contentfulClient } from "../Lib/ContentfulClient";
 import Footer from "../Comps/PageLayouts/Footer";
 import PrivacyPolicyIntro from "../Comps/PrivacyPolicy/PrivacyPolicyIntro";
 import PrivacyPolicyContent from "../Comps/PrivacyPolicy/ProvacyPolicyContent";
+//Lib
+import { motion } from "framer-motion";
 
 export const getStaticProps = async () => {
 
@@ -26,28 +28,37 @@ export const getStaticProps = async () => {
     }
 }
 
-const PrivacyPolicy = ({privacyPolicyIntroImage, footerImage }) => {
+const PrivacyPolicy = ({ privacyPolicyIntroImage, footerImage, headerRef, isTransitionning }) => {
 
     useEffect(() => {
-        getScrollProxy(scrollerRef.current);
+        getScrollProxy(scrollerRef.current, headerRef.current);
+        setIsPageLoaded(true);
     }, [])
 
-    const scrollerRef = useRef()
+    const scrollerRef = useRef();
+    const [isPageLoaded, setIsPageLoaded] = useState(false);
 
     return (
-        <div ref={scrollerRef} className="page__wrapper">
+        <motion.div
+            ref={scrollerRef}
+            className="page__wrapper"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.6 }}
+        >
 
             <div className="components-wrapper">
 
-                <PrivacyPolicyIntro image={privacyPolicyIntroImage} />
+                <PrivacyPolicyIntro image={privacyPolicyIntroImage} isPageLoaded={isPageLoaded} isTransitionning={isTransitionning} />
 
                 <PrivacyPolicyContent />
 
             </div>
 
-            <Footer image={footerImage} />
+            <Footer isPageLoaded={isPageLoaded} image={footerImage} />
 
-        </div>
+        </motion.div>
     );
 }
 
