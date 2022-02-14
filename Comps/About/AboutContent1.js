@@ -64,7 +64,7 @@ const AboutContent1 = ({ smallImage, largeImage, secondaryImages, isPageLoaded }
 
                         </div>
 
-                        <div ref={textWrapperRef} className="about-content-column-small-image-text__wrapper col-md-10 offset-md-1 col-xl-12 offset-xl-0">
+                        <div ref={textWrapperRef} className="about-content-column-small-image-text__wrapper text-g col-md-10 offset-md-1 col-xl-12 offset-xl-0">
 
                             <div ref={textRef} className="about-content-column-small-image-text__inner small mt-1 mt-lg-2 f-sans">
 

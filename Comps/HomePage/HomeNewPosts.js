@@ -33,7 +33,7 @@ const HomeNewPosts = ({ posts, isPageLoaded }) => {
     };
     
     return (
-        <div className="home-new-posts overflow-hidden position-relative pt-1 pb-3 pt-md-3 pb-xl-5">
+        <div className="home-new-posts text-g overflow-hidden position-relative pt-1 pb-3 pt-md-3 pb-xl-5">
 
             <div ref={textTriggerRef} className="home-new-posts-heading__wrapper d-flex justify-content-center pe-md-0 pt-3 pt-md-1 text-center overflow-sm-down-hidden">
 
@@ -61,7 +61,7 @@ const HomeNewPosts = ({ posts, isPageLoaded }) => {
 
                 <Link href="/">
 
-                    <a className="home-new-posts-check-all position-relative ps-2 d-block d-md-none">
+                    <a className="home-new-posts-check-all text-g position-relative ps-2 d-block d-md-none">
 
                         <span className="home-new-posts-check-all-text f-serif h2 ls-1">
 
@@ -106,7 +106,7 @@ const HomeNewPosts = ({ posts, isPageLoaded }) => {
 
                             <Link href="/">
 
-                                <a ref={addToImageRefs} className="h-100 w-100 d-md-flex flex-center should-animate">
+                                <a ref={addToImageRefs} className="h-100 w-100 text-g d-md-flex flex-center should-animate">
 
                                     <span style={{ transform: "rotate(-90deg)" }} className="home-new-posts-check-all-text f-sans h2 ls-1">
 
@@ -128,7 +128,7 @@ const HomeNewPosts = ({ posts, isPageLoaded }) => {
 
                                     <Link href="/">
 
-                                        <a ref={addToImageRefs} className="h-100 w-100 d-flex flex-column should-animate">
+                                        <a ref={addToImageRefs} className="h-100 text-g w-100 d-flex flex-column should-animate">
 
                                             <div className="home-new-posts-gallery-image position-relative ">
 
@@ -146,15 +146,15 @@ const HomeNewPosts = ({ posts, isPageLoaded }) => {
 
                                             <div className="home-new-posts-gallery-caption__wrapper">
 
-                                                <p className="home-new-posts-gallery-category mb-6 uppercase f-sans">
+                                                <p className="home-new-posts-gallery-category text-g mb-6 uppercase f-sans">
                                                     {post.category}
                                                 </p>
 
-                                                <h3 className="home-new-posts-gallery-title f-serif">
+                                                <h3 className="home-new-posts-gallery-title text-g f-serif">
                                                     {post.title}
                                                 </h3>
 
-                                                <p className="home-new-posts-gallery-description m-0 small f-sans">
+                                                <p className="home-new-posts-gallery-description text-g m-0 small f-sans">
                                                     {post.thumbnailText}
                                                 </p>
 
