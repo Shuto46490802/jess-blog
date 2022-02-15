@@ -144,7 +144,7 @@ const AboutContent2 = ({ largeImages, secondaryImages, isPageLoaded }) => {
 
                         <div className="parallax__wrapper position-absolute t-0 l-0 overflow-hidden">
 
-                            <div ref={largeImg2Ref} className="parallax">
+                            <div ref={largeImg2Ref} className="parallax  should-animate">
 
                                 <figure className="fig__wrapper">
 
@@ -180,7 +180,7 @@ const AboutContent2 = ({ largeImages, secondaryImages, isPageLoaded }) => {
 
                             <div className="parallax__wrapper position-absolute t-0 l-0">
 
-                                <div style={{ top: "50px" }} ref={img1Ref} className="parallax">
+                                <div style={{ top: "50px" }} ref={img1Ref} className="parallax should-animate">
 
                                     <figure className="fig__wrapper">
 
@@ -198,7 +198,7 @@ const AboutContent2 = ({ largeImages, secondaryImages, isPageLoaded }) => {
 
                             <div className="parallax__wrapper position-absolute t-0 l-0">
 
-                                <div style={{ top: "100px" }} ref={img2Ref} className="parallax">
+                                <div style={{ top: "100px" }} ref={img2Ref} className="parallax should-animate">
 
                                     <figure className="fig__wrapper">
 

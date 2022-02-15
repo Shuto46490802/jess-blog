@@ -38,7 +38,7 @@ const ContactInfo = ({ image, smallImages, isPageLoaded }) => {
 
                     <div className="parallax__wrapper position-absolute t-0 l-0">
 
-                        <div style={{top: "100px"}} ref={smallImg1Ref} className="parallax">
+                        <div style={{top: "100px"}} ref={smallImg1Ref} className="parallax should-animate">
 
                             <figure className="fig__wrapper">
 
@@ -56,7 +56,7 @@ const ContactInfo = ({ image, smallImages, isPageLoaded }) => {
 
                     <div className="parallax__wrapper position-absolute t-0 l-0">
 
-                        <div style={{top: "25px"}} ref={smallImg2Ref} className="parallax">
+                        <div style={{top: "25px"}} ref={smallImg2Ref} className="parallax should-animate">
 
                             <figure className="fig__wrapper">
 
@@ -152,7 +152,7 @@ const ContactInfo = ({ image, smallImages, isPageLoaded }) => {
 
                     <div className="parallax__wrapper position-absolute t-0 l-0 overflow-hidden">
 
-                        <div style={{ transformOrigin: "bottom" }} ref={largeImgRef} className="parallax">
+                        <div style={{ transformOrigin: "bottom" }} ref={largeImgRef} className="parallax should-animate">
 
                             <figure className="fig__wrapper">
 

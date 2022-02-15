@@ -65,7 +65,7 @@ const Footer = ({ image, isPageLoaded }) => {
 
                 <div ref={imgTriggerRef} className="parallax__wrapper t-0 l-0 overflow-hidden position-absolute">
 
-                    <div ref={imgRef} className="parallax">
+                    <div ref={imgRef} className="parallax should-animate">
 
                         <figure className="fig__wrapper">
 
@@ -287,7 +287,7 @@ const Footer = ({ image, isPageLoaded }) => {
 
                     <h1 ref={logoWrapperRef} className="footer-logo overflow-hidden f-serif">
 
-                        <div ref={logoRef}>
+                        <div ref={logoRef} className="should-animate">
                             JESSBLOG
                         </div>
 

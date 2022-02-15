@@ -15,7 +15,7 @@ const HomeAbout = ({ image1, image2, image3, isPageLoaded }) => {
             animateButtonScale(textTriggerRef.current, 0.5, buttonRef.current);
         }
     }, [isPageLoaded])
-    
+
 
     const sectionRef = useRef();
     const image1Ref = useRef();
@@ -34,7 +34,7 @@ const HomeAbout = ({ image1, image2, image3, isPageLoaded }) => {
     const buttonRef = useRef();
 
     return (
-        <section ref={sectionRef} className="home-about position-relative d-flex flex-column flex-md-row align-items-start pt-1 pb-5 pt-md-3 pt-xl-5">
+        <section ref={sectionRef} className="home-about text-g position-relative d-flex flex-column flex-md-row align-items-start pt-1 pb-5 pt-md-3 pt-xl-5">
 
             <div className="home-about-image1__wrapper position-relative">
 
@@ -98,8 +98,10 @@ const HomeAbout = ({ image1, image2, image3, isPageLoaded }) => {
 
                         <Link href="/about">
 
-                            <a className="uppercase f-gt">
-                                READ MORE
+                            <a className="uppercase f-gt text-o">
+                                <span className="line-link-opo">
+                                    READ MORE
+                                </span>
                             </a>
 
                         </Link>

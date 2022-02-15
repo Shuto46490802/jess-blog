@@ -38,9 +38,9 @@ const HomeCategory = ({ images, isPageLoaded }) => {
     const headingRef = useRef();
 
     return (
-        <div ref={sectionRef} className="home-category position-relative d-flex flex-column flex-center px-md-2 pt-1 pb-md-4 pt-md-3 pt-xl-4">
+        <div ref={sectionRef} className="home-category text-w position-relative d-flex bg-p flex-column flex-center px-md-2 pt-1 pb-md-4 pt-md-3 pt-xl-4">
 
-            <h2 ref={headingRef} className="home-category-title text-g f-serif h1 text-center">
+            <h2 ref={headingRef} className="home-category-title f-serif h1 text-center should-animate">
 
                 <span>
                     Dignissim convallis aenean et tortor
@@ -73,7 +73,7 @@ const HomeCategory = ({ images, isPageLoaded }) => {
 
                                 <Link href={{ pathname: "/blog/skincare", query: { page: 1 } }}>
 
-                                    <a className="h-100 w-100">
+                                    <a className="h-100 w-100 text-w">
 
                                         <div className="home-category-gallery-image__inner">
 

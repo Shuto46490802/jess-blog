@@ -30,7 +30,7 @@ const BlogThumbnailTemp3 = ({ slug, image1, image2, title, thumbnailText, catego
 
                     <div className="parallax__wrapper">
 
-                        <div style={{top: "140px"}} ref={smallImgRef} className="parallax">
+                        <div style={{top: "140px"}} ref={smallImgRef} className="parallax should-animate">
 
                             <div className="blog-thumbnail-temp3-image1 position-relative">
 
@@ -88,7 +88,7 @@ const BlogThumbnailTemp3 = ({ slug, image1, image2, title, thumbnailText, catego
 
                     <div className="parallax__wrapper position-absolute t-0 l-0">
 
-                        <div ref={largeImgRef} className="parallax">
+                        <div ref={largeImgRef} className="parallax should-animate">
 
                             <figure className="fig__wrapper">
 

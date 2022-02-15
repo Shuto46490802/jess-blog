@@ -71,7 +71,6 @@ a {
     height: 1px;
     left: 0;
     background: #212529;
-    position: absolute;
     top: 100%;
     transform: scaleX(0);
     opacity: 0;
@@ -106,12 +105,41 @@ button:hover .line-link:after {
     height: 1px;
     left: 0;
     background: #212529;
-    position: absolute;
     top: 100%;
     transform: scaleX(0);
     opacity: 0;
     transition: 0.4s;
     margin-top: -1px;
+}
+
+.line-link-opo {
+    position: relative;
+    font-family: "Raleway", sans-serif !important;
+    font-weight: 500;
+}
+
+.line-link-opo:after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 1px;
+    left: 0;
+    background: #212529;
+    top: 100%;
+    transform: scaleX(1);
+    opacity: 1;
+    transition: 0.4s;
+    margin-top: -1px;
+}
+
+a:hover .line-link-opo:after {
+    opacity: 0;
+    transform: scaleX(0);
+}
+
+button:hover .line-link-opo:after {
+    opacity: 0;
+    transform: scaleX(0);
 }
 
 button {
@@ -526,7 +554,7 @@ span {
 }
 
 .bg-p {
-    background: #e7d4cd;
+    background: #cfc6c3;
 }
 
 .text-o {
@@ -539,6 +567,10 @@ span {
 
 .text-g {
     color: #9b918e !important;
+}
+
+.text-b{
+    color: #212529;
 }
 
 //bootstrap customize

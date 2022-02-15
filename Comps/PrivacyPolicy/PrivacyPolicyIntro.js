@@ -42,7 +42,7 @@ const PrivacyPolicyIntro = ({ image, isTransitionning, isPageLoaded }) => {
 
             <div className="privacy-policy-intro-sub-heading small text-center mb-6 f-sans uppercase">
 
-                <span ref={subHeadingRef}>
+                <span ref={subHeadingRef} className="should-animate">
                     Terms of
                 </span>
 

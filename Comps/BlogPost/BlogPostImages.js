@@ -29,7 +29,7 @@ const BlogPostImages = ({ smallImage, largeImage, isPageLoaded }) => {
 
                         <div className="parallax__wrapper">
 
-                            <div style={{top: "50px"}} ref={smallImgRef} className="parallax">
+                            <div style={{top: "50px"}} ref={smallImgRef} className="parallax should-animate">
 
                                 <div className="blog-post-small-image-mobile position-relative">
 
@@ -61,7 +61,7 @@ const BlogPostImages = ({ smallImage, largeImage, isPageLoaded }) => {
 
                     <div className="parallax__wrapper d-none d-md-block">
 
-                        <div style={{top: "50px"}} ref={smallImgMobileRef} className="parallax">
+                        <div style={{top: "50px"}} ref={smallImgMobileRef} className="parallax should-animate">
 
                             <div className="blog-post-small-image-not-mobile position-relative">
 
@@ -93,7 +93,7 @@ const BlogPostImages = ({ smallImage, largeImage, isPageLoaded }) => {
 
                     <div ref={largeImgWrapperRef} className="parallax__wrapper overflow-hidden position-absolute t-0 l-0">
 
-                        <div ref={largeImgRef} className="parallax">
+                        <div ref={largeImgRef} className="parallax should-animate">
 
                             <div className="blog-post-large-image h-100">
 

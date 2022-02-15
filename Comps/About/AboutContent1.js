@@ -66,7 +66,7 @@ const AboutContent1 = ({ smallImage, largeImage, secondaryImages, isPageLoaded }
 
                         <div ref={textWrapperRef} className="about-content-column-small-image-text__wrapper text-g col-md-10 offset-md-1 col-xl-12 offset-xl-0">
 
-                            <div ref={textRef} className="about-content-column-small-image-text__inner small mt-1 mt-lg-2 f-sans">
+                            <div ref={textRef} className="about-content-column-small-image-text__inner small mt-1 mt-lg-2 f-sans should-animate">
 
                                 <p>
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.
@@ -88,7 +88,7 @@ const AboutContent1 = ({ smallImage, largeImage, secondaryImages, isPageLoaded }
 
                             <div className="parallax__wrapper position-absolute t-0 l-0 overflow-hidden">
 
-                                <div ref={largeImgRef} className="parallax">
+                                <div ref={largeImgRef} className="parallax should-animate">
 
                                     <figure className="fig__wrapper">
 

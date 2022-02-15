@@ -42,7 +42,7 @@ const AboutIntro = ({ isTransitionning, image, isPageLoaded }) => {
 
             <div className="about-intro-sub-heading small text-center mb-6 f-sans uppercase">
 
-                <span ref={subHeadingRef}>
+                <span ref={subHeadingRef} className="should-animte">
                     WHO I AM AND WHY I DO WHAT I DO
                 </span>
 

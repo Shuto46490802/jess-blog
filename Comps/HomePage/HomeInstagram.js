@@ -38,7 +38,7 @@ const HomeInstagram = ({ instaPosts, isPageLoaded }) => {
     };
 
     return (
-        <div ref={sectionRef} className="home-instagram position-relative d-flex flex-column pt-1 pb-3 pt-md-3 pt-xl-4">
+        <div ref={sectionRef} className="home-instagram text-g position-relative d-flex flex-column pt-1 pb-3 pt-md-3 pt-xl-4">
 
             <div className="home-instagram-title__wrapper align-self-center text-center  mb-2">
 
@@ -114,7 +114,7 @@ const HomeInstagram = ({ instaPosts, isPageLoaded }) => {
                                             <Link href={post.link}>
 
                                                 <a>
-                                                    <span className="line-link small f-gt">View On Instagram</span>
+                                                    <span className="line-link small f-gt text-g">View On Instagram</span>
                                                 </a>
 
                                             </Link>

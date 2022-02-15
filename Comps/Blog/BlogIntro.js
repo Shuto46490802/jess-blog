@@ -67,7 +67,7 @@ const BlogIntro = ({ isTransitionning, image, isPageLoaded }) => {
 
             </div>
 
-            <div ref={subHeading2Ref} className="blog-intro-sub-caption__wrapper pb-md-2 text-center f-sans">
+            <div ref={subHeading2Ref} className="blog-intro-sub-caption__wrapper pb-md-2 text-center f-sans should-animate">
 
                 <h2 className="d-none d-md-block h2">
 
