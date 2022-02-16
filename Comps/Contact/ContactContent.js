@@ -51,11 +51,11 @@ const ContactContent = ({ image1, isPageLoaded }) => {
 
                 <div className="contact-content-form__inner col-xl-8 offset-xl-2">
 
-                    <h1 className="h3 pt-xl-3 mt-md-1 mb-1 mb-md-6 f-serif">
+                    <h1 className="h3 pt-xl-3 mt-md-1 text-g mb-1 mb-md-6 f-serif">
                         Contact
                     </h1>
 
-                    <p className="ls-big mb-2 mb-md-3 uppercase small f-sans">
+                    <p className="ls-big mb-2 mb-md-3 text-g uppercase small f-sans">
                         Contact Me
                     </p>
 

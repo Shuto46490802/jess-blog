@@ -64,7 +64,7 @@ const AboutContent1 = ({ smallImage, largeImage, secondaryImages, isPageLoaded }
 
                         </div>
 
-                        <div ref={textWrapperRef} className="about-content-column-small-image-text__wrapper text-g col-md-10 offset-md-1 col-xl-12 offset-xl-0">
+                        <div ref={textWrapperRef} className="about-content-column-small-image-text__wrapper text-w col-md-10 offset-md-1 col-xl-12 offset-xl-0">
 
                             <div ref={textRef} className="about-content-column-small-image-text__inner small mt-1 mt-lg-2 f-sans should-animate">
 
@@ -116,7 +116,7 @@ const AboutContent1 = ({ smallImage, largeImage, secondaryImages, isPageLoaded }
 
             </div>
 
-            <div ref={section2Ref} className="about-content1-secondary-content d-flex flex-wrap pt-3 pb-2 pt-md-4 pb-md-4">
+            <div ref={section2Ref} className="about-content1-secondary-content text-g d-flex flex-wrap pt-3 pb-2 pt-md-4 pb-md-4">
 
                 <div className="about-content1-secondary-content-left order-md-0 order-1 col-md-6 col-xl-7 d-flex align-items-center ps-xl-5 order-1 order-md-0 ps-1 pe-1 pe-md-0">
 

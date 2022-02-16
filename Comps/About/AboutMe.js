@@ -28,7 +28,7 @@ const AboutMe = ({ image, smallImages, isPageLoaded }) => {
     const img2Ref = useRef();
 
     return (
-        <div ref={sectionRef} className="about-me d-flex flex-wrap pt-1 pb-3 pt-md-3 pt-xl-5 pb-xl-5">
+        <div ref={sectionRef} className="about-me text-g d-flex flex-wrap pt-1 pb-3 pt-md-3 pt-xl-5 pb-xl-5">
 
             <div className="about-me-image1__wrapper d-flex justify-content-xl-center col-md-5 col ps-xl-4 ps-1 pe-1 pe-md-2 pe-xl-1">
 

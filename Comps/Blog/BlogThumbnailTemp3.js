@@ -20,7 +20,7 @@ const BlogThumbnailTemp3 = ({ slug, image1, image2, title, thumbnailText, catego
     return (
         <div ref={sectionRef} className="blog-thumbnail-temp3 d-flex flex-column flex-column-reverse flex-md-row pb-3 pt-1 py-md-4">
 
-            <div className="blog-thumbnail-temp3-text__wrapper col-md-6 d-flex flex-column flex-center py-2 py-xl-4 position-relative">
+            <div className="blog-thumbnail-temp3-text__wrapper text-g col-md-6 d-flex flex-column flex-center py-2 py-xl-4 position-relative">
 
                 <h5 className="uppercase tiny mt-1 mb-1 mt-0 mb-2 f-sans">
                     {category}

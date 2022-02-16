@@ -76,7 +76,7 @@ const BlogThumbnailTemp1 = ({ slug, image1, image2, title, thumbnailText, catego
 
             <div className="blog-thumbnail-temp1-text__wrapper col-md px-1 px-md-0">
 
-                <div className="blog-thumbnail-temp1-text__inner d-flex flex-column justify-content-center h-100 ps-md-2 pe-md-2 pe-xlg-5 position-relative">
+                <div className="blog-thumbnail-temp1-text__inner d-flex flex-column text-g justify-content-center h-100 ps-md-2 pe-md-2 pe-xlg-5 position-relative">
 
                     <h6 className="uppercase tiny mt-1 mb-1 mt-md-0 mb-md-2 f-sans">{category}</h6>
 

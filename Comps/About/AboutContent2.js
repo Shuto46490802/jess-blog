@@ -116,7 +116,7 @@ const AboutContent2 = ({ largeImages, secondaryImages, isPageLoaded }) => {
 
             <div className="about-content-two-column d-flex flex-wrap">
 
-                <div className="about-content-column order-md-0 order-1 col-md-6 position-relative">
+                <div className="about-content-column text-g order-md-0 order-1 col-md-6 position-relative">
 
                     <div ref={textWrapper2Ref} className="pt-3 pt-md-2 pb-2 pt-xl-3 pt-xlg-5 ps-1 pe-1 ps-md-2 pe-md-2 pe-xl-0 col-xl-9 ps-xl-4 pb-xl-5">
 
@@ -170,7 +170,7 @@ const AboutContent2 = ({ largeImages, secondaryImages, isPageLoaded }) => {
 
             </div>
 
-            <div ref={sectionRef} className="about-content2-secondary-content d-flex flex-wrap">
+            <div ref={sectionRef} className="about-content2-secondary-content text-g d-flex flex-wrap">
 
                 <div className="about-content2-secondary-content-left col col-md-6 pt-4 pt-md-5 d-flex justify-content-end justify-content-md-center justify-content-xl-end ">
 

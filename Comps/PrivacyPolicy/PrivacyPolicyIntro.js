@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import Image from "next/image";
 //Comp
 import { animateIntroHeading, animateIntroImage, animateIntroSubheadingDown, animateParallaxIntroImage } from "../PageLayouts/animation";
 
@@ -34,7 +35,11 @@ const PrivacyPolicyIntro = ({ image, isTransitionning, isPageLoaded }) => {
 
                 <div ref={imgRef} className="parallax should-animate">
 
-                    <div className="image cover bg-center h-100 w-100" style={{ backgroundImage: `url(${image})` }} />
+                    <figure className="fig__wrapper">
+
+                        <Image src={image} layout="fill" objectFit="cover" priority />
+
+                    </figure>
 
                 </div>
 

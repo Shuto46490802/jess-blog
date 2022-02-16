@@ -121,7 +121,7 @@ const Menu = ({ isMenuOpen, toggleSearch, toggleMenu }) => {
                             </div>
 
                             <button
-                                className="menu-link mb-2"
+                                className="menu-link mb-2 text-g"
                                 onClick={() => {
                                     toggleSearch();
                                 }}

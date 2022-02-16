@@ -37,7 +37,7 @@ const MorePost = ({ posts, isPageLoaded }) => {
     };
 
     return (
-        <div ref={sectionRef} className="more-posts d-flex flex-column pt-md-3 pb-md-5 px-md-3 overflow-hidden">
+        <div ref={sectionRef} className="more-posts text-g d-flex flex-column pt-md-3 pb-md-5 px-md-3 overflow-hidden">
 
             <div className="d-flex flex-center text-center py-2 mb-md-2">
 
@@ -53,7 +53,7 @@ const MorePost = ({ posts, isPageLoaded }) => {
 
                     <Link href={`/blog/${posts[0].slug}`}>
 
-                        <a>
+                        <a className="text-g">
 
                             <div className="more-posts-post px-sm-1 px-xl-3">
 
@@ -99,7 +99,7 @@ const MorePost = ({ posts, isPageLoaded }) => {
 
                     <Link href={`/blog/${posts[1].slug}`}>
 
-                        <a>
+                        <a className="text-g">
 
                             <div className="more-posts-post px-sm-1 px-xl-3">
 
@@ -144,7 +144,7 @@ const MorePost = ({ posts, isPageLoaded }) => {
 
                     <Link href={`/blog/${posts[2].slug}`}>
 
-                        <a>
+                        <a className="text-g">
 
                             <div className="more-posts-post px-sm-1 px-xl-3">
 

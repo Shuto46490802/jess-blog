@@ -21,7 +21,7 @@ const BlogPostImages = ({ smallImage, largeImage, isPageLoaded }) => {
     return (
         <div ref={sectionRef} className="blog-post-images d-flex flex-md-row flex-column flex-column-reverse">
 
-            <div className="col-md-6 bg-p text-g ps-md-3 d-flex flex-column align-items-start justify-content-center pt-md-4 pb-md-3">
+            <div className="col-md-6 bg-p text-w ps-md-3 d-flex flex-column align-items-start justify-content-center pt-md-4 pb-md-3">
 
                 <div className="col-md-8 col-xl-6 px-1 px-md-0 pb-1 pt-md-0 pb-md-0 d-flex flex-column align-items-end justify-content-end">
 

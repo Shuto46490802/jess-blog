@@ -199,10 +199,25 @@
 
 .menu-link {
   font-size: 24px;
+  opacity: 0.7;
+  transition: 0.4s;
+  a, button{
+    color: #9b918e !important;
+  }
+}
+.menu-link:hover{
+  opacity: 1;
 }
 
 .menu-sublink {
   font-size: 16px;
+  color: #9b918e !important;
+  transition: 0.4s;
+  opacity: 0.7;
+}
+
+.menu-sublink:hover{
+  opacity: 1;
 }
 
 //Popup.js
@@ -1121,6 +1136,12 @@ button.header-link:hover .search-icon {
       background-color: #de312f !important;
     }
   }
+
+  .plus__wrapper{
+    span{
+      background-color: #9b918e;
+    }
+  }
 }
 
 .accordion-content__wrapper{
@@ -1159,6 +1180,9 @@ button.header-link:hover .search-icon {
 }
 
 //Intro.js
+.intro{
+  z-index: 10000;
+}
 .intro-fader {
   z-index: 1;
   background: rgba(0, 0, 0);
@@ -1188,21 +1212,32 @@ button.header-link:hover .search-icon {
 }
 
 .intro-image {
-  width: 42vw;
+  width: 42vw !important;
+  height: 42vw !important;
   position: absolute;
   clip-path: circle(0%);
-  border-radius: 50%;
-  overflow: hidden;
+  // border-radius: 50%;
   will-change: clip-path;
   @media only screen and (min-width: 768px) {
     width: 23vw;
   }
 }
 
+.intro-image:after{
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: url("/ceramic.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
 .intro-image__inner {
   position: relative;
   width: 100%;
   height: 100%;
+  overflow: hidden;
 }
 
 .intro-image__inner:after {

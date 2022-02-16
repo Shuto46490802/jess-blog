@@ -90,7 +90,7 @@ const PageTransition = ({ setIsTransitioning }) => {
     }
 
     return (
-        <div ref={sectionRef} className="page-transition vh-100 vw-100 position-fixed t-0 l-0">
+        <div ref={sectionRef} className="page-transition text-g vh-100 vw-100 position-fixed t-0 l-0">
 
             <div className="page-transition__inner h-100 w-100 position-relative d-flex flex-center">
 

@@ -2,7 +2,7 @@ import AccordionItem from "./AccordionItem";
 
 const PrivacyPolicyContent = () => {
     return (
-        <div className="privacy-policy-content col-md-8 offset-md-2 pt-2 pb-2 ps-1 pe-1 ps-md-0 pe-md-0">
+        <div className="privacy-policy-content text-g col-md-8 offset-md-2 pt-2 pb-2 ps-1 pe-1 ps-md-0 pe-md-0">
 
             <div className="d-flex justify-content-center mb-3">
 

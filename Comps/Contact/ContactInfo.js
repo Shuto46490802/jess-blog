@@ -30,7 +30,7 @@ const ContactInfo = ({ image, smallImages, isPageLoaded }) => {
     const smallImg2Ref = useRef();
 
     return (
-        <div ref={sectionRef} className="contact-info d-flex flex-wrap pt-3 pb-3 pt-xl-4 pb-xl-4">
+        <div ref={sectionRef} className="contact-info d-flex text-g flex-wrap pt-3 pb-3 pt-xl-4 pb-xl-4">
 
             <div className="contact-info-small-images__wrapper col-md-3 ps-2 pe-2 ps-md-4 pe-md-3 pt-md-1 d-md-none d-xl-block">
 
@@ -88,7 +88,7 @@ const ContactInfo = ({ image, smallImages, isPageLoaded }) => {
 
                                 <a >
 
-                                    <span className="line-link f-sans small">
+                                    <span className="line-link text-g f-sans small">
                                         jessblog@gmail.com
                                     </span>
 
@@ -112,7 +112,7 @@ const ContactInfo = ({ image, smallImages, isPageLoaded }) => {
 
                                 <a>
 
-                                    <span className="line-link small f-sans">
+                                    <span className="line-link text-g small f-sans">
                                         (647) 807-7695
                                     </span>
 

@@ -2,9 +2,8 @@ import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 //Lib
 import { gsap } from "gsap";
-
 const Intro = ({ isFirstLoaded, isFirstIntroDone }) => {
-
+    
     useEffect(() => {
 
         if (isFirstLoaded) {
@@ -32,28 +31,28 @@ const Intro = ({ isFirstLoaded, isFirstIntroDone }) => {
                             ease: "power4",
                             stagger: 0.3
                         }, 0)
-                .fromTo(imagesWrapperRef.current,
-                    {
-                        yPercent: 0
-                    },
-                    {
-                        yPercent: -50,
-                        duration: 1.2,
-                        ease: "Expo.easeInOut"
-                    })
-                .fromTo(faderRef.current,
-                    {
-                        opacity: 0,
-                    },
-                    {
-                        opacity: 1,
-                        duration: 1.2,
-                        ease: "Expo.easeInOut"
-                    }, 3.8)
-                .set(sectionRef.current,
-                    {
-                        visibility: "hidden",
-                    })
+                // .fromTo(imagesWrapperRef.current,
+                //     {
+                //         yPercent: 0
+                //     },
+                //     {
+                //         yPercent: -50,
+                //         duration: 1.2,
+                //         ease: "Expo.easeInOut"
+                //     })
+                // .fromTo(faderRef.current,
+                //     {
+                //         opacity: 0,
+                //     },
+                //     {
+                //         opacity: 1,
+                //         duration: 1.2,
+                //         ease: "Expo.easeInOut"
+                //     }, 3.8)
+                // .set(sectionRef.current,
+                //     {
+                //         visibility: "hidden",
+                //     })
 
             }
 
@@ -109,99 +108,104 @@ const Intro = ({ isFirstLoaded, isFirstIntroDone }) => {
 
                 <li ref={addToImgWrapperRefs} className="intro-image">
 
-                    <div className="intro-image__inner">
+                    {/* <div ref={addToImgRefs} className="intro-image__inner">
 
                         <figure className="fig__wrapper">
 
-                            <Image ref={addToImgRefs} src={"/ceramic.jpg"} layout="fill" objectFit="cover" priority />
+                            <Image src={"/ceramic.jpg"} layout="fill" objectFit="cover" priority />
 
                         </figure>
 
-                    </div>
+                    </div> */}
+
 
                 </li>
 
                 <li ref={addToImgWrapperRefs} className="intro-image">
 
-                    <div className="intro-image__inner">
+                    {/* <div ref={addToImgRefs} className="intro-image__inner">
 
                         <figure className="fig__wrapper">
 
-                            <Image ref={addToImgRefs} src={"/ceramic.jpg"} layout="fill" objectFit="cover" priority />
+                            <Image src={"/ceramic.jpg"} layout="fill" objectFit="cover" priority />
 
                         </figure>
 
-                    </div>
+                    </div> */}
+
 
                 </li>
 
                 <li ref={addToImgWrapperRefs} className="intro-image">
 
-                    <div className="intro-image__inner">
+                    {/* <div ref={addToImgRefs} className="intro-image__inner">
 
                         <figure className="fig__wrapper">
 
-                            <Image ref={addToImgRefs} src={"/ceramic.jpg"} layout="fill" objectFit="cover" priority />
+                            <Image src={"/ceramic.jpg"} layout="fill" objectFit="cover" priority />
 
                         </figure>
 
-                    </div>
+                    </div> */}
+
 
                 </li>
 
                 <li ref={addToImgWrapperRefs} className="intro-image">
 
-                    <div className="intro-image__inner">
+                    {/* <div ref={addToImgRefs} className="intro-image__inner">
 
                         <figure className="fig__wrapper">
 
-                            <Image ref={addToImgRefs} src={"/ceramic.jpg"} layout="fill" objectFit="cover" priority />
+                            <Image src={"/ceramic.jpg"} layout="fill" objectFit="cover" priority />
 
                         </figure>
 
-                    </div>
+                    </div> */}
+
 
                 </li>
 
                 <li ref={addToImgWrapperRefs} className="intro-image">
 
-                    <div className="intro-image__inner">
+                    {/* <div ref={addToImgRefs} className="intro-image__inner">
 
                         <figure className="fig__wrapper">
 
-                            <Image ref={addToImgRefs} src={"/ceramic.jpg"} layout="fill" objectFit="cover" priority />
+                            <Image src={"/ceramic.jpg"} layout="fill" objectFit="cover" priority />
 
                         </figure>
 
-                    </div>
+                    </div> */}
 
                 </li>
 
                 <li ref={addToImgWrapperRefs} className="intro-image">
 
-                    <div className="intro-image__inner">
+                    {/* <div ref={addToImgRefs} className="intro-image__inner">
 
                         <figure className="fig__wrapper">
 
-                            <Image ref={addToImgRefs} src={"/ceramic.jpg"} layout="fill" objectFit="cover" priority />
+                            <Image src={"/ceramic.jpg"} layout="fill" objectFit="cover" priority />
 
                         </figure>
 
-                    </div>
+                    </div> */}
 
                 </li>
 
                 <li ref={addToImgWrapperRefs} className="intro-image">
 
-                    <div  className="intro-image__inner">
+                    {/* <div ref={addToImgRefs} className="intro-image__inner">
 
                         <figure className="fig__wrapper">
 
-                            <Image ref={addToImgRefs} src={"/ceramic.jpg"} layout="fill" objectFit="cover" priority />
+                            <Image src={"/ceramic.jpg"} layout="fill" objectFit="cover" priority />
 
                         </figure>
 
-                    </div>
+                    </div> */}
+                    
 
                 </li>
 
