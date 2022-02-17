@@ -12,48 +12,48 @@ const Intro = ({ isFirstLoaded, isFirstIntroDone }) => {
             if (!isFirstIntroDone) {
 
                 gsap.timeline({ paused: false })
-                .fromTo(imgWrapperRefs.current,
-                    {
-                        webkitClipPath: "circle(0%)"
-                    },
-                    {
-                        webkitClipPath: "circle(50%)",
-                        duration: 2,
-                        ease: "power4",
-                        stagger: 0.3
-                    })
-                .fromTo(imgRefs.current,
-                    {
-                        scale: 1.8
-                    },
-                    {
-                        scale: 1,
-                        duration: 2,
-                        ease: "power4",
-                        stagger: 0.3
-                    }, 0)
-                .fromTo(imagesWrapperRef.current,
-                    {
-                        yPercent: 0
-                    },
-                    {
-                        yPercent: -50,
-                        duration: 1.2,
-                        ease: "Expo.easeInOut"
-                    })
-                .fromTo(faderRef.current,
-                    {
-                        opacity: 0,
-                    },
-                    {
-                        opacity: 1,
-                        duration: 1.2,
-                        ease: "Expo.easeInOut"
-                    }, 3.8)
-                .set(sectionRef.current,
-                    {
-                        visibility: "hidden",
-                    })
+                    .fromTo(imgWrapperRefs.current,
+                        {
+                            webkitClipPath: "circle(0%)"
+                        },
+                        {
+                            webkitClipPath: "circle(50%)",
+                            duration: 2,
+                            ease: "power4",
+                            stagger: 0.3
+                        })
+                    .fromTo(imgRefs.current,
+                        {
+                            scale: 1.8,
+                        },
+                        {
+                            scale: 1,
+                            duration: 2,
+                            ease: "power4",
+                            stagger: 0.3
+                        }, 0)
+                    // .fromTo(imagesWrapperRef.current,
+                    //     {
+                    //         yPercent: 0
+                    //     },
+                    //     {
+                    //         yPercent: -50,
+                    //         duration: 1.2,
+                    //         ease: "Expo.easeInOut"
+                    //     })
+                    // .fromTo(faderRef.current,
+                    //     {
+                    //         opacity: 0,
+                    //     },
+                    //     {
+                    //         opacity: 1,
+                    //         duration: 1.2,
+                    //         ease: "Expo.easeInOut"
+                    //     }, 3.8)
+                    // .set(sectionRef.current,
+                    //     {
+                    //         visibility: "hidden",
+                    //     })
 
             }
 
@@ -107,7 +107,7 @@ const Intro = ({ isFirstLoaded, isFirstIntroDone }) => {
 
             <ul ref={imagesWrapperRef} className="intro-images__wrapper d-flex flex-center h-100 position-relative w-100">
 
-                <li ref={addToImgWrapperRefs} className="intro-image">
+                {/* <li ref={addToImgWrapperRefs} className="intro-image">
 
                     <div ref={addToImgRefs} className="intro-image__inner">
 
@@ -208,6 +208,10 @@ const Intro = ({ isFirstLoaded, isFirstIntroDone }) => {
                     </div>
 
 
+                </li> */}
+
+                <li ref={addToImgWrapperRefs} className="intro-image">
+                    
                 </li>
 
             </ul>
