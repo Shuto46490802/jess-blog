@@ -2,8 +2,9 @@ import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 //Lib
 import { gsap } from "gsap";
+
 const Intro = ({ isFirstLoaded, isFirstIntroDone }) => {
-    
+
     useEffect(() => {
 
         if (isFirstLoaded) {
@@ -11,48 +12,48 @@ const Intro = ({ isFirstLoaded, isFirstIntroDone }) => {
             if (!isFirstIntroDone) {
 
                 gsap.timeline({ paused: false })
-                    .fromTo(imgWrapperRefs.current,
-                        {
-                            clipPath: "circle(0%)"
-                        },
-                        {
-                            clipPath: "circle(50%)",
-                            duration: 2,
-                            ease: "power4",
-                            stagger: 0.3
-                        })
-                    .fromTo(imgRefs.current,
-                        {
-                            scale: 1.8
-                        },
-                        {
-                            scale: 1,
-                            duration: 2,
-                            ease: "power4",
-                            stagger: 0.3
-                        }, 0)
-                // .fromTo(imagesWrapperRef.current,
-                //     {
-                //         yPercent: 0
-                //     },
-                //     {
-                //         yPercent: -50,
-                //         duration: 1.2,
-                //         ease: "Expo.easeInOut"
-                //     })
-                // .fromTo(faderRef.current,
-                //     {
-                //         opacity: 0,
-                //     },
-                //     {
-                //         opacity: 1,
-                //         duration: 1.2,
-                //         ease: "Expo.easeInOut"
-                //     }, 3.8)
-                // .set(sectionRef.current,
-                //     {
-                //         visibility: "hidden",
-                //     })
+                .fromTo(imgWrapperRefs.current,
+                    {
+                        webkitClipPath: "circle(0%)"
+                    },
+                    {
+                        webkitClipPath: "circle(50%)",
+                        duration: 2,
+                        ease: "power4",
+                        stagger: 0.3
+                    })
+                .fromTo(imgRefs.current,
+                    {
+                        scale: 1.8
+                    },
+                    {
+                        scale: 1,
+                        duration: 2,
+                        ease: "power4",
+                        stagger: 0.3
+                    }, 0)
+                .fromTo(imagesWrapperRef.current,
+                    {
+                        yPercent: 0
+                    },
+                    {
+                        yPercent: -50,
+                        duration: 1.2,
+                        ease: "Expo.easeInOut"
+                    })
+                .fromTo(faderRef.current,
+                    {
+                        opacity: 0,
+                    },
+                    {
+                        opacity: 1,
+                        duration: 1.2,
+                        ease: "Expo.easeInOut"
+                    }, 3.8)
+                .set(sectionRef.current,
+                    {
+                        visibility: "hidden",
+                    })
 
             }
 
@@ -108,7 +109,7 @@ const Intro = ({ isFirstLoaded, isFirstIntroDone }) => {
 
                 <li ref={addToImgWrapperRefs} className="intro-image">
 
-                    {/* <div ref={addToImgRefs} className="intro-image__inner">
+                    <div ref={addToImgRefs} className="intro-image__inner">
 
                         <figure className="fig__wrapper">
 
@@ -116,14 +117,14 @@ const Intro = ({ isFirstLoaded, isFirstIntroDone }) => {
 
                         </figure>
 
-                    </div> */}
+                    </div>
 
 
                 </li>
 
                 <li ref={addToImgWrapperRefs} className="intro-image">
 
-                    {/* <div ref={addToImgRefs} className="intro-image__inner">
+                    <div ref={addToImgRefs} className="intro-image__inner">
 
                         <figure className="fig__wrapper">
 
@@ -131,14 +132,14 @@ const Intro = ({ isFirstLoaded, isFirstIntroDone }) => {
 
                         </figure>
 
-                    </div> */}
+                    </div>
 
 
                 </li>
 
                 <li ref={addToImgWrapperRefs} className="intro-image">
 
-                    {/* <div ref={addToImgRefs} className="intro-image__inner">
+                    <div ref={addToImgRefs} className="intro-image__inner">
 
                         <figure className="fig__wrapper">
 
@@ -146,14 +147,14 @@ const Intro = ({ isFirstLoaded, isFirstIntroDone }) => {
 
                         </figure>
 
-                    </div> */}
+                    </div>
 
 
                 </li>
 
                 <li ref={addToImgWrapperRefs} className="intro-image">
 
-                    {/* <div ref={addToImgRefs} className="intro-image__inner">
+                    <div ref={addToImgRefs} className="intro-image__inner">
 
                         <figure className="fig__wrapper">
 
@@ -161,14 +162,14 @@ const Intro = ({ isFirstLoaded, isFirstIntroDone }) => {
 
                         </figure>
 
-                    </div> */}
+                    </div>
 
 
                 </li>
 
                 <li ref={addToImgWrapperRefs} className="intro-image">
 
-                    {/* <div ref={addToImgRefs} className="intro-image__inner">
+                    <div ref={addToImgRefs} className="intro-image__inner">
 
                         <figure className="fig__wrapper">
 
@@ -176,13 +177,13 @@ const Intro = ({ isFirstLoaded, isFirstIntroDone }) => {
 
                         </figure>
 
-                    </div> */}
+                    </div>
 
                 </li>
 
                 <li ref={addToImgWrapperRefs} className="intro-image">
 
-                    {/* <div ref={addToImgRefs} className="intro-image__inner">
+                    <div ref={addToImgRefs} className="intro-image__inner">
 
                         <figure className="fig__wrapper">
 
@@ -190,13 +191,13 @@ const Intro = ({ isFirstLoaded, isFirstIntroDone }) => {
 
                         </figure>
 
-                    </div> */}
+                    </div>
 
                 </li>
 
                 <li ref={addToImgWrapperRefs} className="intro-image">
 
-                    {/* <div ref={addToImgRefs} className="intro-image__inner">
+                    <div ref={addToImgRefs} className="intro-image__inner">
 
                         <figure className="fig__wrapper">
 
@@ -204,8 +205,8 @@ const Intro = ({ isFirstLoaded, isFirstIntroDone }) => {
 
                         </figure>
 
-                    </div> */}
-                    
+                    </div>
+
 
                 </li>
 
