@@ -66,6 +66,7 @@ const MentalHealth = ({ isTransitionning, blogPageIntroImage, blogPosts, numOfPo
     useEffect(() => {
         getScrollProxy(scrollerRef.current, headerRef.current);
         sortDescending(blogPosts);
+        setCurrentPage(Number(router.query.page))
     }, [router])
 
     useEffect(() => {
@@ -88,7 +89,6 @@ const MentalHealth = ({ isTransitionning, blogPageIntroImage, blogPosts, numOfPo
 
     const paginate = (_num, _currentPage) => {
         if (_num !== _currentPage) {
-            setCurrentPage(_num)
             router.push({ pathname: "/blog/mental-health", query: { page: _num } })
         }
     }

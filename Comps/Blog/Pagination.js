@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useRouter } from "next/router";
 
-const Pagination = ({ numOfPage, currentPage, setCurrentPage, paginate, paginatePrev, paginateNext }) => {
+const Pagination = ({ numOfPage, currentPage, paginate, paginatePrev, paginateNext }) => {
 
     const getPagination = (_numOfPage, _currentPage) => {
 

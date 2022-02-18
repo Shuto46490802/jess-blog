@@ -17,6 +17,7 @@ const HomeNewPosts = ({ posts, isPageLoaded }) => {
             animateTextUp(textTriggerRef.current, 0.5, subHeadingRef.current);
             animateGallery(galleryTriggerRef.current, imageRefs.current)
         }
+        console.log(posts)
     }, [isPageLoaded])
 
     const textTriggerRef = useRef();
@@ -126,7 +127,7 @@ const HomeNewPosts = ({ posts, isPageLoaded }) => {
                             posts.map((post, index) => (
                                 <SwiperSlide key={index} className="home-new-posts-gallery-image__wrapper mt-3 mt-md-4">
 
-                                    <Link href="/">
+                                    <Link href={`/blog/${post.slug}`}>
 
                                         <a ref={addToImageRefs} className="h-100 text-w w-100 d-flex flex-column should-animate">
 

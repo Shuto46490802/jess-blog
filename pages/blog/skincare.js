@@ -66,6 +66,7 @@ const Skincare = ({ isTransitionning, blogPageIntroImage, blogPosts, numOfPosts,
     useEffect(() => {
         getScrollProxy(scrollerRef.current, headerRef.current);
         sortDescending(blogPosts);
+        setCurrentPage(Number(router.query.page))
     }, [router])
 
     useEffect(() => {
@@ -88,7 +89,6 @@ const Skincare = ({ isTransitionning, blogPageIntroImage, blogPosts, numOfPosts,
 
     const paginate = (_num, _currentPage) => {
         if (_num !== _currentPage) {
-            setCurrentPage(_num)
             router.push({ pathname: "/blog/skincare", query: { page: _num } })
         }
     }
