@@ -22,6 +22,16 @@ const Intro = ({ isFirstLoaded, isFirstIntroDone }) => {
                             ease: "power4",
                             stagger: 0.3
                         })
+                    .fromTo(noGlitchRefs.current,
+                        {
+                            webkitClipPath: "circle(0%)"
+                        },
+                        {
+                            webkitClipPath: "circle(50%)",
+                            duration: 2,
+                            ease: "power4",
+                            stagger: 0.3
+                        }, 0)
                     .fromTo(imgRefs.current,
                         {
                             scale: 1.8,
@@ -32,28 +42,28 @@ const Intro = ({ isFirstLoaded, isFirstIntroDone }) => {
                             ease: "power4",
                             stagger: 0.3
                         }, 0)
-                    // .fromTo(imagesWrapperRef.current,
-                    //     {
-                    //         yPercent: 0
-                    //     },
-                    //     {
-                    //         yPercent: -50,
-                    //         duration: 1.2,
-                    //         ease: "Expo.easeInOut"
-                    //     })
-                    // .fromTo(faderRef.current,
-                    //     {
-                    //         opacity: 0,
-                    //     },
-                    //     {
-                    //         opacity: 1,
-                    //         duration: 1.2,
-                    //         ease: "Expo.easeInOut"
-                    //     }, 3.8)
-                    // .set(sectionRef.current,
-                    //     {
-                    //         visibility: "hidden",
-                    //     })
+                    .fromTo(imagesWrapperRef.current,
+                        {
+                            yPercent: 0
+                        },
+                        {
+                            yPercent: -50,
+                            duration: 1.2,
+                            ease: "Expo.easeInOut"
+                        })
+                    .fromTo(faderRef.current,
+                        {
+                            opacity: 0,
+                        },
+                        {
+                            opacity: 1,
+                            duration: 1.2,
+                            ease: "Expo.easeInOut"
+                        }, 3.8)
+                    .set(sectionRef.current,
+                        {
+                            visibility: "hidden",
+                        })
 
             }
 
@@ -68,6 +78,15 @@ const Intro = ({ isFirstLoaded, isFirstIntroDone }) => {
             imgWrapperRefs.current.push(_el)
         } else {
             imgWrapperRefs.current = [];
+        }
+    };
+
+    const noGlitchRefs = useRef([]);
+    const addToNoGlitchRefs = (_el) => {
+        if (_el && !noGlitchRefs.current.includes(_el)) {
+            noGlitchRefs.current.push(_el)
+        } else {
+            noGlitchRefs.current = [];
         }
     };
 
@@ -107,75 +126,19 @@ const Intro = ({ isFirstLoaded, isFirstIntroDone }) => {
 
             <ul ref={imagesWrapperRef} className="intro-images__wrapper d-flex flex-center h-100 position-relative w-100">
 
-                {/* <li ref={addToImgWrapperRefs} className="intro-image">
-
-                    <div ref={addToImgRefs} className="intro-image__inner">
-
-                        <figure className="fig__wrapper">
-
-                            <Image src={"/ceramic.jpg"} layout="fill" objectFit="cover" priority />
-
-                        </figure>
-
-                    </div>
-
-
-                </li>
-
                 <li ref={addToImgWrapperRefs} className="intro-image">
 
-                    <div ref={addToImgRefs} className="intro-image__inner">
+                    <div ref={addToNoGlitchRefs} className="no-glitch">
 
-                        <figure className="fig__wrapper">
+                        <div ref={addToImgRefs} className="intro-image__inner">
 
-                            <Image src={"/ceramic.jpg"} layout="fill" objectFit="cover" priority />
+                            <figure className="fig__wrapper">
 
-                        </figure>
+                                <Image src={"/ceramic.jpg"} layout="fill" objectFit="cover" priority />
 
-                    </div>
+                            </figure>
 
-
-                </li>
-
-                <li ref={addToImgWrapperRefs} className="intro-image">
-
-                    <div ref={addToImgRefs} className="intro-image__inner">
-
-                        <figure className="fig__wrapper">
-
-                            <Image src={"/ceramic.jpg"} layout="fill" objectFit="cover" priority />
-
-                        </figure>
-
-                    </div>
-
-
-                </li>
-
-                <li ref={addToImgWrapperRefs} className="intro-image">
-
-                    <div ref={addToImgRefs} className="intro-image__inner">
-
-                        <figure className="fig__wrapper">
-
-                            <Image src={"/ceramic.jpg"} layout="fill" objectFit="cover" priority />
-
-                        </figure>
-
-                    </div>
-
-
-                </li>
-
-                <li ref={addToImgWrapperRefs} className="intro-image">
-
-                    <div ref={addToImgRefs} className="intro-image__inner">
-
-                        <figure className="fig__wrapper">
-
-                            <Image src={"/ceramic.jpg"} layout="fill" objectFit="cover" priority />
-
-                        </figure>
+                        </div>
 
                     </div>
 
@@ -183,13 +146,17 @@ const Intro = ({ isFirstLoaded, isFirstIntroDone }) => {
 
                 <li ref={addToImgWrapperRefs} className="intro-image">
 
-                    <div ref={addToImgRefs} className="intro-image__inner">
+                    <div ref={addToNoGlitchRefs} className="no-glitch">
 
-                        <figure className="fig__wrapper">
+                        <div ref={addToImgRefs} className="intro-image__inner">
 
-                            <Image src={"/ceramic.jpg"} layout="fill" objectFit="cover" priority />
+                            <figure className="fig__wrapper">
 
-                        </figure>
+                                <Image src={"/ceramic.jpg"} layout="fill" objectFit="cover" priority />
+
+                            </figure>
+
+                        </div>
 
                     </div>
 
@@ -197,26 +164,97 @@ const Intro = ({ isFirstLoaded, isFirstIntroDone }) => {
 
                 <li ref={addToImgWrapperRefs} className="intro-image">
 
-                    <div ref={addToImgRefs} className="intro-image__inner">
+                    <div ref={addToNoGlitchRefs} className="no-glitch">
 
-                        <figure className="fig__wrapper">
+                        <div ref={addToImgRefs} className="intro-image__inner">
 
-                            <Image src={"/ceramic.jpg"} layout="fill" objectFit="cover" priority />
+                            <figure className="fig__wrapper">
 
-                        </figure>
+                                <Image src={"/ceramic.jpg"} layout="fill" objectFit="cover" priority />
+
+                            </figure>
+
+                        </div>
 
                     </div>
 
-
-                </li> */}
+                </li>
 
                 <li ref={addToImgWrapperRefs} className="intro-image">
-                    
+
+                    <div ref={addToNoGlitchRefs} className="no-glitch">
+
+                        <div ref={addToImgRefs} className="intro-image__inner">
+
+                            <figure className="fig__wrapper">
+
+                                <Image src={"/ceramic.jpg"} layout="fill" objectFit="cover" priority />
+
+                            </figure>
+
+                        </div>
+
+                    </div>
+
+                </li>
+
+                <li ref={addToImgWrapperRefs} className="intro-image">
+
+                    <div ref={addToNoGlitchRefs} className="no-glitch">
+
+                        <div ref={addToImgRefs} className="intro-image__inner">
+
+                            <figure className="fig__wrapper">
+
+                                <Image src={"/ceramic.jpg"} layout="fill" objectFit="cover" priority />
+
+                            </figure>
+
+                        </div>
+
+                    </div>
+
+                </li>
+
+                <li ref={addToImgWrapperRefs} className="intro-image">
+
+                    <div ref={addToNoGlitchRefs} className="no-glitch">
+
+                        <div ref={addToImgRefs} className="intro-image__inner">
+
+                            <figure className="fig__wrapper">
+
+                                <Image src={"/ceramic.jpg"} layout="fill" objectFit="cover" priority />
+
+                            </figure>
+
+                        </div>
+
+                    </div>
+
+                </li>
+
+                <li ref={addToImgWrapperRefs} className="intro-image">
+
+                    <div ref={addToNoGlitchRefs} className="no-glitch">
+
+                        <div ref={addToImgRefs} className="intro-image__inner">
+
+                            <figure className="fig__wrapper">
+
+                                <Image src={"/ceramic.jpg"} layout="fill" objectFit="cover" priority />
+
+                            </figure>
+
+                        </div>
+
+                    </div>
+
                 </li>
 
             </ul>
 
-        </div>
+        </div >
     );
 }
 

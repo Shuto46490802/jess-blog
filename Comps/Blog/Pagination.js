@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useRouter } from "next/router";
 
-const Pagination = ({ numOfPage, currentPage, paginate, paginatePrev, paginateNext }) => {
+const Pagination = ({ numOfPage, currentPage, setCurrentPage, paginate, paginatePrev, paginateNext }) => {
 
     const getPagination = (_numOfPage, _currentPage) => {
 
@@ -27,7 +28,12 @@ const Pagination = ({ numOfPage, currentPage, paginate, paginatePrev, paginateNe
 
                     <li className="pagination-list-item">
 
-                        <button onClick={() => paginate(1, _currentPage)} className="">
+                        <button
+                            onClick={() => {
+                                paginate(1, _currentPage);
+                            }}
+                            className=""
+                        >
 
                             <span className={`line-link-pagination ${_currentPage === 1 ? "active" : null}`}>1</span>
 
@@ -37,7 +43,12 @@ const Pagination = ({ numOfPage, currentPage, paginate, paginatePrev, paginateNe
 
                     <li className="pagination-list-item">
 
-                        <button onClick={() => paginate(2, _currentPage)} className="">
+                        <button
+                            onClick={() => {
+                                paginate(2, _currentPage);
+                            }}
+                            className=""
+                        >
 
                             <span className={`line-link-pagination ${_currentPage === 2 ? "active" : null}`}>2</span>
 
@@ -289,7 +300,6 @@ const Pagination = ({ numOfPage, currentPage, paginate, paginatePrev, paginateNe
             }
         }
 
-
     }
 
     return (
@@ -302,58 +312,6 @@ const Pagination = ({ numOfPage, currentPage, paginate, paginatePrev, paginateNe
             </button>
 
             <ul className="pagination-list small d-flex pt-3">
-
-                {/* <li className="pagination-list-item">
-
-                    <button className="">
-
-                        <span className="line-link-pagination">1</span>
-
-                    </button>
-
-                </li>
-
-                <li className="pagination-list-item">
-
-                    <button className="">
-
-                        <span className="line-link-pagination">2</span>
-
-                    </button>
-
-                </li>
-
-                <li className="pagination-list-item">
-
-                    <button className="">
-
-                        <span className="line-link-pagination">3</span>
-
-                    </button>
-
-                </li>
-
-                <li className="pagination-list-item">
-
-                    <button className="">
-
-                        <span className="line-link-pagination">4</span>
-
-                    </button>
-
-                </li>
-
-                <li className="pagination-list-item">...</li>
-
-                <li className="pagination-list-item">
-
-                    <button className="">
-
-                        <span className="line-link-pagination">8</span>
-
-                    </button>
-
-                </li> */}
 
                 {getPagination(9, currentPage)}
 

@@ -86,8 +86,8 @@ const All = ({ isTransitionning, blogPageIntroImage, blogPosts, numOfPosts, foot
 
     const paginate = (_num, _currentPage) => {
         if (_num !== _currentPage) {
-            setCurrentPage(_num);
-            router.push({ pathname: "/blog/all", query: { page: _num } });
+            setCurrentPage(_num)
+            router.push({ pathname: "/blog/all", query: { page: _num }}, { shallow: true });
         }
     }
 
@@ -133,7 +133,7 @@ const All = ({ isTransitionning, blogPageIntroImage, blogPosts, numOfPosts, foot
                     ))
                 }
 
-                <Pagination numOfPage={numOfPage} currentPage={currentPage} paginate={paginate} paginatePrev={paginatePrev} paginateNext={paginateNext} />
+                <Pagination numOfPage={numOfPage} setCurrentPage={setCurrentPage} currentPage={currentPage} paginate={paginate} paginatePrev={paginatePrev} paginateNext={paginateNext} />
 
             </div>
 

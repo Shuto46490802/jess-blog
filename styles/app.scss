@@ -1181,9 +1181,6 @@ button.header-link:hover .search-icon {
 }
 
 //Intro.js
-.intro {
-  z-index: 10000;
-}
 
 .intro-fader {
   z-index: 1;
@@ -1216,13 +1213,25 @@ button.header-link:hover .search-icon {
 .intro-image {
   width: 42vw;
   position: absolute;
-  // clip-path: circle(0%);
+  clip-path: circle(0%);
   overflow: hidden;
   border-radius: 50%;
   will-change: clip-path;
   @media only screen and (min-width: 768px) {
     width: 23vw;
   }
+}
+
+.no-glitch{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  overflow: hidden;
+  clip-path: circle(0%);
+  will-change: clip-path;
 }
 
 .intro-image__inner {
@@ -1238,6 +1247,7 @@ button.header-link:hover .search-icon {
   display: block;
   padding-bottom: 100%;
 }
+
 
 .intro-image:nth-child(2) {
   transform: translate(-8rem);
