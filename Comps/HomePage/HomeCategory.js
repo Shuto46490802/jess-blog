@@ -36,6 +36,20 @@ const HomeCategory = ({ images, isPageLoaded }) => {
     };
     const sectionRef = useRef();
     const headingRef = useRef();
+    const categories = [
+        {
+            title: "Skin Care",
+            slug: "skincare"
+        },
+        {
+            title: "Mental Health",
+            slug: "mental-health"
+        },
+        {
+            title: "Fashion",
+            slug: "fashion"
+        }
+    ]
 
     return (
         <div ref={sectionRef} className="home-category text-w position-relative d-flex bg-p flex-column flex-center px-md-2 pt-1 pb-md-4 pt-md-3 pt-xl-4">
@@ -71,7 +85,7 @@ const HomeCategory = ({ images, isPageLoaded }) => {
                         images.map((image, index) => (
                             <SwiperSlide key={index} className="home-category-gallery-image__wrapper">
 
-                                <Link href={{ pathname: "/blog/skincare", query: { page: 1 } }}>
+                                <Link href={{ pathname: `/blog/${categories[index].slug}`, query: { page: 1 } }}>
 
                                     <a className="h-100 w-100 text-w">
 
@@ -97,8 +111,8 @@ const HomeCategory = ({ images, isPageLoaded }) => {
                                                     Lorem ipsum dolor sit amet
                                                 </p>
 
-                                                <h2 className="home-category-gallery-image-heading f-serif">
-                                                    Skin Care
+                                                <h2 className="home-category-gallery-image-heading text-center uppercase f-serif">
+                                                    {categories[index].title}
                                                 </h2>
 
                                                 <p className="home-category-gallery-image-discover h5 position-absolute  f-gt uppercase">

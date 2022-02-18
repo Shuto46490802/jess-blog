@@ -624,7 +624,14 @@ button.header-link:hover .search-icon {
 }
 
 .home-category-gallery-image-heading {
-  font-size: 4.5rem;
+  font-size: 3rem;
+  white-space: nowrap;
+  @media (min-width: 768px) {
+    font-size: 2.3rem;
+  }
+  @media (min-width: 1200px) {
+    font-size: 3rem;
+  }
 }
 
 .home-category-gallery-image-discover {
