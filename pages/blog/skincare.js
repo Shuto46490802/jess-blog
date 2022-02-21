@@ -95,15 +95,15 @@ const Skincare = ({ isTransitionning, blogPageIntroImage, blogPosts, numOfPosts,
 
     const paginatePrev = () => {
         if (currentPage > 1) {
-            setCurrentPage(currentPage - 1)
+            router.push({ pathname: "/blog/all", query: { page: Number(router.query.page) - 1 }});
         } else {
             return;
         }
-    };
+    }
 
     const paginateNext = () => {
         if (currentPage < numOfPage) {
-            setCurrentPage(currentPage + 1)
+            router.push({ pathname: "/blog/all", query: { page: Number(router.query.page) + 1 }});
         } else {
             return;
         }

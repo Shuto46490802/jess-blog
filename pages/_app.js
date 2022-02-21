@@ -16,8 +16,10 @@ function MyApp({ Component, pageProps }) {
 
   useEffect(() => {
     return () => {
-      ScrollTrigger.getAll().forEach((t) => t.kill())
-      headerRef.current.classList.remove("shrinked", "pull-up")
+      setTimeout(() => {
+        headerRef.current.classList.remove("shrinked", "pull-up")
+        ScrollTrigger.getAll().forEach((t) => t.kill())
+      }, 500)
     }
   }, [router.asPath]);
 

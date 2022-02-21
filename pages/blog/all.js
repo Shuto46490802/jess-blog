@@ -65,7 +65,7 @@ const All = ({ isTransitionning, blogPageIntroImage, blogPosts, numOfPosts, foot
         getScrollProxy(scrollerRef.current, headerRef.current);
         sortDescending(blogPosts);
         setCurrentPage(Number(router.query.page))
-    }, [router])
+    }, [])
 
     useEffect(() => {
         const _numOfPage = Math.ceil(numOfPosts / 10);
@@ -83,7 +83,7 @@ const All = ({ isTransitionning, blogPageIntroImage, blogPosts, numOfPosts, foot
     };
 
     const [currentPage, setCurrentPage] = useState(1);
-    const [numOfPage, setNumOfPage] = useState(0);
+    const [numOfPage, setNumOfPage] = useState(9);
 
     const paginate = (_num, _currentPage) => {
         if (_num !== _currentPage) {
@@ -93,7 +93,7 @@ const All = ({ isTransitionning, blogPageIntroImage, blogPosts, numOfPosts, foot
 
     const paginatePrev = () => {
         if (currentPage > 1) {
-            setCurrentPage(currentPage - 1)
+            router.push({ pathname: "/blog/all", query: { page: Number(router.query.page) - 1 }});
         } else {
             return;
         }
@@ -101,11 +101,13 @@ const All = ({ isTransitionning, blogPageIntroImage, blogPosts, numOfPosts, foot
 
     const paginateNext = () => {
         if (currentPage < numOfPage) {
-            setCurrentPage(currentPage + 1)
+            router.push({ pathname: "/blog/all", query: { page: Number(router.query.page) + 1 }});
         } else {
             return;
         }
     };
+
+    console.log(currentPage, numOfPage)
 
     return (
         <motion.div

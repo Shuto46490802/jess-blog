@@ -112,7 +112,7 @@ const BlogPost = ({ morePosts, blogPost, footerImage, headerRef, isTransitionnin
     useEffect(() => {
         getScrollProxy(scrollerRef.current, headerRef.current);
         setIsPageLoaded(true);
-    }, [router])
+    }, [])
 
     const scrollerRef = useRef();
     const [isPageLoaded, setIsPageLoaded] = useState(false);
