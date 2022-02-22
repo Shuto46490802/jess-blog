@@ -19,7 +19,7 @@ function MyApp({ Component, pageProps }) {
       setTimeout(() => {
         headerRef.current.classList.remove("shrinked", "pull-up")
         ScrollTrigger.getAll().forEach((t) => t.kill())
-      }, 500)
+      }, 500);
     }
   }, [router.asPath]);
 
