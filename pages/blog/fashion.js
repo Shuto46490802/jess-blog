@@ -126,12 +126,12 @@ const Fashion = ({ isTransitionning, blogPageIntroImage, blogPosts, numOfPosts, 
                 <BlogFilter />
 
                 {
-                    blogPosts.map((post) => (
+                    blogPosts.map((post, index) => (
                         post.category === "Skincare"
-                            ? <BlogThumbnailTemp1 isPageLoaded={isPageLoaded} slug={post.slug} image1={post.image1} image2={post.image2} title={post.title} thumbnailText={post.thumbnailText} category={post.category} date={post.date} />
+                            ? <BlogThumbnailTemp1 key={index} isPageLoaded={isPageLoaded} slug={post.slug} image1={post.image1} image2={post.image2} title={post.title} thumbnailText={post.thumbnailText} category={post.category} date={post.date} />
                             : post.category === "Mental Health"
-                                ? <BlogThumbnailTemp2 isPageLoaded={isPageLoaded} slug={post.slug} image1={post.image1} image2={post.image2} title={post.title} thumbnailText={post.thumbnailText} category={post.category} date={post.date} />
-                                : <BlogThumbnailTemp3 isPageLoaded={isPageLoaded} slug={post.slug} image1={post.image1} image2={post.image2} title={post.title} thumbnailText={post.thumbnailText} category={post.category} date={post.date} />
+                                ? <BlogThumbnailTemp2 key={index} isPageLoaded={isPageLoaded} slug={post.slug} image1={post.image1} image2={post.image2} title={post.title} thumbnailText={post.thumbnailText} category={post.category} date={post.date} />
+                                : <BlogThumbnailTemp3 key={index} isPageLoaded={isPageLoaded} slug={post.slug} image1={post.image1} image2={post.image2} title={post.title} thumbnailText={post.thumbnailText} category={post.category} date={post.date} />
                     ))
                 }
 

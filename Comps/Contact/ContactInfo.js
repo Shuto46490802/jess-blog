@@ -32,7 +32,7 @@ const ContactInfo = ({ image, smallImages, isPageLoaded }) => {
     return (
         <div ref={sectionRef} className="contact-info d-flex text-g flex-wrap pt-3 pb-3 pt-xl-4 pb-xl-4">
 
-            <div className="contact-info-small-images__wrapper col-md-3 ps-2 pe-2 ps-md-4 pe-md-3 pt-md-1 d-md-none d-xl-block">
+            <div className="contact-info-small-images__wrapper col-12 col-md-3 ps-2 pe-2 ps-md-4 pe-md-3 pt-md-1 d-md-none d-xl-block">
 
                 <div className="contact-info-small-imgae1 position-relative col-8 col-md-12">
 
@@ -146,7 +146,7 @@ const ContactInfo = ({ image, smallImages, isPageLoaded }) => {
 
             </div>
 
-            <div ref={largeImgWrapperRef} className="contact-info-large-image__wrapper overflow-hidden col-md-6 col-xl-5 d-flex flex-column justify-content-center ps-1 pe-1 ps-md-0 pe-xl-4 mt-1 mt-md-0 position-relative">
+            <div ref={largeImgWrapperRef} className="contact-info-large-image__wrapper overflow-hidden col-12 col-md-6 col-xl-5 d-flex flex-column justify-content-center ps-1 pe-1 ps-md-0 pe-xl-4 mt-1 mt-md-0 position-relative">
 
                 <div className="contact-info-large-image position-relative">
 

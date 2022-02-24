@@ -63,43 +63,43 @@ export const convertParagraph = (_paragraph) => {
     const result = _paragraph.map((content) => {
         if (content.type === "heading-1") {
             return (
-                <h1 className="mb-1">
+                <h1 className="mb-1 f-serif">
                     {content.content}
                 </h1>
             )
         } else if (content.type === "heading-2") {
             return (
-                <h2 className="mb-1">
+                <h2 className="mb-1 f-serif">
                     {content.content}
                 </h2>
             )
         } else if (content.type === "heading-3") {
             return (
-                <h3 className="mb-1">
+                <h3 className="mb-1 f-serif">
                     {content.content}
                 </h3>
             )
         } else if (content.type === "heading-4") {
             return (
-                <h4 className="mb-1">
+                <h4 className="mb-1 f-serif">
                     {content.content}
                 </h4>
             )
         } else if (content.type === "heading-5") {
             return (
-                <h5 className="mb-1">
+                <h5 className="mb-1 f-serif">
                     {content.content}
                 </h5>
             )
         } else if (content.type === "heading-6") {
             return (
-                <h6 className="mb-1">
+                <h6 className="mb-1 f-serif">
                     {content.content}
                 </h6>
             )
         } else if (content.type === "paragraph") {
             return (
-                <p className="mb-1 small">
+                <p className="mb-1 small f-sans">
                     {content.content}
                 </p>
             )

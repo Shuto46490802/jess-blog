@@ -17,7 +17,6 @@ const HomeNewPosts = ({ posts, isPageLoaded }) => {
             animateTextUp(textTriggerRef.current, 0.5, subHeadingRef.current);
             animateGallery(galleryTriggerRef.current, imageRefs.current)
         }
-        console.log(posts)
     }, [isPageLoaded])
 
     const textTriggerRef = useRef();

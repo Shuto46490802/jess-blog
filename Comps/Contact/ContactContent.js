@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 //Components
 import { animateParallaxInsideImage } from "../PageLayouts/animation";
@@ -6,7 +6,7 @@ import { animateParallaxInsideImage } from "../PageLayouts/animation";
 const ContactContent = ({ image1, isPageLoaded }) => {
 
     useEffect(() => {
-        if(isPageLoaded){
+        if (isPageLoaded) {
             animateParallaxInsideImage(imgWrapperRef.current, imgRef.current)
         }
     }, [isPageLoaded]);
@@ -14,10 +14,45 @@ const ContactContent = ({ image1, isPageLoaded }) => {
     const imgWrapperRef = useRef();
     const imgRef = useRef();
 
+    const [firstName, setFirstName] = useState("");
+    const [firstNameStart, setFirstNameStart] = useState(false);
+    const [firstNameError, setFirstNameError] = useState(false);
+
+    const [lastName, setLastName] = useState("")
+    const [lastNameStart, setLastNameStart] = useState(false);
+    const [lastNameError, setLastNameError] = useState(false);
+
+    const [subject, setSubject] = useState("");
+    const [subjectStart, setSubjectStart] = useState(false);
+    const [subjectError, setSubjectError] = useState(false);
+
+    const [message, setMessage] = useState("");
+    const [messageStart, setMessageStart] = useState(false);
+    const [messageError, setMessageError] = useState(false);
+
+    const [email, setEmail] = useState("");
+    const [emailStart, setEmailStart] = useState(false);
+    const [emailError, setEmailError] = useState(false);
+    const [emailInvalid, setEmailInvalid] = useState(false);
+
+    const validateEmail = (_email) => {
+
+        var mailformat = /[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+(@)[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+(?![-_])/
+
+        if (_email.match(mailformat)) {
+            setEmailInvalid(false);
+        } else {
+            setEmailInvalid(true);
+        }
+
+    }
+
+    console.log(emailInvalid)
+
     return (
         <div className="contact-content d-flex flex-wrap">
 
-            <div  className="contact-content-image__wrapper bg-p col-md-5 col-xl-6 col">
+            <div className="contact-content-image__wrapper bg-p col-12 col-md-5 col-xl-6 col">
 
                 <div className="contact-content-image__inner col-8 offset-2 col-xl-6 offset-xl-3 pt-3 pb-3 pb-md-4 pt-md-4 ps-1 pe-1">
 
@@ -69,73 +104,176 @@ const ContactContent = ({ image1, isPageLoaded }) => {
 
                             <div className="d-flex flex-wrap w-100">
 
-                                <div className="input col-md-6 pe-md-1">
+                                <div className="input col-md-6 col-12 pe-md-1">
 
                                     <div className="input__wrapper">
 
-                                        <span className="label">
+                                        <span className={`label ${firstNameStart ? "input-start" : ""}`}>
                                             First Name
                                         </span>
 
-                                        <input type="text" name="firstname" ariaRequired="true" />
+                                        <input
+                                            value={firstName}
+                                            type="text"
+                                            name="firstname"
+                                            aria-required="true"
+                                            onChange={(e) => {
+                                                setFirstName(e.target.value)
+                                            }}
+                                            onBlur={() => {
+                                                if (firstName === "") {
+                                                    setFirstNameError(true);
+                                                    setFirstNameStart(false);
+                                                } else {
+                                                    setFirstNameError(false);
+                                                }
+                                            }}
+                                            onFocus={() => {
+                                                setFirstNameStart(true);
+                                            }}
+                                        />
 
-                                        <small className="help is-danger">The field is required.</small>
+                                        <small
+                                            style={firstNameError ? { display: "block" } : {}}
+                                            className="help is-danger"
+                                        >
+                                            The field is required.
+                                        </small>
 
-                                        <svg version="1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" enable-background="new 0 0 48 48" className="checkmark"><polygon points="40.6,12.1 17,35.7 7.4,26.1 4.6,29 17,41.3 43.4,14.9"></polygon></svg>
+                                        <svg style={!firstNameError && firstName !== "" ? { display: "block" } : {}} version="1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" enableBackground="new 0 0 48 48" className="checkmark"><polygon points="40.6,12.1 17,35.7 7.4,26.1 4.6,29 17,41.3 43.4,14.9"></polygon></svg>
 
                                     </div>
 
                                 </div>
 
-                                <div className="input col-md-6 ps-md-1">
+                                <div className="input col-md-6 col-12 ps-md-1">
 
                                     <div className="input__wrapper">
 
-                                        <span className="label">
+                                        <span className={`label ${lastNameStart ? "input-start" : ""}`}>
                                             Last Name
                                         </span>
 
-                                        <input type="text" name="lastname" ariaRequired="true" />
+                                        <input
+                                            type="text"
+                                            name="lastname"
+                                            aria-required="true"
+                                            value={lastName}
+                                            onChange={(e) => {
+                                                setLastName(e.target.value)
+                                            }}
+                                            onBlur={() => {
+                                                if (lastName === "") {
+                                                    setLastNameError(true);
+                                                    setLastNameStart(false);
+                                                } else {
+                                                    setLastNameError(false);
+                                                }
+                                            }}
+                                            onFocus={() => {
+                                                setLastNameStart(true);
+                                            }}
+                                        />
 
-                                        <small className="help is-danger">The field is required.</small>
+                                        <small
+                                            style={lastNameError ? { display: "block" } : {}}
+                                            className="help is-danger"
+                                        >
+                                            The field is required.
+                                        </small>
 
-                                        <svg version="1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" enable-background="new 0 0 48 48" className="checkmark"><polygon points="40.6,12.1 17,35.7 7.4,26.1 4.6,29 17,41.3 43.4,14.9"></polygon></svg>
+                                        <svg style={!lastNameError && lastName !== "" ? { display: "block" } : {}} version="1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" enableBackground="new 0 0 48 48" className="checkmark"><polygon points="40.6,12.1 17,35.7 7.4,26.1 4.6,29 17,41.3 43.4,14.9"></polygon></svg>
 
                                     </div>
 
                                 </div>
 
-                                <div className="input col-md-6 pe-md-1">
+                                <div className="input col-md-6 col-12 pe-md-1">
 
                                     <div className="input__wrapper">
 
-                                        <span className="label">
+                                        <span className={`label ${emailStart ? "input-start" : ""}`}>
                                             Email
                                         </span>
 
-                                        <input type="text" name="email" ariaRequired="true" />
+                                        <input
+                                            type="text"
+                                            name="email"
+                                            aria-required="true"
+                                            value={email}
+                                            onChange={(e) => {
+                                                setEmail(e.target.value)
+                                            }}
+                                            onBlur={() => {
+                                                if (email === "") {
+                                                    setEmailError(true);
+                                                    setEmailStart(false);
+                                                } else {
+                                                    setEmailError(false);
+                                                }
+                                                validateEmail(email);
+                                            }}
+                                            onFocus={() => {
+                                                setEmailStart(true);
+                                            }}
+                                        />
 
-                                        <small className="help is-danger">The field is required.</small>
+                                        <small
+                                            style={emailError || emailInvalid ? { display: "block" } : {}}
+                                            className="help is-danger"
+                                        >
+                                            {
+                                                emailError
+                                                    ? "The field is required."
+                                                    : emailInvalid
+                                                        ? "The email must be a valid email."
+                                                        : null
+                                            }
+                                        </small>
 
-                                        <svg version="1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" enable-background="new 0 0 48 48" className="checkmark"><polygon points="40.6,12.1 17,35.7 7.4,26.1 4.6,29 17,41.3 43.4,14.9"></polygon></svg>
+                                        <svg style={!emailError && !emailInvalid !== "" ? { display: "block" } : {}} version="1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" enableBackground="new 0 0 48 48" className="checkmark"><polygon points="40.6,12.1 17,35.7 7.4,26.1 4.6,29 17,41.3 43.4,14.9"></polygon></svg>
 
                                     </div>
 
                                 </div>
 
-                                <div className="input col-md-6 ps-md-1">
+                                <div className="input col-md-6 col-12 ps-md-1">
 
                                     <div className="input__wrapper">
 
-                                        <span className="label">
+                                        <span className={`label ${subjectStart ? "input-start" : ""}`}>
                                             Subject
                                         </span>
 
-                                        <input type="text" name="subject" ariaRequired="true" />
+                                        <input
+                                            type="text"
+                                            name="subject"
+                                            aria-required="true"
+                                            value={subject}
+                                            onChange={(e) => {
+                                                setSubject(e.target.value)
+                                            }}
+                                            onBlur={() => {
+                                                if (subject === "") {
+                                                    setSubjectError(true);
+                                                    setSubjectStart(false);
+                                                } else {
+                                                    setSubjectError(false);
+                                                }
+                                            }}
+                                            onFocus={() => {
+                                                setSubjectStart(true);
+                                            }}
+                                        />
 
-                                        <small className="help is-danger">The field is required.</small>
+                                        <small
+                                            style={subjectError ? { display: "block" } : {}}
+                                            className="help is-danger"
+                                        >
+                                            The field is required.
+                                        </small>
 
-                                        <svg version="1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" enable-background="new 0 0 48 48" className="checkmark"><polygon points="40.6,12.1 17,35.7 7.4,26.1 4.6,29 17,41.3 43.4,14.9"></polygon></svg>
+                                        <svg style={!subjectError && subject !== "" ? { display: "block" } : {}} version="1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" enableBackground="new 0 0 48 48" className="checkmark"><polygon points="40.6,12.1 17,35.7 7.4,26.1 4.6,29 17,41.3 43.4,14.9"></polygon></svg>
 
                                     </div>
 
@@ -145,15 +283,41 @@ const ContactContent = ({ image1, isPageLoaded }) => {
 
                                     <div className="text-area position-relative">
 
-                                        <span class="label">Message</span>
+                                        <span className={`label ${messageStart ? "input-start" : ""}`}>
+                                            Message
+                                        </span>
 
-                                        <textarea name="bodyMessage" style={{ height: "22px" }} ariaRequired="true" />
+                                        <textarea
+                                            name="bodyMessage"
+                                            style={{ height: "22px" }}
+                                            aria-required="true"
+                                            value={message}
+                                            onChange={(e) => {
+                                                setMessage(e.target.value)
+                                            }}
+                                            onBlur={() => {
+                                                if (message === "") {
+                                                    setMessageError(true);
+                                                    setMessageStart(false);
+                                                } else {
+                                                    setMessageError(false);
+                                                }
+                                            }}
+                                            onFocus={() => {
+                                                setMessageStart(true);
+                                            }}
+                                        />
 
                                     </div>
 
-                                    <small className="help is-danger">The field is required.</small>
+                                    <small
+                                        style={messageError ? { display: "block" } : {}}
+                                        className="help is-danger"
+                                    >
+                                        The field is required.
+                                    </small>
 
-                                    <svg version="1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" enable-background="new 0 0 48 48" className="checkmark"><polygon points="40.6,12.1 17,35.7 7.4,26.1 4.6,29 17,41.3 43.4,14.9"></polygon></svg>
+                                    <svg style={!messageError && message !== "" ? { display: "block" } : {}} version="1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" enableBackground="new 0 0 48 48" className="checkmark"><polygon points="40.6,12.1 17,35.7 7.4,26.1 4.6,29 17,41.3 43.4,14.9"></polygon></svg>
 
                                 </div>
 
