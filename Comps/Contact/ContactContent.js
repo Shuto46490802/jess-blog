@@ -47,7 +47,30 @@ const ContactContent = ({ image1, isPageLoaded }) => {
 
     }
 
-    console.log(emailInvalid)
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        const res = await fetch("/api/sendgrid", {
+            body: JSON.stringify({
+                email: email,
+                firstName: firstName,
+                lastName: lastName,
+                subject: subject,
+                message: message
+            }),
+            headers: {
+                "Content-Type": "application/json",
+            },
+            method: "POST"
+        })
+
+        const { error } = await res.json();
+        if (error) {
+            console.log(error);
+            return;
+        }
+    }
+
 
     return (
         <div className="contact-content d-flex flex-wrap">
@@ -100,7 +123,7 @@ const ContactContent = ({ image1, isPageLoaded }) => {
 
                     <div className="contact-content-container position-relative mt-6 mt-md-0">
 
-                        <form action="" className="contact-content-form f-sans">
+                        <form onSubmit={handleSubmit} action="" className="contact-content-form f-sans">
 
                             <div className="d-flex flex-wrap w-100">
 
