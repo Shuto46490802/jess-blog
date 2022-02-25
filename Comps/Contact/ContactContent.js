@@ -69,6 +69,7 @@ const ContactContent = ({ image1, isPageLoaded }) => {
             console.log(error);
             return;
         }
+        
     }
 
 
