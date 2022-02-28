@@ -1,4 +1,20 @@
+import React, { useState } from "react";
+import { useRouter } from "next/router";
+
+
 const Search = () => {
+
+    const router = useRouter();
+    const [input, setInput] = useState("");
+    const [isValid, setIsValid] = useState(false);
+
+    const handleSubmit = (e) => {
+
+        e.preventDefault()
+        router.push({ pathname: "/search-results", query: { keyword: input } })
+        setInput("");
+    }
+
     return (
         <div className="search col-md-7 col mb-3">
 
@@ -16,25 +32,32 @@ const Search = () => {
                         name="input"
                         className="search-input"
                         placeholder="Search products"
-                    // value={input}
-                    // onChange={(e) => {
-                    //     setInput(e.target.value)
-                    //     validateInput(input)
-                    // }}
-                    // onKeyDown={async (e) => {
-                    //     if (e.key === "Enter") {
-                    //         if (isValidated) {
-                    //             handleSubmit(e)
-                    //         } else {
-                    //             return;
-                    //         }
-                    //     }
-                    // }}
+                        value={input}
+                        onChange={(e) => {
+                            setInput(e.target.value)
+                            if (e.target.value !== "" && !/^\s+$/.test(e.target.value)) {
+                                setIsValid(true);
+                            } else {
+                                setIsValid(false);
+                            }
+                        }}
+                        onKeyDown={async (e) => {
+                            if (e.key === "Enter") {
+                                if (isValid) {
+                                    handleSubmit(e)
+                                } else {
+                                    return;
+                                }
+                            }
+                        }}
                     />
 
                 </div>
 
-                <button className="submit-button d-flex align-items-center ">
+                <button 
+                className="submit-button d-flex align-items-center "
+                onClick={handleSubmit}
+                >
 
                     <h5 className="submit-button-text">search</h5>
 

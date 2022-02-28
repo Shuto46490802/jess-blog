@@ -254,11 +254,19 @@
 
 .submit-button {
   border-bottom: 1px solid #000 !important;
+  svg {
+    will-change: transform;
+  }
 }
 .submit-button {
   .submit-button-text,
   .arrow-icon {
     transform: translateY(-0.25rem);
+  }
+}
+.submit-button:hover {
+  svg {
+    transform: translateX(10px) translateY(-0.25rem);
   }
 }
 
@@ -844,6 +852,25 @@ button.header-link:hover .search-icon {
   padding-bottom: 130%;
 }
 
+.thank-you-message__wrapper {
+  opacity: 0;
+  visibility: hidden;
+  svg {
+    transform: rotate(-180deg);
+    will-change: transform;
+  }
+}
+
+.thank-you-message__wrapper .back-botton:hover {
+  .arrow-icon {
+    transform: translateX(-10px) rotate(-180deg);
+  }
+}
+
+.back-botton {
+  cursor: pointer;
+}
+
 //ContactInfo.js
 .contact-intro {
   color: #fff;
@@ -1328,4 +1355,35 @@ button.header-link:hover .search-icon {
 .page-transition-logo__wrapper {
   z-index: 1;
   margin-top: -7vh;
+}
+
+//SearchResults.js
+.search-results-contents__wrapper {
+  padding: 0 1rem;
+  @media only screen and (min-width: 768px) {
+    padding: 0;
+    margin: -1rem;
+  }
+  @media only screen and (min-width: 1200px) {
+    padding: 0;
+    margin: -2.5vw -5vw;
+  }
+}
+
+.search-results-content {
+  margin-bottom: 3rem;
+  @media only screen and (min-width: 768px) {
+    padding: 1.5rem;
+    margin-bottom: 0;
+  }
+  @media only screen and (min-width: 1200px) {
+    padding: 2.5vw 5vw;
+    margin-bottom: 0;
+  }
+}
+
+.search-results-content__inner:before{
+  content: "";
+  display: block;
+  padding-bottom: 120%;
 }

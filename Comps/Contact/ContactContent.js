@@ -2,6 +2,8 @@ import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 //Components
 import { animateParallaxInsideImage } from "../PageLayouts/animation";
+//Lib
+import { gsap } from "gsap";
 
 const ContactContent = ({ image1, isPageLoaded }) => {
 
@@ -35,6 +37,67 @@ const ContactContent = ({ image1, isPageLoaded }) => {
     const [emailError, setEmailError] = useState(false);
     const [emailInvalid, setEmailInvalid] = useState(false);
 
+    const [isSubmited, setIsSubmited] = useState(false);
+    const formWrapperRef = useRef();
+    const thanksMessageRef = useRef();
+
+    useEffect(() => {
+        if (isSubmited) {
+            gsap.timeline({ paused: false })
+                .fromTo(formWrapperRef.current,
+                    {
+                        opacity: 1
+                    },
+                    {
+                        opacity: 0,
+                        duration: 0.75
+                    })
+                .set(formWrapperRef.current,
+                    {
+                        visibility: "hidden"
+                    })
+                .set(thanksMessageRef.current,
+                    {
+                        visibility: "visible"
+                    }, 0.4)
+                .fromTo(thanksMessageRef.current,
+                    {
+                        opacity: 0
+                    },
+                    {
+                        opacity: 1,
+                        duration: 0.75
+                    }, 0.4)
+
+        } else {
+            gsap.timeline({ paused: false })
+                .fromTo(thanksMessageRef.current,
+                    {
+                        opacity: 1
+                    },
+                    {
+                        opacity: 0,
+                        duration: 0.75
+                    })
+                .set(thanksMessageRef.current,
+                    {
+                        visibility: "hidden"
+                    })
+                .set(formWrapperRef.current,
+                    {
+                        visibility: "visible"
+                    }, 0.4)
+                .fromTo(formWrapperRef.current,
+                    {
+                        opacity: 0
+                    },
+                    {
+                        opacity: 1,
+                        duration: 0.75
+                    }, 0.4)
+        }
+    }, [isSubmited])
+
     const validateEmail = (_email) => {
 
         var mailformat = /[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+(@)[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+(?![-_])/
@@ -64,14 +127,18 @@ const ContactContent = ({ image1, isPageLoaded }) => {
             method: "POST"
         })
 
+        setFirstName("");
+        setLastName("");
+        setSubject("");
+        setMessage("");
+        setEmail("");
+
         const { error } = await res.json();
         if (error) {
-            console.log(error);
+            setIsSubmited(true)
             return;
         }
-        
     }
-
 
     return (
         <div className="contact-content d-flex flex-wrap">
@@ -124,7 +191,7 @@ const ContactContent = ({ image1, isPageLoaded }) => {
 
                     <div className="contact-content-container position-relative mt-6 mt-md-0">
 
-                        <form onSubmit={handleSubmit} action="" className="contact-content-form f-sans">
+                        <form ref={formWrapperRef} onSubmit={handleSubmit} action="" className="contact-content-form f-sans">
 
                             <div className="d-flex flex-wrap w-100">
 
@@ -370,6 +437,28 @@ const ContactContent = ({ image1, isPageLoaded }) => {
                             </div>
 
                         </form>
+
+                        <div ref={thanksMessageRef} className="thank-you-message__wrapper w-100  position-absolute center text-center d-flex flex-column flex-center">
+
+                            <div className="thank-you-message text-center f-sans text-g h4">
+                                Thank you for your message.
+                            </div>
+
+                            <div
+                                onClick={() => { setIsSubmited(false) }}
+                                className="mt-5 text-g f-gt back-botton">
+
+                                <div className="d-flex flex-center">
+
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="#9b918e" viewBox="0 0 31.49 31.49" className="arrow-icon ms-1 transition"><path d="M21.205 5.007a1.112 1.112 0 00-1.587 0 1.12 1.12 0 000 1.571l8.047 8.047H1.111A1.106 1.106 0 000 15.737c0 .619.492 1.127 1.111 1.127h26.554l-8.047 8.032c-.429.444-.429 1.159 0 1.587a1.112 1.112 0 001.587 0l9.952-9.952a1.093 1.093 0 000-1.571l-9.952-9.953z"></path></svg>
+
+                                    <p className="ms-6 mb-0 h5">back</p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
 
                     </div>
 

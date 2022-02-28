@@ -301,7 +301,7 @@ p {
         margin-bottom: 2rem;
     }
 
-    svg{
+    svg {
         display: none;
     }
 }
@@ -319,7 +319,7 @@ p {
     text-transform: uppercase;
 }
 
-.label.input-start{
+.label.input-start {
     top: -1rem;
     transform: scale(0.8);
 }
@@ -357,7 +357,7 @@ textarea {
     }
 }
 
-.help{
+.help {
     display: none;
 }
 
@@ -582,8 +582,14 @@ span {
     color: #9b918e !important;
 }
 
-.text-b{
+.text-b {
     color: #212529;
+}
+
+.center {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 //bootstrap customize
