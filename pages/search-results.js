@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/router";
 //Components
 import Footer from "../Comps/PageLayouts/Footer";
 import { getScrollProxy } from "../Comps/PageLayouts/Scrollbar";
@@ -11,13 +12,14 @@ import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { EffectFade, Autoplay } from 'swiper';
 import 'swiper/css/effect-fade';
+import { convertDate } from "../Comps/PageLayouts/util";
 SwiperCore.use([EffectFade, Autoplay]);
 
 export const getServerSideProps = async (context) => {
 
     const searchResults = await contentfulClient.getEntries({
         content_type: "blogPost",
-        query: context.keyword
+        query: context.query.keyword
     })
 
     const footerRes = await contentfulClient.getEntries({
@@ -43,27 +45,42 @@ export const getServerSideProps = async (context) => {
 
 const SearchResults = ({ searchResults, footerImage, headerRef }) => {
 
+    const router = useRouter();
+
     useEffect(() => {
         getScrollProxy(scrollerRef.current, headerRef.current);
         setIsPageLoaded(true);
-        
-    }, [])
+        document.body.classList.add("is-search-results");
 
-  
+        return () => {
+            document.body.classList.remove("is-search-results");
+        }
+    }, [])
 
     const [isPageLoaded, setIsPageLoaded] = useState(false);
     const scrollerRef = useRef();
-    const swiperRef = useRef();
+    const swiperRefs = useRef([]);
+    const addToSwiperRefs = (_el) => {
+        if (_el && !swiperRefs.current.includes(_el)) {
+            swiperRefs.current.push(_el)
+        } else {
+            swiperRefs.current = [];
+        }
+    };
 
     useEffect(() => {
-        if(isPageLoaded){
-            swiperRef.current.swiper.params.autoplay.delay = 500
-            swiperRef.current.swiper.params.autoplay.enabled = true
-            swiperRef.current.swiper.params.autoplay.disableOnInteraction = false
-            swiperRef.current.swiper.autoplay.start()
-            console.log(swiperRef.current.swiper.params.autoplay)
+        if (isPageLoaded) {
+            if (swiperRefs.current) {
+                swiperRefs.current.map((swiperRef) => {
+                    swiperRef.children[0].swiper.params.autoplay.delay = 500
+                    swiperRef.children[0].swiper.params.autoplay.enabled = true
+                    swiperRef.children[0].swiper.params.autoplay.disableOnInteraction = false
+                }
+                )
+            }
         }
     }, [isPageLoaded])
+
 
     return (
         <motion.div
@@ -81,14 +98,14 @@ const SearchResults = ({ searchResults, footerImage, headerRef }) => {
 
                     <div className="search-results__inner px-md-1 px-xl-5 py-3 pb-xl-5 w-100">
 
-                        <div className="search-results-title__wrapper text-b">
+                        <div className="search-results-title__wrapper text-b mb-md-4 mb-2">
 
                             <p className="m-0 small f-sans ">
                                 search results for:
                             </p>
 
                             <h3 className="f-serif">
-                                A
+                                {router.query.keyword}
                             </h3>
 
                         </div>
@@ -101,23 +118,27 @@ const SearchResults = ({ searchResults, footerImage, headerRef }) => {
                                     searchResults.map((result, index) => (
                                         <div
                                             key={index}
-                                            className="search-results-content col-md-4 col-12"
+                                            className="search-results-content col-md-4 col-12 text-g"
                                         >
 
-                                            <Link href="/">
+                                            <Link href={`/blog/${result.slug}`}>
 
                                                 <a className="d-block">
 
-                                                    <div className="search-results-content__inner position-relative">
+                                                    <div
+                                                        ref={addToSwiperRefs}
+                                                        className="search-results-content__inner position-relative"
+                                                        onMouseOver={() => {
+                                                            swiperRefs.current[index].children[0].swiper.autoplay.start()
+                                                        }}
+                                                        onMouseLeave={() => {
+                                                            swiperRefs.current[index].children[0].swiper.autoplay.stop()
+                                                        }}
+                                                    >
 
                                                         <Swiper
-                                                            ref={swiperRef}
                                                             loop={true}
                                                             effect={"fade"}
-                                                            // autoplay={{
-                                                            //     delay: 500,
-                                                            //     reverseDirection: true
-                                                            // }}
                                                             speed={100}
                                                             allowTouchMove={false}
                                                             grabCursor={false}
@@ -145,7 +166,23 @@ const SearchResults = ({ searchResults, footerImage, headerRef }) => {
 
                                                     </div>
 
-                                                    <div className="search-results-content-title__wrapper">
+                                                    <div className="search-results-content-title__wrapper d-flex flex-column mt-6 position-relative">
+
+                                                        <p className="mb-6 text-g small uppercase f-sans">
+                                                            {result.category}
+                                                        </p>
+
+                                                        <h3 className="f-serif text-g">
+                                                            {result.title}
+                                                        </h3>
+
+                                                        <div className="search-results-date tiny position-absolute">
+
+                                                            <span>
+                                                                {convertDate(result.date)}
+                                                            </span>
+
+                                                        </div>
 
                                                     </div>
 
@@ -156,8 +193,6 @@ const SearchResults = ({ searchResults, footerImage, headerRef }) => {
                                         </div>
                                     ))
                                 }
-
-
 
                             </div>
 

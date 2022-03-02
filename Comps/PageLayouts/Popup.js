@@ -56,7 +56,7 @@ const Popup = ({ isSearchOpen, toggleSearch }) => {
 
             <div className="popup__inner h-100 w-100 d-flex flex-center">
 
-                <Search />
+                <Search toggleSearch={toggleSearch} />
 
                 <div className="close-button d-flex flex-center position-absolute">
 

@@ -286,7 +286,31 @@
   }
 
   .is-active .logo {
-    color: #212529;
+    color: #9b918e;
+  }
+}
+
+.is-search-results{
+  .header__wrapper {
+    z-index: 9500;
+    visibility: hidden;
+    a {
+      color: #9b918e !important;
+    }
+    .line-link:after {
+      background: #9b918e;
+    }
+  
+    .path {
+      fill: #9b918e !important;
+    }
+    .logo {
+      transition: 0.4s;
+    }
+  
+    .is-active .logo {
+      color: #9b918e;
+    }
   }
 }
 
@@ -384,8 +408,16 @@ button.header-link:hover .search-icon {
   }
 }
 
+.is-search-results{
+  .hamburger{
+    .line {
+      background-color: #9b918e;
+    }
+  }
+}
+
 .is-active .line {
-  background-color: #212529;
+  background-color: #9b918e;
 }
 
 .is-active .line-1 {
@@ -1386,4 +1418,16 @@ button.header-link:hover .search-icon {
   content: "";
   display: block;
   padding-bottom: 120%;
+}
+
+.search-results-date{
+  top: -0.5rem;
+  right: 0;
+}
+
+.search-results-title__wrapper{
+  text-align: center;
+  @media only screen and (min-width: 768px) {
+    text-align: left;
+  }
 }

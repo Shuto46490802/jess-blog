@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useRouter } from "next/router";
 
 
-const Search = () => {
+const Search = ({ toggleSearch }) => {
 
     const router = useRouter();
     const [input, setInput] = useState("");
@@ -13,6 +13,9 @@ const Search = () => {
         e.preventDefault()
         router.push({ pathname: "/search-results", query: { keyword: input } })
         setInput("");
+        setTimeout(() => {
+            toggleSearch();
+        }, 1000)
     }
 
     return (
@@ -54,9 +57,9 @@ const Search = () => {
 
                 </div>
 
-                <button 
-                className="submit-button d-flex align-items-center "
-                onClick={handleSubmit}
+                <button
+                    className="submit-button d-flex align-items-center "
+                    onClick={handleSubmit}
                 >
 
                     <h5 className="submit-button-text">search</h5>
