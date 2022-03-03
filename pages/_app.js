@@ -38,8 +38,10 @@ function MyApp({ Component, pageProps }) {
   const headerRef = useRef();
 
   useEffect(() => {
-    if(isFirstIntroDone){
-      document.body.classList.add("is-done")
+    if (isFirstIntroDone) {
+      setTimeout(() => {
+        document.body.classList.add("is-done")
+      }, 2500)
     }
   }, [isFirstIntroDone])
 

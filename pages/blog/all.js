@@ -65,9 +65,6 @@ const All = ({ isTransitionning, blogPageIntroImage, blogPosts, numOfPosts, foot
         getScrollProxy(scrollerRef.current, headerRef.current);
         sortDescending(blogPosts);
         setCurrentPage(Number(router.query.page))
-    }, [])
-
-    useEffect(() => {
         const _numOfPage = Math.ceil(numOfPosts / 10);
         setNumOfPage(_numOfPage);
         setIsPageLoaded(true);

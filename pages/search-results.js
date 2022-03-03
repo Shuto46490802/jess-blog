@@ -13,6 +13,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { EffectFade, Autoplay } from 'swiper';
 import 'swiper/css/effect-fade';
 import { convertDate } from "../Comps/PageLayouts/util";
+import Pagination from "../Comps/SearchResults/Pagination";
 SwiperCore.use([EffectFade, Autoplay]);
 
 export const getServerSideProps = async (context) => {
@@ -51,11 +52,18 @@ const SearchResults = ({ searchResults, footerImage, headerRef }) => {
         getScrollProxy(scrollerRef.current, headerRef.current);
         setIsPageLoaded(true);
         document.body.classList.add("is-search-results");
-
+        const _numOfPage = Math.ceil(searchResults.length / 6);
+        setNumOfPage(_numOfPage);
+        setCurrentResults(searchResults.slice(0, 6))
         return () => {
             document.body.classList.remove("is-search-results");
         }
     }, [])
+
+    useEffect(() => {
+        const lastIndex = currentPage * 6
+        setCurrentResults(searchResults.slice(lastIndex - 6, lastIndex))
+    }, [currentPage])
 
     const [isPageLoaded, setIsPageLoaded] = useState(false);
     const scrollerRef = useRef();
@@ -81,6 +89,13 @@ const SearchResults = ({ searchResults, footerImage, headerRef }) => {
         }
     }, [isPageLoaded])
 
+    const [currentPage, setCurrentPage] = useState(1);
+    const [numOfPage, setNumOfPage] = useState(9);
+    const [currentResults, setCurrentResults] = useState([]);
+
+    const paginate = () => {
+
+    }
 
     return (
         <motion.div
@@ -199,6 +214,8 @@ const SearchResults = ({ searchResults, footerImage, headerRef }) => {
                         </div>
 
                     </div>
+
+                    <Pagination paginate={paginate} />
 
                 </div>
 
