@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
-import { useRouter } from "next/router";
 
-const Pagination = ({ paginate }) => {
+const Pagination = ({ paginate, currentPage }) => {
 
     const getPagination = (_numOfPage, _currentPage) => {
 
@@ -313,7 +312,7 @@ const Pagination = ({ paginate }) => {
 
             <ul className="pagination-list small d-flex pt-3">
 
-                {getPagination(9, 1)}
+                {getPagination(9, currentPage)}
 
             </ul>
 

@@ -188,7 +188,7 @@ export const animateTextHidden = (_trigger, _duration, ..._text) => {
             trigger: _trigger,
             start: "top bottom",
             toggleActions: "play none none reset",
-            ease: "Power2.easeOut"
+            ease: "Power2.easeOut",
         }
 
         gsap.fromTo([_text],
@@ -202,6 +202,7 @@ export const animateTextHidden = (_trigger, _duration, ..._text) => {
                 duration: _duration,
                 scrollTrigger: trigger,
                 stagger: 0.1,
+                
             })
 
     }

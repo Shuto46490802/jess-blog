@@ -14,6 +14,7 @@ import SwiperCore, { EffectFade, Autoplay } from 'swiper';
 import 'swiper/css/effect-fade';
 import { convertDate } from "../Comps/PageLayouts/util";
 import Pagination from "../Comps/SearchResults/Pagination";
+import ScrollTrigger from "gsap/ScrollTrigger";
 SwiperCore.use([EffectFade, Autoplay]);
 
 export const getServerSideProps = async (context) => {
@@ -49,21 +50,14 @@ const SearchResults = ({ searchResults, footerImage, headerRef }) => {
     const router = useRouter();
 
     useEffect(() => {
-        getScrollProxy(scrollerRef.current, headerRef.current);
         setIsPageLoaded(true);
         document.body.classList.add("is-search-results");
         const _numOfPage = Math.ceil(searchResults.length / 6);
         setNumOfPage(_numOfPage);
-        setCurrentResults(searchResults.slice(0, 6))
         return () => {
             document.body.classList.remove("is-search-results");
         }
     }, [])
-
-    useEffect(() => {
-        const lastIndex = currentPage * 6
-        setCurrentResults(searchResults.slice(lastIndex - 6, lastIndex))
-    }, [currentPage])
 
     const [isPageLoaded, setIsPageLoaded] = useState(false);
     const scrollerRef = useRef();
@@ -93,8 +87,19 @@ const SearchResults = ({ searchResults, footerImage, headerRef }) => {
     const [numOfPage, setNumOfPage] = useState(9);
     const [currentResults, setCurrentResults] = useState([]);
 
-    const paginate = () => {
+    useEffect(() => {
+        getScrollProxy(scrollerRef.current, headerRef.current);
+        const lastIndex = currentPage * 6
+        const results = searchResults.concat(searchResults).concat(searchResults)
+        setCurrentResults(results.slice(lastIndex - 6, lastIndex));
+    }, [currentPage])
 
+    const paginate = (_num, _currentPage) => {
+        if (_num !== _currentPage) {
+            setCurrentPage(_num);
+            scrollerRef.current.scrollTo(0, 0)
+            ScrollTrigger.refresh(true)
+        }
     }
 
     return (
@@ -130,7 +135,7 @@ const SearchResults = ({ searchResults, footerImage, headerRef }) => {
                             <div className="search-results-contents__inner d-flex flex-wrap">
 
                                 {
-                                    searchResults.map((result, index) => (
+                                    currentResults.map((result, index) => (
                                         <div
                                             key={index}
                                             className="search-results-content col-md-4 col-12 text-g"
@@ -215,13 +220,13 @@ const SearchResults = ({ searchResults, footerImage, headerRef }) => {
 
                     </div>
 
-                    <Pagination paginate={paginate} />
+                    <Pagination paginate={paginate} currentPage={currentPage} />
 
                 </div>
 
             </div>
 
-            <Footer isPageLoaded={isPageLoaded} image={footerImage} />
+            <Footer paginate={paginate} isPageLoaded={isPageLoaded} image={footerImage} />
 
         </motion.div>
     );
