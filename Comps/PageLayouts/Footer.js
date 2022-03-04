@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/router";
 //Components
 import { animateParallaxInsideImage, animateTextHidden } from "../PageLayouts/animation";
 
@@ -16,6 +17,8 @@ const Footer = ({ image, isPageLoaded }) => {
             animateTextHidden(logoWrapperRef.current, 1.5, logoRef.current);
         }
     }, [isPageLoaded])
+
+    const router = useRouter();
 
     const imgTriggerRef = useRef();
     const imgRef = useRef();
@@ -58,6 +61,12 @@ const Footer = ({ image, isPageLoaded }) => {
     const logoWrapperRef = useRef();
     const logoRef = useRef();
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        router.push({ pathname: "/contact", query: { email: "SSS" }},  "/contact")
+    }
+
     return (
         <div className="footer position-relative overflow-hidden">
 
@@ -90,9 +99,12 @@ const Footer = ({ image, isPageLoaded }) => {
 
                         <form action="input" className="footer-image-input-form d-flex align-items-center px-1 justify-centent-between">
 
-                            <input className="footer-image-input py-6 f-gt" type="email" placeholder="YOUR EMAIL" />
+                            <input className="footer-image-input py-6 f-gt text-w" type="email" placeholder="YOUR EMAIL" />
 
-                            <button type="submit">▼</button>
+                            <button
+                                onClick={handleSubmit}
+                                className="text-w"
+                                type="submit">▼</button>
 
                         </form>
 
