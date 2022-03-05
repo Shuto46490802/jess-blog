@@ -12,7 +12,7 @@ import ContactInfo from "../Comps/Contact/ContactInfo";
 //Lib
 import { motion } from "framer-motion";
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async (ctx) => {
 
     const contactRes = await contentfulClient.getEntries({
         content_type: "contact"
@@ -22,6 +22,8 @@ export const getStaticProps = async () => {
         content_type: "footer"
     })
 
+    const email = ctx.query.email !== undefined ? ctx.query.email : ""
+
     return {
         props: {
             contactIntroImage: "https:" + contactRes.items[0].fields.contactIntroImage.fields.file.url,
@@ -29,21 +31,26 @@ export const getStaticProps = async () => {
             contactInfoImage: "https:" + contactRes.items[0].fields.contactContentImage2.fields.file.url,
             contactInfoSmallImages: contactRes.items[0].fields.contactContentSmallImages.map((image) => "https:" + image.fields.file.url),
             footerImage: "https:" + footerRes.items[0].fields.footerImage.fields.file.url,
+            email: email
         }
     }
 
 }
 
-const Contact = ({ isTransitionning, contactIntroImage, contactContentImage1, contactInfoImage, contactInfoSmallImages, footerImage, headerRef }) => {
+const Contact = ({ isTransitionning, contactIntroImage, contactContentImage1, contactInfoImage, contactInfoSmallImages, footerImage, headerRef, email }) => {
 
     const scrollerRef = useRef();
 
     useEffect(() => {
         getScrollProxy(scrollerRef.current, headerRef.current);
         setIsPageLoaded(true);
+        if (email !== "") {
+            setFooterEmail(email)
+        }
     }, []);
 
     const [isPageLoaded, setIsPageLoaded] = useState(false);
+    const [footerEmail, setFooterEmail] = useState("")
 
     return (
         <motion.div
@@ -59,7 +66,7 @@ const Contact = ({ isTransitionning, contactIntroImage, contactContentImage1, co
 
                 <ContactIntro isTransitionning={isTransitionning} isPageLoaded={isPageLoaded} image={contactIntroImage} />
 
-                <ContactContent isPageLoaded={isPageLoaded} image1={contactContentImage1} />
+                <ContactContent isPageLoaded={isPageLoaded} image1={contactContentImage1} footerEmail={footerEmail} />
 
                 <ContactInfo isPageLoaded={isPageLoaded} image={contactInfoImage} smallImages={contactInfoSmallImages} />
 

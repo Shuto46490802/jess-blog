@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -61,11 +61,16 @@ const Footer = ({ image, isPageLoaded }) => {
     const logoWrapperRef = useRef();
     const logoRef = useRef();
 
-    const handleSubmit = (e) => {
+    const [email, setEmail] = useState("");
+
+    const handleSubmit = (e, _email) => {
         e.preventDefault();
 
-        router.push({ pathname: "/contact", query: { email: "SSS" }},  "/contact")
+        if (_email !== "") {
+            router.push({ pathname: "/contact", query: { email: _email } }, "/contact")
+        }
     }
+
 
     return (
         <div className="footer position-relative overflow-hidden">
@@ -99,10 +104,20 @@ const Footer = ({ image, isPageLoaded }) => {
 
                         <form action="input" className="footer-image-input-form d-flex align-items-center px-1 justify-centent-between">
 
-                            <input className="footer-image-input py-6 f-gt text-w" type="email" placeholder="YOUR EMAIL" />
+                            <input
+                                className="footer-image-input py-6 f-gt text-w"
+                                type="email"
+                                placeholder="YOUR EMAIL"
+                                value={email}
+                                onChange={(e) => {
+                                    setEmail(e.target.value)
+                                }}
+                            />
 
                             <button
-                                onClick={handleSubmit}
+                                onClick={(e) => {
+                                    handleSubmit(e, email)
+                                }}
                                 className="text-w"
                                 type="submit">▼</button>
 

@@ -5,11 +5,13 @@ import { animateParallaxInsideImage } from "../PageLayouts/animation";
 //Lib
 import { gsap } from "gsap";
 
-const ContactContent = ({ image1, isPageLoaded }) => {
+const ContactContent = ({ image1, isPageLoaded, footerEmail }) => {
 
     useEffect(() => {
         if (isPageLoaded) {
-            animateParallaxInsideImage(imgWrapperRef.current, imgRef.current)
+            animateParallaxInsideImage(imgWrapperRef.current, imgRef.current);
+            validateEmail(footerEmail)
+            setEmail(footerEmail);
         }
     }, [isPageLoaded]);
 
