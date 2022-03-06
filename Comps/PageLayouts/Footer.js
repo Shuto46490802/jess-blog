@@ -68,7 +68,7 @@ const Footer = ({ image, isPageLoaded }) => {
 
         if (_email !== "") {
             router.push({ pathname: "/contact", query: { email: _email } }, "/contact")
-        }
+        };
     }
 
 
